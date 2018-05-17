@@ -98,7 +98,8 @@
     "write-file-webpack-plugin": "4.2.0"
   },
   "dependencies": {
-    "@opuscapita/oc-cm-common-styles": "git+https://github.com/OpusCapita/oc-cm-common-styles.git"
+    "@opuscapita/oc-cm-common-styles": "2.1.0",
+    "@opuscapita/react-perfect-scrollbar": "3.0.3"
   },
   "repository": {
     "type": "git",

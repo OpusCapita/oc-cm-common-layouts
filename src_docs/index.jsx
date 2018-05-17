@@ -3,8 +3,10 @@ import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app.component';
 
-render((
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>),
-  document.getElementById('oc-examples'));
+render(
+  (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>),
+  document.getElementById('oc-examples'),
+);
