@@ -4,8 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // App imports
-import { classPrefix, theme } from '../constants';
-import BorderlessButton from '../primitives/layout-primitive-borderless-button.component';
+import { classPrefix, theme } from '../../constants';
+import BorderlessButton from '../../primitives/layout-primitive-borderless-button.component';
 
 const CardHeader = styled.header`
   height: ${theme.card.headerHeight};

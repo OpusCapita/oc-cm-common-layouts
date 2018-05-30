@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // App imports
-import { classPrefix, theme } from '../constants';
+import { classPrefix, theme } from '../../constants';
 
 const Column = styled.div`
     flex: 1 1;

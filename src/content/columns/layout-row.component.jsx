@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import PerfectScrollbar from '@opuscapita/react-perfect-scrollbar';
 
 // App imports
-import { classPrefix, theme } from '../constants';
+import { classPrefix, theme } from '../../constants';
 
 const getTopOffset = offset => typeof offset === 'string' ? offset : `${offset}px`;
 const calculateHeight = (props) => {

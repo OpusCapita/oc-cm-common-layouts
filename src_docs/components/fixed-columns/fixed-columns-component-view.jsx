@@ -1,6 +1,6 @@
 import React from 'react';
 import items from '../demo-items.json';
-import { Content, Header } from '../../../src/layout';
+import { Content, Header } from '../../../src/index';
 import FixedColumnsSelect from './fixed-columns-select.component';
 
 export default class FixedColumnsComponentView extends React.PureComponent {

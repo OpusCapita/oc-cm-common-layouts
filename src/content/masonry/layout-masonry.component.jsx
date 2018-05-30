@@ -7,7 +7,7 @@ import ReactMasonry from 'react-masonry-component';
 import PerfectScrollbar from '@opuscapita/react-perfect-scrollbar';
 
 // App imports
-import { classPrefix, theme } from '../constants';
+import { classPrefix, theme } from '../../constants';
 
 const getColumnWidth = columnCount => `calc((100% / ${columnCount}) - ${theme.gutterWidth})`;
 const getTopOffset = offset => typeof offset === 'string' ? offset : `${offset}px`;

@@ -1,4 +1,4 @@
-export const classPrefix = 'oc-layout';
+export const classPrefix = 'oc-content';
 
 export const theme = {
   gutterWidth: '1rem',
