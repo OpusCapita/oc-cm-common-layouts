@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './container.scss';
 
 const defaultCls = 'oc-ui-container';
 
-const Container = props => {
-  const getContainerClass = () => {
-    return props.containerCls ? `${props.containerCls}` : `${defaultCls}`;
-  };
+const Container = (props) => {
+  const getContainerClass = () => props.containerCls ? `${props.containerCls}` : `${defaultCls}`;
 
   return (
     <div id={props.containerId} className={getContainerClass()}>

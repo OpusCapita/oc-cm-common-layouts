@@ -1,20 +1,9 @@
 import React from 'react';
-import { Row, Col, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { DefaultPage, LayoutItems } from './layout_nav_items';
 import GithubLogo from '../images/logo-github.svg';
 
-
-/*
-<NavItem eventKey={1} href="#">
-  Plain Container
-</NavItem>
-<NavItem eventKey={2} href="/two_cols">
-  2 columns
-</NavItem>
-*/
-
 export default class Navigation extends React.PureComponent {
-
   render() {
     return (
       <Navbar collapseOnSelect>

@@ -22,6 +22,11 @@
 
 #oc-examples {
   height: 100%;
+  // Spread navbar to full width
+  .container {
+      width: 100%;
+      height: 100%;
+  }
 }
 
 .oc-link-active {

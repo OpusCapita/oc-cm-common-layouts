@@ -1,0 +1,63 @@
+
+/* Screen Width: small */
+@media screen\0, screen and (max-width: 960px) {
+  #base-column-component-container {
+    background-color: green;
+  }
+
+  #columns-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%; // 100% vs auto
+    height: 100%;   // should it always fill the remaining
+
+    #left-child-component, #middle-child-component,
+    #middle-left-child-component, #middle-right-child-component,
+    #right-child-component {
+        margin-bottom: 1rem;  // Link with OC-CM-COMMON-STYLES
+        //height: 100%;
+    }  
+  }
+}
+
+// screen\0, screen -- into media all
+/* Screen Width: medium */
+@media screen\0, screen and (min-width: 980px) {
+  #base-column-component-container {
+    background-color: yellow;
+  }
+  #columns-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 100%;
+    height: 100%;
+
+    #single-child-component, #left-child-component, #middle-child-component,
+    #middle-left-child-component, #middle-right-child-component,
+    #right-child-component {
+      flex: 0 1 auto;
+      width: 100%;
+    }
+
+    #left-child-component, #middle-child-component,
+    #middle-left-child-component, #middle-right-child-component {
+      margin-right: 1rem;  // Link with OC-CM-COMMON-STYLES
+    }
+  }
+}
+
+
+/* Base Styles */
+#base-column-component-container {
+  height: 100%;  // IE support
+  padding: 1rem;    // ensures that we have gap between the cols
+
+  #columns-container {
+
+    #single-child-component, #left-child-component, #middle-child-component,
+    #middle-left-child-component, #middle-right-child-component,
+    #right-child-component {
+      background-color: white;  // Link with OC-CM-COMMON-STYLES
+    }
+  }
+}

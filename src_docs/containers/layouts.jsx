@@ -9,7 +9,7 @@ import ExampleLayouts from '../components/example_layouts.component';
 export default class Layout extends React.PureComponent {
   render() {
     return (
-      <Container containerId='example-layout-container'>
+      <Container containerId="example-layout-container">
         <Navigation />
         <ExampleLayouts />
       </Container>
