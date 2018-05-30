@@ -99,7 +99,10 @@
   },
   "dependencies": {
     "@opuscapita/oc-cm-common-styles": "2.1.0",
-    "@opuscapita/react-perfect-scrollbar": "3.0.3"
+    "@opuscapita/react-perfect-scrollbar": "3.0.3",
+    "react-icons": "2.2.7",
+    "react-masonry-component": "6.2.0",
+    "styled-components": "3.2.6"
   },
   "repository": {
     "type": "git",

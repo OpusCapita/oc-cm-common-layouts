@@ -1,0 +1,50 @@
+import React from 'react';
+
+// Icons
+import FaTruck from 'react-icons/lib/fa/truck';
+import FaTree from 'react-icons/lib/fa/tree';
+import FaUmbrella from 'react-icons/lib/fa/umbrella';
+import FaGlobe from 'react-icons/lib/fa/globe';
+import FaDashboard from 'react-icons/lib/fa/dashboard';
+import FaGlass from 'react-icons/lib/fa/glass';
+
+// App imports
+import { Layout } from '../../../src/layout';
+import launcher from '../demo-items.json';
+
+export default class MasonryComponentView extends React.PureComponent {
+
+  getRandomIcon = () => {
+    const size = 24;
+    const icons = [
+      <FaTruck size={size} />,
+      <FaUmbrella size={size} />,
+      <FaGlass size={size} />,
+      <FaGlobe size={size} />,
+      <FaDashboard size={size} />,
+      <FaTree size={size} />,
+      <FaUmbrella size={size} />,
+    ];
+    return icons[Math.floor(Math.random() * icons.length)];
+  };
+
+  render() {
+    return (
+      <Layout.Wrapper>
+        <Layout.Masonry>
+          {launcher.map(node => (
+            <Layout.Card
+              title={node.name}
+              key={node.id}
+              icon={this.getRandomIcon()}
+            >
+              {node.children.map(child => (
+                <p key={child.id}>{child.name}</p>
+              ))}
+            </Layout.Card>
+          ))}
+        </Layout.Masonry>
+      </Layout.Wrapper>
+    );
+  }
+}
