@@ -1,6 +1,6 @@
 import React from 'react';
 import items from '../demo-items.json';
-import { Layout } from '../../../src/layout';
+import { Content, Header } from '../../../src/index';
 import FixedColumnsSelect from './fixed-columns-select.component';
 
 export default class FixedColumnsComponentView extends React.PureComponent {
@@ -62,7 +62,7 @@ export default class FixedColumnsComponentView extends React.PureComponent {
 
     return (
       <div>
-        <Layout.Header
+        <Header.Basic
           left={
             <FixedColumnsSelect
               onChange={this.onColumnCountChange}
@@ -75,20 +75,20 @@ export default class FixedColumnsComponentView extends React.PureComponent {
             options={stretchContainerOptions}
           />}
         />
-        <Layout.Row
+        <Content.Row
           topOffset={60}
           stretch={this.state.stretchContainer}
         >
           {this.getItemChunks().map(columns => (
-            <Layout.Column key={`col-${columns[0].id}`}>
+            <Content.Column key={`col-${columns[0].id}`}>
               {columns.map(card => (
-                <Layout.Card key={card.id} title={card.name}>
+                <Content.Card key={card.id} title={card.name}>
                   {card.children.map(row => <p key={row.id}>{row.name}</p>)}
-                </Layout.Card>
+                </Content.Card>
               ))}
-            </Layout.Column>
+            </Content.Column>
           ))}
-        </Layout.Row>
+        </Content.Row>
       </div>
     );
   }

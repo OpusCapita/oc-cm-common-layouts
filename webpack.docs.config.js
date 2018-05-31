@@ -13,6 +13,8 @@ const isProd = process.env.NODE_ENV === 'production';
 const PATHS = {
   build: path.join(__dirname, 'docs'),
   context: path.join(__dirname, 'src_docs'),
+  hotUpdateChunkFilename: 'hot/hot-update.js',
+  hotUpdateMainFilename: 'hot/hot-update.json',
   jsFileName: 'examples.js',
   entry: path.join(__dirname, 'src_docs', 'index.jsx'),
   root: __dirname,
@@ -30,6 +32,8 @@ const baseConfig = {
   output: {
     path: PATHS.build,
     filename: PATHS.jsFileName,
+    hotUpdateChunkFilename: PATHS.hotUpdateChunkFilename,
+    hotUpdateMainFilename: PATHS.hotUpdateMainFilename,
   },
   module: {
     rules: [

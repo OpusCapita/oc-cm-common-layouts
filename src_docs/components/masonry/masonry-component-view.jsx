@@ -9,7 +9,7 @@ import FaDashboard from 'react-icons/lib/fa/dashboard';
 import FaGlass from 'react-icons/lib/fa/glass';
 
 // App imports
-import { Layout } from '../../../src/layout';
+import { Layout,Content } from '../../../src/index';
 import launcher from '../demo-items.json';
 
 export default class MasonryComponentView extends React.PureComponent {
@@ -31,9 +31,9 @@ export default class MasonryComponentView extends React.PureComponent {
   render() {
     return (
       <Layout.Wrapper>
-        <Layout.Masonry>
+        <Content.Masonry>
           {launcher.map(node => (
-            <Layout.Card
+            <Content.Card
               title={node.name}
               key={node.id}
               icon={this.getRandomIcon()}
@@ -41,9 +41,9 @@ export default class MasonryComponentView extends React.PureComponent {
               {node.children.map(child => (
                 <p key={child.id}>{child.name}</p>
               ))}
-            </Layout.Card>
+            </Content.Card>
           ))}
-        </Layout.Masonry>
+        </Content.Masonry>
       </Layout.Wrapper>
     );
   }

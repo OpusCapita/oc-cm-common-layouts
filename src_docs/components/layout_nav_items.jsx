@@ -1,16 +1,10 @@
 import React from 'react';
 import { List, Map } from 'immutable';
 // Example imports:
-import ContainerComponentView from './container/component-view';
 import MasonryComponentView from './masonry/masonry-component-view';
 import FixedColumnsComponentView from './fixed-columns/fixed-columns-component-view';
 import HeadersComponentView from './headers/headers-component-view';
 
-export const DefaultPage = Map({
-  navLabel: 'OC CM Layouts',
-  navPath: '/home',
-  navComponent: ContainerComponentView,
-});
 
 export const LayoutItems = List([
 
@@ -24,3 +18,5 @@ export const LayoutItems = List([
     navLabel: 'Headers', navKey: 3, navPath: '/headers', navComponent: HeadersComponentView,
   }),
 ]);
+
+export const DefaultPage = LayoutItems.get(0);
