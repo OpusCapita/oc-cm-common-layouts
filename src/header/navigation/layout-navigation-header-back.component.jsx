@@ -1,15 +1,15 @@
-import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
-import BackArrow from 'react-icons/lib/fa/arrow-left';
+import { Icon } from '@opuscapita/react-icons';
 import { Link } from 'react-router-dom';
 // App imports
-import { classPrefix, theme } from '../../constants';
+import { theme } from '../../constants';
 import BorderlessButton from '../../primitives/layout-primitive-borderless-button.component';
 
 const BackButton = BorderlessButton.extend`
   height: ${theme.header.button.height};
   width: ${theme.header.button.height};
+  font-size: 16px;
 `;
 
 class NavigationBackButton extends React.PureComponent {
@@ -23,7 +23,7 @@ class NavigationBackButton extends React.PureComponent {
       // If backUrl is defined, we don't need a click handler, instead we wrap
       // it in <Link />
       <BackButton onClick={backUrl ? null : this.onBackClickDefault}>
-        <BackArrow />
+        <Icon type="indicator" name="arrowLeft" />
       </BackButton>
     );
     if (backUrl) return <Link to={backUrl}><Button /></Link>; // eslint-disable-line
