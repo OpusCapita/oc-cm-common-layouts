@@ -16,7 +16,8 @@ Used as a child of Content.Row
 | ------------------------ | ---------------- | ---------- | ------------------------------------------|
 | children                 | node             | null       | n amount of nodes (see e.g. Content.Card  |
 | isLastItem               | bool             | false      | Content.Row takes care of this to control the column margins |
-             
+| grow                     | number           | 1          | Column's flex-grow CSS property. It specifies what amount of space inside the flex container the item should take up. |           
+
 #### Content.Card
 Common content block.
 
