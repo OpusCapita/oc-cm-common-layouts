@@ -3,19 +3,12 @@ import PropTypes from 'prop-types';
 import { ListItems } from '@opuscapita/react-list-items';
 import { DropdownMenu } from '@opuscapita/react-dropdown';
 import { Icon } from '@opuscapita/react-icons';
-import styled from 'styled-components';
 // App imports
 import { classPrefix, theme } from '../constants';
 import LayoutHeader from './layout-basic-header.component';
-import BorderlessButton from '../primitives/layout-primitive-borderless-button.component';
+import { PrimitiveBorderlessButton, PrimitiveHeaderTitle } from '../primitives';
 
-const Title = styled.h1`
-  font-size: ${theme.fontSizes.title};
-  font-weight: 600;
-  margin: 0;
-`;
-
-const BackButton = BorderlessButton.extend`
+const BackButton = PrimitiveBorderlessButton.extend`
   height: ${theme.header.button.height};
   width: ${theme.header.button.height};
   font-size: 16px;
@@ -40,7 +33,7 @@ class LayoutNavigationHeader extends React.PureComponent {
       <React.Fragment>
         {typeof onBackClick === 'function' &&
         <BackButton onClick={onBackClick}><Icon type="indicator" name="arrowLeft" /></BackButton>}
-        {title && <Title>{title}</Title>}
+        {title && <PrimitiveHeaderTitle>{title}</PrimitiveHeaderTitle>}
       </React.Fragment>
     );
   };

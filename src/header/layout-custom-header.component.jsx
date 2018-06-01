@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // App imports
 import { classPrefix } from '../constants';
-import HeaderPrimitive from '../primitives/layout-primitive-header.component';
+import { PrimitiveHeader } from '../primitives';
 
-const Header = HeaderPrimitive.extend`
+const Header = PrimitiveHeader.extend`
 `;
 
 const LayoutCustomHeader = ({ children }) => (
