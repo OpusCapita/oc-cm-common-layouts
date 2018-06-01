@@ -34,18 +34,16 @@ const LayoutColumn = ({ children, isLastItem, grow }) => (
   </Column>
 );
 
-
 LayoutColumn.propTypes = {
   children: PropTypes.node,
   isLastItem: PropTypes.bool,
   grow: PropTypes.number,
-  columnCount: PropTypes.number,
 };
+
 LayoutColumn.defaultProps = {
   children: undefined,
   isLastItem: false,
   grow: 1,
-  columnCount: null,
 };
 
 export default LayoutColumn;
