@@ -26,7 +26,7 @@ const LayoutRow = ({ children, topOffset, stretch }) => (
     <Row
       topOffset={topOffset}
       stretch={stretch}
-      className={`${classPrefix}_column-container`}
+      className={`${classPrefix}_row`}
       innerRef={(element) => {
         this.colContainer = element;
       }}
