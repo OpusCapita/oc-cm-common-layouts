@@ -2,16 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ListItems } from '@opuscapita/react-list-items';
 import { DropdownMenu } from '@opuscapita/react-dropdown';
+import { Icon } from '@opuscapita/react-icons';
 import styled from 'styled-components';
 // App imports
-import { classPrefix, theme } from '../../constants';
-import LayoutHeader from '../layout-basic-header.component';
-import BackButton from './layout-navigation-header-back.component';
+import { classPrefix, theme } from '../constants';
+import LayoutHeader from './layout-basic-header.component';
+import BorderlessButton from '../primitives/layout-primitive-borderless-button.component';
 
 const Title = styled.h1`
   font-size: ${theme.fontSizes.title};
   font-weight: 600;
   margin: 0;
+`;
+
+const BackButton = BorderlessButton.extend`
+  height: ${theme.header.button.height};
+  width: ${theme.header.button.height};
+  font-size: 16px;
 `;
 
 class LayoutNavigationHeader extends React.PureComponent {
@@ -28,10 +35,11 @@ class LayoutNavigationHeader extends React.PureComponent {
   };
 
   renderLeftContent = () => {
-    const { showBack, backUrl, title } = this.props;
+    const { onBackClick, title } = this.props;
     return (
       <React.Fragment>
-        {showBack ? <BackButton backUrl={backUrl} /> : null}
+        {typeof onBackClick === 'function' &&
+        <BackButton onClick={onBackClick}><Icon type="indicator" name="arrowLeft" /></BackButton>}
         {title && <Title>{title}</Title>}
       </React.Fragment>
     );
@@ -69,8 +77,7 @@ class LayoutNavigationHeader extends React.PureComponent {
 
 LayoutNavigationHeader.propTypes = {
   title: PropTypes.string,
-  showBack: PropTypes.bool,
-  backUrl: PropTypes.string,
+  onBackClick: PropTypes.func,
   itemIds: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -91,8 +98,7 @@ LayoutNavigationHeader.propTypes = {
 
 LayoutNavigationHeader.defaultProps = {
   title: null,
-  showBack: true,
-  backUrl: null,
+  onBackClick: null,
   itemIds: [],
   goToItem: null,
   itemId: null,

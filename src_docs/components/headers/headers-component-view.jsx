@@ -4,16 +4,21 @@ import { Header } from '../../../src/index';
 export default class HeadersComponentView extends React.PureComponent {
 
   onHeaderNavigationBrowseClick = () => {
-    alert('CLICK');
+    alert('Nav arrow clicked');
   };
 
   onMenuItemClick = (e) => {
-    alert(`Item ${e.target.id} clicked`);
+    alert(`Menu item #${e.target.id} clicked`);
+  };
+
+  onBackClick = () => {
+    alert('Back clicked');
   };
 
   render() {
     return (
       <Header.Navigation
+        onBackClick={this.onBackClick}
         title="Navigation header"
         itemIds={['1', '2', '3']}
         itemId="1"

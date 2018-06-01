@@ -17,8 +17,7 @@ through a collection of items.
 | Prop name                | Type             | Default    | Description                               |
 | ------------------------ | ---------------- | ---------- | ------------------------------------------|
 | title                    | string           | null       | Title shown in the left side of the header |
-| backUrl                  | string           | null       | Uses window.history.back() if not provided |
-| showBack                 | bool             | true       | Show back button |
+| onBackClick              | function         | null       | Back button click callback. Button is hidden, if function is not provided. |
 | goToItem                 | function         | null       | @opuscapita/react-list-items: Callback that is called when navigation to another item should happen |
 | itemId                   | [number, string] | null       | @opuscapita/react-list-items: Initially selected item id |
 | itemIds                  | [List, array]    | []         | @opuscapita/react-list-items: List of item ids |

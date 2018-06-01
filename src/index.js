@@ -5,7 +5,7 @@ import Card from './content/card/layout-card.component';
 import Masonry from './content/masonry/layout-masonry.component';
 import BasicHeader from './header/layout-basic-header.component';
 import CustomHeader from './header/layout-custom-header.component';
-import NavigationHeader from './header/navigation/layout-navigation-header.component';
+import NavigationHeader from './header/layout-navigation-header.component';
 
 export const Layout = {
   Wrapper,
