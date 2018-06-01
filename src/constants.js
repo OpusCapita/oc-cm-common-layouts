@@ -13,4 +13,7 @@ export const theme = {
       height: '4rem',
     },
   },
+  fontSizes: {
+    title: '16px',
+  },
 };

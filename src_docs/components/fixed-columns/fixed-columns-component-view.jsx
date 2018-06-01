@@ -61,7 +61,7 @@ export default class FixedColumnsComponentView extends React.PureComponent {
 
 
     return (
-      <div>
+      <React.Fragment>
         <Header.Basic
           left={
             <FixedColumnsSelect
@@ -76,7 +76,7 @@ export default class FixedColumnsComponentView extends React.PureComponent {
           />}
         />
         <Content.Row
-          topOffset={60}
+          topOffset={80}
           stretch={this.state.stretchContainer}
         >
           {this.getItemChunks().map(columns => (
@@ -89,7 +89,7 @@ export default class FixedColumnsComponentView extends React.PureComponent {
             </Content.Column>
           ))}
         </Content.Row>
-      </div>
+      </React.Fragment>
     );
   }
 }
