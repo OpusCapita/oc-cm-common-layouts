@@ -6,14 +6,15 @@ export default class HeadersComponentView extends React.PureComponent {
     super(props);
     this.state = {
       activeTab: 0,
+      activeNavigationPage: '1',
     };
-  };
+  }
 
   /**
    * Navigation header callbacks, etc.
    */
-  onHeaderNavigationBrowseClick = () => {
-    alert('Nav arrow clicked');
+  onHeaderNavigationBrowseClick = (item) => {
+    this.setState({ activeNavigationPage: item });
   };
 
   onMenuItemClick = (e) => {
@@ -38,7 +39,7 @@ export default class HeadersComponentView extends React.PureComponent {
       onBackClick={this.onBackClick}
       title="Navigation header"
       itemIds={['1', '2', '3']}
-      itemId="1"
+      itemId={this.state.activeNavigationPage}
       goToItem={this.onHeaderNavigationBrowseClick}
       menuItems={[{
         id: '1',
