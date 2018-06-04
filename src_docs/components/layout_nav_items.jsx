@@ -1,6 +1,7 @@
 import React from 'react';
 import { List, Map } from 'immutable';
 // Example imports:
+import MainPageView from './examples_main_page';
 import MasonryComponentView from './masonry/masonry-component-view';
 import FixedColumnsComponentView from './fixed-columns/fixed-columns-component-view';
 import HeadersComponentView from './headers/headers-component-view';
@@ -19,4 +20,9 @@ export const LayoutItems = List([
   }),
 ]);
 
-export const DefaultPage = LayoutItems.get(0);
+export const DefaultPage = Map({
+  navLabel: 'oc-cm-common-layouts',
+  navKey: 0,
+  navPath: '/main',
+  navComponent: MainPageView,
+});

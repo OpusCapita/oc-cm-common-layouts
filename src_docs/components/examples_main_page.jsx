@@ -1,40 +1,34 @@
 import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { DefaultPage, LayoutItems } from './layout_nav_items';
-import GithubLogo from '../images/logo-github.svg';
+import { Content } from '../../src';
 
-export default class Navigation extends React.PureComponent {
+export default class MainPage extends React.PureComponent {
   render() {
     return (
-      <Navbar collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href={DefaultPage.get('navPath')}> {DefaultPage.get('navLabel')}</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-            {
-              LayoutItems.map((layout) => {
-                const navKey = layout.get('navKey');
-                const navPath = layout.get('navPath');
-                const navLabel = layout.get('navLabel');
-                return (
-                  <NavItem key={`${navKey}_${navLabel}`} eventKey={navKey} href={navPath}>
-                    { navLabel }
-                  </NavItem>
-                );
-              })
-            }
-          </Nav>
-          <Nav pullRight>
-            <NavItem eventKey={100} href="https://github.com/OpusCapita/oc-cm-common-layouts">
-              <GithubLogo />
-            </NavItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <Content.Row>
+        <Content.Column>
+          <Content.Card title="oc-cm-common-compoenents">
+            <section>
+              <strong>Layout components</strong>
+              <p>Some info</p>
+            </section>
+
+            <section>
+              <strong>Content components</strong>
+              <p>Some info</p>
+            </section>
+
+            <section>
+              <strong>Header components</strong>
+              <p>Some info</p>
+            </section>
+
+            <section>
+              <strong>Primitives</strong>
+              <p>Some info</p>
+            </section>
+          </Content.Card>
+        </Content.Column>
+      </Content.Row>
     );
   }
 }
