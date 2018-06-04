@@ -1,6 +1,6 @@
 import React from 'react';
 import items from '../demo-items.json';
-import { Content, Header } from '../../../src/index';
+import { Content } from '../../../src/index';
 import FixedColumnsSelect from './fixed-columns-select.component';
 
 export default class FixedColumnsComponentView extends React.PureComponent {
@@ -8,18 +8,28 @@ export default class FixedColumnsComponentView extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      columnCount: '2',
-      stretchContainer: true,
+      columnCount: 3,
+      golumnGrow: 1,
+      stretchRow: true,
+      col0Grow: 1,
+      col1Grow: 1,
+      col2Grow: 2,
+      col3Grow: 1,
     };
   }
 
   onColumnCountChange = (e) => {
-    this.setState({ columnCount: e.target.value });
+    this.setState({ columnCount: parseInt(e.target.value, 10) });
   };
 
   onStretchContainerChange = (e) => {
-    this.setState({ stretchContainer: e.target.value === 'true' });
+    this.setState({ stretchRow: e.target.value === 'true' });
   };
+
+  onColumnGrowChange = (e) => {
+    this.setState({ [e.target.name]: parseInt(e.target.value, 10) });
+  };
+
 
   getItemChunks = () => {
     const n = this.state.columnCount;
@@ -48,43 +58,65 @@ export default class FixedColumnsComponentView extends React.PureComponent {
 
   render() {
     const columnOptions = [
-      { value: '1', label: '1 column' },
-      { value: '2', label: '2 columns' },
-      { value: '3', label: '3 columns' },
-      { value: '4', label: '4 columns' },
+      { value: 1, label: '1 column' },
+      { value: 2, label: '2 columns' },
+      { value: 3, label: '3 columns' },
+      { value: 4, label: '4 columns' },
     ];
 
-    const stretchContainerOptions = [
-      { value: true, label: 'props.stretchContainer: true' },
-      { value: false, label: 'props.stretchContainer: false' },
+    const growOptions = [
+      { value: 1, label: '1' },
+      { value: 2, label: '2' },
+      { value: 3, label: '3' },
+      { value: 4, label: '4' },
     ];
 
+    const stretchRowOptions = [
+      { value: true, label: 'On' },
+      { value: false, label: 'Off' },
+    ];
 
     return (
       <React.Fragment>
-        <Header.Basic
-          left={
-            <FixedColumnsSelect
-              onChange={this.onColumnCountChange}
-              value={this.state.columnCount}
-              options={columnOptions}
-            />}
-          center={<FixedColumnsSelect
-            onChange={this.onStretchContainerChange}
-            value={this.state.stretchContainer}
-            options={stretchContainerOptions}
-          />}
-        />
         <Content.Row
-          topOffset={80}
-          stretch={this.state.stretchContainer}
+          topOffset={40}
+          stretch={this.state.stretchRow}
         >
-          {this.getItemChunks().map(columns => (
-            <Content.Column key={`col-${columns[0].id}`}>
-              {columns.map(card => (
-                <Content.Card key={card.id} title={card.name}>
-                  {card.children.map(row => <p key={row.id}>{row.name}</p>)}
-                </Content.Card>
+          {this.getItemChunks().map((columns, columnIndex) => (
+            <Content.Column key={`col-${columns[0].id}`} grow={this.state[`col${columnIndex}Grow`]}>
+
+              {columns.map((card, cardIndex) => (
+                <React.Fragment>
+
+                  {cardIndex === 0 &&
+                  <Content.Card>
+                    <FixedColumnsSelect
+                      onChange={this.onColumnGrowChange}
+                      value={this.state[`col${columnIndex}Grow`]}
+                      options={growOptions}
+                      name={`col${columnIndex}Grow`}
+                      label={`Column #${columnIndex + 1} flex-grow value`}
+                    />
+                  </Content.Card>}
+                  {columnIndex === 0 && cardIndex === 0 &&
+                  <Content.Card title="Column options">
+                    <FixedColumnsSelect
+                      onChange={this.onColumnCountChange}
+                      value={this.state.columnCount}
+                      options={columnOptions}
+                      label="Column count"
+                    />
+                    <FixedColumnsSelect
+                      onChange={this.onStretchContainerChange}
+                      value={this.state.stretchRow}
+                      options={stretchRowOptions}
+                      label="Row stretching (prop:stretch)"
+                    />
+                  </Content.Card>}
+                  <Content.Card key={card.id} title={card.name}>
+                    {card.children.map(row => <p key={row.id}>{row.name}</p>)}
+                  </Content.Card>
+                </React.Fragment>
               ))}
             </Content.Column>
           ))}
