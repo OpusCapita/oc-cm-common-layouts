@@ -13,6 +13,9 @@ export const theme = {
       height: '4rem',
     },
   },
+  column: {
+    minWidth: '400px',
+  },
   fontSizes: {
     title: '16px',
   },
