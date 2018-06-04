@@ -3,9 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // App imports
 import { classPrefix, theme } from '../constants';
-import HeaderPrimitive from '../primitives/layout-primitive-header.component';
+import { PrimitiveHeader } from '../primitives';
 
-const Header = HeaderPrimitive.extend``;
 
 const HeaderSection = styled.section`
   display: flex;
@@ -20,11 +19,11 @@ const HeaderSection = styled.section`
   }
 `;
 const LayoutBasicHeader = ({ left, center, right }) => (
-  <Header className={`${classPrefix}_header`}>
+  <PrimitiveHeader className={`${classPrefix}_header`}>
     <HeaderSection className={`${classPrefix}_header_section left`}>{left}</HeaderSection>
     <HeaderSection className={`${classPrefix}_header_section center`}>{center}</HeaderSection>
     <HeaderSection className={`${classPrefix}_header_section right`}>{right}</HeaderSection>
-  </Header>
+  </PrimitiveHeader>
 );
 
 LayoutBasicHeader.propTypes = {
