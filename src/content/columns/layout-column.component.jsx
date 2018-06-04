@@ -13,6 +13,7 @@ const Column = styled.div`
     max-height: 100%;
     flex-wrap: wrap;
     display: flex;
+    min-width: ${theme.column.minWidth};
     margin-right: ${props => props.isLastItem ? 0 : theme.gutterWidth} 
 `;
 
@@ -25,12 +26,16 @@ const LayoutColumn = ({ children, isLastItem, grow }) => (
       this.column = elem;
     }}
   >
-    {!!children.length && React.Children.map(children, (child, i) => (
-      React.cloneElement(child, {
+    {React.Children.map(children, (child, i) => {
+      // If it's a regular DOM node
+      if (typeof child.type === 'string') return child;
+
+      // If it's a React component (e.g. Content.Card)
+      return React.cloneElement(child, {
         parent: this.column,
         isLastItem: i === children.length - 1 || children.length === undefined,
-      })
-    ))}
+      });
+    })}
   </Column>
 );
 

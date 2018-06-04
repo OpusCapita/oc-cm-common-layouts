@@ -31,11 +31,17 @@ const LayoutRow = ({ children, topOffset, stretch }) => (
         this.colContainer = element;
       }}
     >
-      {React.Children.map(children, (child, i) => React.cloneElement(child, {
-        parent: this.colContainer,
-        isLastItem: i === children.length - 1 && children.length !== 1,
-        columnCount: children.length,
-      }))}
+      {React.Children.map(children, (child, i) => {
+        // If it's a regular DOM node
+        if (typeof child.type === 'string') return child;
+
+        // If it's a React component (in most cases Content.Column)
+        return React.cloneElement(child, {
+          parent: this.colContainer,
+          isLastItem: i === children.length - 1 && children.length !== 1,
+          columnCount: children.length,
+        });
+      })}
     </Row>
   </PerfectScrollbar>
 );
