@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { classPrefix, theme } from '../constants';
 import { PrimitiveHeader } from '../primitives';
 
-const Header = PrimitiveHeader.extend``;
 
 const HeaderSection = styled.section`
   display: flex;
@@ -20,11 +19,11 @@ const HeaderSection = styled.section`
   }
 `;
 const LayoutBasicHeader = ({ left, center, right }) => (
-  <Header className={`${classPrefix}_header`}>
+  <PrimitiveHeader className={`${classPrefix}_header`}>
     <HeaderSection className={`${classPrefix}_header_section left`}>{left}</HeaderSection>
     <HeaderSection className={`${classPrefix}_header_section center`}>{center}</HeaderSection>
     <HeaderSection className={`${classPrefix}_header_section right`}>{right}</HeaderSection>
-  </Header>
+  </PrimitiveHeader>
 );
 
 LayoutBasicHeader.propTypes = {
