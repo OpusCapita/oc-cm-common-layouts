@@ -2,6 +2,7 @@ export const classPrefix = 'oc-layout';
 
 export const theme = {
   gutterWidth: '1rem',
+  halfGutterWidth: '0.5rem',
   contentBackgroundColor: '#fff',
   card: {
     backgroundColor: '#fff',
@@ -16,7 +17,14 @@ export const theme = {
   column: {
     minWidth: '400px',
   },
-  fontSizes: {
-    title: '16px',
+  text: {
+    title: {
+      fontSize: '16px',
+      fontWeight: 'bold',
+    },
+    subTitle: {
+      fontSize: '18px',
+      fontWeight: 'normal',
+    },
   },
 };

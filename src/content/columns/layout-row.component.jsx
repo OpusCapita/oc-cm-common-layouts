@@ -15,7 +15,7 @@ const calculateHeight = (props) => {
 };
 
 const Row = styled.div`
-  margin: ${theme.gutterWidth};
+  margin: ${theme.gutterWidth} ${theme.halfGutterWidth};
   display: flex;
   flex-wrap: wrap;
   height: ${props => calculateHeight(props)};

@@ -14,7 +14,7 @@ const Column = styled.div`
     flex-wrap: wrap;
     display: flex;
     min-width: ${theme.column.minWidth};
-    margin-right: ${props => props.isLastItem ? 0 : theme.gutterWidth} 
+    padding: 0 ${theme.halfGutterWidth};
 `;
 
 const LayoutColumn = ({ children, isLastItem, grow }) => (
