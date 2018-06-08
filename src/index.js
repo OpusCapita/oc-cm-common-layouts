@@ -13,6 +13,11 @@ import CustomHeader from './header/layout-custom-header.component';
 import NavigationHeader from './header/layout-navigation-header.component';
 import TabNavigationHeader from './header/layout-tab-navigation-header.component';
 
+// Primitives
+import PrimitiveBorderlessButton from './primitives/layout-primitive-borderless-button.component';
+import PrimitiveHeader from './primitives/layout-primitive-header.component';
+import PrimitiveHeaderTitle from './primitives/layout-primitive-header-title.component';
+
 export const Layout = {
   Wrapper,
 };
@@ -30,4 +35,10 @@ export const Header = {
   Custom: CustomHeader,
   Navigation: NavigationHeader,
   TabNavigation: TabNavigationHeader,
+};
+
+export const Primitive = {
+  BorderlessButton: PrimitiveBorderlessButton,
+  Header: PrimitiveHeader,
+  HeaderTitle: PrimitiveHeaderTitle,
 };
