@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import ResponsiveNavbar from '@opuscapita/react-responsive-navbar';
 // App imports
 import { classPrefix, theme } from '../constants';
-import { PrimitiveHeader, PrimitiveHeaderTitle } from '../primitives';
+import * as Primitive from '../primitives';
 
-const ProductTitle = PrimitiveHeaderTitle.extend`
+const ProductTitle = Primitive.Title.extend`
   margin-right: ${theme.gutterWidth};
 `;
 
-const LayoutTabNavigationHeader = ({ onSelect, title, list, activeKey, showNavItemBorder, showNavItemTooltip }) => ( // eslint-disable-line
-  <PrimitiveHeader className={`${classPrefix}_product-header`}>
+const HeaderNavigation = ({ onSelect, title, list, activeKey, showNavItemBorder, showNavItemTooltip }) => ( // eslint-disable-line
+  <Primitive.Header className={`${classPrefix}_product-header`}>
     {title && <ProductTitle>{title}</ProductTitle>}
     {!!list.length &&
     <ResponsiveNavbar
@@ -20,10 +20,10 @@ const LayoutTabNavigationHeader = ({ onSelect, title, list, activeKey, showNavIt
       showNavItemTooltip={showNavItemTooltip}
       onSelect={onSelect}
     />}
-  </PrimitiveHeader>
+  </Primitive.Header>
 );
 
-LayoutTabNavigationHeader.propTypes = {
+HeaderNavigation.propTypes = {
   title: PropTypes.string,
   activeKey: PropTypes.number,
   list: PropTypes.arrayOf(PropTypes.shape({})),
@@ -32,7 +32,7 @@ LayoutTabNavigationHeader.propTypes = {
   onSelect: PropTypes.func,
 };
 
-LayoutTabNavigationHeader.defaultProps = {
+HeaderNavigation.defaultProps = {
   title: null,
   activeKey: 0,
   list: [],
@@ -41,4 +41,4 @@ LayoutTabNavigationHeader.defaultProps = {
   onSelect: null,
 };
 
-export default LayoutTabNavigationHeader;
+export default HeaderNavigation;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // App imports
 import { classPrefix, theme } from '../../constants';
-import CardHeader from './layout-card-header.component';
+import CardHeader from './content-card-header.component';
 
 const Card = styled.div`
   padding: ${theme.gutterWidth};
@@ -17,7 +17,7 @@ const Card = styled.div`
   `;
 
 
-const LayoutCard = ({ children, isLastItem, title, height, icon }) => {
+const ContentCard = ({ children, isLastItem, title, height, icon }) => {
   const cardClassPrefix = `${classPrefix}_card`;
   return (
     <Card
@@ -31,7 +31,7 @@ const LayoutCard = ({ children, isLastItem, title, height, icon }) => {
   );
 };
 
-LayoutCard.propTypes = {
+ContentCard.propTypes = {
   children: PropTypes.node,
   isLastItem: PropTypes.bool,
   title: PropTypes.oneOfType([
@@ -41,7 +41,7 @@ LayoutCard.propTypes = {
   height: PropTypes.string,
   icon: PropTypes.node,
 };
-LayoutCard.defaultProps = {
+ContentCard.defaultProps = {
   children: undefined,
   isLastItem: false,
   title: undefined,
@@ -49,4 +49,4 @@ LayoutCard.defaultProps = {
   icon: undefined,
 };
 
-export default LayoutCard;
+export default ContentCard;

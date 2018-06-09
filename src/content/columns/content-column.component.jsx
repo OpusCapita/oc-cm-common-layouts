@@ -17,7 +17,7 @@ const Column = styled.div`
     padding: 0 ${theme.halfGutterWidth};
 `;
 
-const LayoutColumn = ({ children, isLastItem, grow }) => (
+const ContentColumn = ({ children, isLastItem, grow }) => (
   <Column
     grow={grow}
     isLastItem={isLastItem}
@@ -39,16 +39,16 @@ const LayoutColumn = ({ children, isLastItem, grow }) => (
   </Column>
 );
 
-LayoutColumn.propTypes = {
+ContentColumn.propTypes = {
   children: PropTypes.node,
   isLastItem: PropTypes.bool,
   grow: PropTypes.number,
 };
 
-LayoutColumn.defaultProps = {
+ContentColumn.defaultProps = {
   children: undefined,
   isLastItem: false,
   grow: 1,
 };
 
-export default LayoutColumn;
+export default ContentColumn;

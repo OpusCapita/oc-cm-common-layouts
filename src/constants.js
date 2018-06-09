@@ -17,6 +17,12 @@ export const theme = {
   column: {
     minWidth: '400px',
   },
+  inputRow: {
+    labelWidth: '250px',
+    errorContainer: {
+      height: '2.5rem',
+    },
+  },
   text: {
     title: {
       fontSize: '16px',
@@ -25,6 +31,10 @@ export const theme = {
     subTitle: {
       fontSize: '18px',
       fontWeight: 'normal',
+    },
+    error: {
+      fontSize: '10px',
+      color: '#D82515',
     },
   },
 };

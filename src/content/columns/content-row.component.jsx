@@ -21,7 +21,7 @@ const Row = styled.div`
   height: ${props => calculateHeight(props)};
 }}`;
 
-const LayoutRow = ({ children, topOffset, stretch }) => (
+const ContentRow = ({ children, topOffset, stretch }) => (
   <PerfectScrollbar>
     <Row
       topOffset={topOffset}
@@ -46,16 +46,16 @@ const LayoutRow = ({ children, topOffset, stretch }) => (
   </PerfectScrollbar>
 );
 
-LayoutRow.propTypes = {
+ContentRow.propTypes = {
   children: PropTypes.node,
   topOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   stretch: PropTypes.bool,
 };
 
-LayoutRow.defaultProps = {
+ContentRow.defaultProps = {
   children: undefined,
   topOffset: 40,
   stretch: false,
 };
 
-export default LayoutRow;
+export default ContentRow;
