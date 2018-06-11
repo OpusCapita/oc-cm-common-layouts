@@ -5,10 +5,9 @@ import MainPageView from './examples_main_page';
 import MasonryComponentView from './masonry/masonry-component-view';
 import FixedColumnsComponentView from './fixed-columns/fixed-columns-component-view';
 import HeadersComponentView from './headers/headers-component-view';
-
+import InputRowComponentView from './input-row/input-row-component-view';
 
 export const LayoutItems = List([
-
   Map({
     navLabel: 'Masonry', navKey: 1, navPath: '/masonry', navComponent: MasonryComponentView,
   }),
@@ -17,6 +16,9 @@ export const LayoutItems = List([
   }),
   Map({
     navLabel: 'Headers', navKey: 3, navPath: '/headers', navComponent: HeadersComponentView,
+  }),
+  Map({
+    navLabel: 'Input row', navKey: 4, navPath: '/input-row', navComponent: InputRowComponentView,
   }),
 ]);
 

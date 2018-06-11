@@ -5,16 +5,16 @@ import { DropdownMenu } from '@opuscapita/react-dropdown';
 import { Icon } from '@opuscapita/react-icons';
 // App imports
 import { classPrefix, theme } from '../constants';
-import LayoutHeader from './layout-basic-header.component';
-import { PrimitiveBorderlessButton, PrimitiveHeaderTitle } from '../primitives';
+import LayoutHeader from './header-basic.component';
+import * as Primitive from '../primitives';
 
-const BackButton = PrimitiveBorderlessButton.extend`
+const BackButton = Primitive.BorderlessButton.extend`
   height: ${theme.header.button.height};
   width: ${theme.header.button.height};
   font-size: 16px;
 `;
 
-class LayoutNavigationHeader extends React.PureComponent {
+class HeaderNavigation extends React.PureComponent {
   getRightContent = () => {
     const { menuItems } = this.props;
     if (!menuItems.length) return null;
@@ -33,7 +33,7 @@ class LayoutNavigationHeader extends React.PureComponent {
       <React.Fragment>
         {typeof onBackClick === 'function' &&
         <BackButton onClick={onBackClick}><Icon type="indicator" name="arrowLeft" /></BackButton>}
-        {title && <PrimitiveHeaderTitle>{title}</PrimitiveHeaderTitle>}
+        {title && <Primitive.Title>{title}</Primitive.Title>}
       </React.Fragment>
     );
   };
@@ -68,7 +68,7 @@ class LayoutNavigationHeader extends React.PureComponent {
   }
 }
 
-LayoutNavigationHeader.propTypes = {
+HeaderNavigation.propTypes = {
   title: PropTypes.string,
   onBackClick: PropTypes.func,
   itemIds: PropTypes.arrayOf(PropTypes.oneOfType([
@@ -89,7 +89,7 @@ LayoutNavigationHeader.propTypes = {
   ])),
 };
 
-LayoutNavigationHeader.defaultProps = {
+HeaderNavigation.defaultProps = {
   title: null,
   onBackClick: null,
   itemIds: [],
@@ -100,4 +100,4 @@ LayoutNavigationHeader.defaultProps = {
   menuItems: [],
 };
 
-export default LayoutNavigationHeader;
+export default HeaderNavigation;

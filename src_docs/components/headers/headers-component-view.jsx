@@ -1,6 +1,5 @@
 import React from 'react';
-import { Header } from '../../../src/index';
-
+import { Header,Primitive } from '../../../src/index';
 export default class HeadersComponentView extends React.PureComponent {
   constructor(props) {
     super(props);

@@ -1,3 +1,4 @@
-export PrimitiveBorderlessButton from './layout-primitive-borderless-button.component';
-export PrimitiveHeader from './layout-primitive-header.component';
-export PrimitiveHeaderTitle from './layout-primitive-header-title.component';
+export BorderlessButton from './primitive-borderless-button.component';
+export Header from './primitive-header.component';
+export Title from './primitive-title.component';
+export Subtitle from './primitive-subtitle.component';

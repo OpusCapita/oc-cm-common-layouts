@@ -38,7 +38,7 @@ const MasonryTile = styled.div`
   @media screen and (min-width: 64em) and (max-width: 74.9375em) { width: ${props => getColumnWidth(props.lg)}; }
 `;
 
-class LayoutMasonry extends React.PureComponent {
+class ContentMasonry extends React.PureComponent {
   render() {
     const {
       children, columnCountExtraLarge, columnCountLarge, columnCountMedium, columnCountSmall,
@@ -68,7 +68,7 @@ class LayoutMasonry extends React.PureComponent {
   }
 }
 
-LayoutMasonry.propTypes = {
+ContentMasonry.propTypes = {
   children: PropTypes.node,
   columnCountExtraLarge: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   columnCountLarge: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -76,7 +76,7 @@ LayoutMasonry.propTypes = {
   columnCountSmall: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   topOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
-LayoutMasonry.defaultProps = {
+ContentMasonry.defaultProps = {
   children: undefined,
   columnCountExtraLarge: 4,
   columnCountLarge: 3,
@@ -85,4 +85,4 @@ LayoutMasonry.defaultProps = {
   topOffset: 40,
 };
 
-export default LayoutMasonry;
+export default ContentMasonry;

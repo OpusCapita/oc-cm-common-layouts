@@ -8,18 +8,18 @@ const ProductTitle = PrimitiveHeaderTitle.extend`
   margin-right: ${theme.gutterWidth};
 `;
 
-const LayoutTabFilterHeader = ({ title }) => ( // eslint-disable-line
+const HeaderTabFilter = ({ title }) => ( // eslint-disable-line
   <PrimitiveHeader className={`${classPrefix}_filter-header`}>
     {title && <ProductTitle>{title}</ProductTitle>}
   </PrimitiveHeader>
 );
 
-LayoutTabFilterHeader.propTypes = {
+HeaderTabFilter.propTypes = {
   title: PropTypes.string,
 };
 
-LayoutTabFilterHeader.defaultProps = {
+HeaderTabFilter.defaultProps = {
   title: null,
 };
 
-export default LayoutTabFilterHeader;
+export default HeaderTabFilter;
