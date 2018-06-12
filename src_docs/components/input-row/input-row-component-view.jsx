@@ -20,6 +20,11 @@ export default class InputRowComponentView extends React.PureComponent {
       value: 'Value 2',
       id: 2,
       error: 'Some error',
+    }, {
+      label: 'ReadonlyRow',
+      value: 'ReadonlyRow value',
+      id: '2.5',
+      readOnly: true,
     }],
   }, {
     id: 'column2',
@@ -47,18 +52,24 @@ export default class InputRowComponentView extends React.PureComponent {
       <Layout.Wrapper>
         <Content.Row>
           {this.getContent().map(section => (
-            <Content.Column>
+            <Content.Column key={section.id}>
               <Content.Card>
-                {section.fields.map(row => (
-                  <Content.InputRow
-                    label={row.label}
-                    key={row.id}
-                    error={row.error}
-                    required={row.required}
-                  >
-                    <FormControl value={row.value} onChange={this.onChange} />
-                  </Content.InputRow>
-                ))}
+                {section.fields.map((row) => {
+                  if (row.readOnly) {
+                    return <Content.ReadonlyRow key={row.id} label={row.label} value={row.value} />;
+                  }
+
+                  return (
+                    <Content.InputRow
+                      label={row.label}
+                      key={row.id}
+                      error={row.error}
+                      required={row.required}
+                    >
+                      <FormControl value={row.value} onChange={this.onChange} />
+                    </Content.InputRow>
+                  );
+                })}
               </Content.Card>
             </Content.Column>
           ))}
