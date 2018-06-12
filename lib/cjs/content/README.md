@@ -28,6 +28,27 @@ Common content block.
 | height                   | number/string    | 'auto'     | Height of the card                        |
 | icon                     | node             | null       | Icon in the top right corner              |
   
+#### Content.InputRow
+Wrapper for input elements. Creates a two column row, label on the left and your input field
+on the right.
+
+| Prop name                | Type             | Default    | Description                               |
+| ------------------------ | ---------------- | ---------- | ------------------------------------------|
+| children                 | node             | null       | Element to be wrapped                     |
+| label                    | string, node     | null       | Row/field label                           |
+| required                 | bool             | false      | Is it a required field                    |
+| error                    | string, bool     | ''         | Potential error message. Triggers error styles |
+| showError                | bool             | true       | If error container is not shown, row is going to be a bit leaner. Good when displaying read only values |
+| className                | string           | null       | className will also be assigned to the children element |
+
+#### Content.ReadonlyRow
+HOC that uses InputRow to show a value.
+
+| Prop name                | Type             | Default    | Description                               |
+| ------------------------ | ---------------- | ---------- | ------------------------------------------|
+| label                    | string, node     | null       | Row/field label                           |
+| value                    | string, number   | null       | Value to be wrapped in a span             |
+
 #### Content.Masonry
 Masonry works by placing elements in optimal position based on available vertical space.
 
