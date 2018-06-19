@@ -1,21 +1,14 @@
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable func-names */
 /* eslint-disable function-paren-newline */
-
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import configureMockStore from 'redux-mock-store';
 
 import { Container } from '../../../src/index';
 
 
 describe('Container component', function () {
-  before(function before() {
-    const mockStore = configureMockStore();
-    this.store = mockStore({});
-  });
-
   it('should render correctly', function () {
     const wrapper = mount(
       <Container containerId="Example1" containerCls="base-container" >

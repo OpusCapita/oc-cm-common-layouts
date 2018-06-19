@@ -5,16 +5,10 @@
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import configureMockStore from 'redux-mock-store';
 
 import { BaseColumnComponent } from '../../../src/index';
 
 describe('BaseColumnComponent', function () {
-  before(function before() {
-    const mockStore = configureMockStore();
-    this.store = mockStore({});
-  });
-
 /*
   // Correct render
   it('should render correctly when single Array element given', function() {
