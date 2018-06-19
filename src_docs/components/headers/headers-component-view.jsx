@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header,Primitive } from '../../../src/index';
+import { Header } from '../../../src/index';
+
 export default class HeadersComponentView extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -17,11 +18,11 @@ export default class HeadersComponentView extends React.PureComponent {
   };
 
   onMenuItemClick = (e) => {
-    alert(`Menu item #${e.target.id} clicked`);
+    alert(`Menu item #${e.target.id} clicked`); // eslint-disable-line
   };
 
   onBackClick = () => {
-    alert('Back clicked');
+    alert('Back clicked'); // eslint-disable-line
   };
 
   /**

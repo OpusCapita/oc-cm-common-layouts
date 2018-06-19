@@ -1,4 +1,3 @@
-/* eslint-disable no-confusing-arrow */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -6,7 +5,7 @@ import styled from 'styled-components';
 // App imports
 import { theme } from '../../constants';
 
-const getErrorStyles = error => error ? theme.text.error.color : 'inherit';
+const getErrorStyles = error => (error ? theme.text.error.color : 'inherit');
 
 const Container = styled.section`
   display: flex;

@@ -1,5 +1,3 @@
-/* eslint-disable no-confusing-arrow */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -10,7 +8,7 @@ import PerfectScrollbar from '@opuscapita/react-perfect-scrollbar';
 import { classPrefix, theme } from '../../constants';
 
 const getColumnWidth = columnCount => `calc((100% / ${columnCount}) - ${theme.gutterWidth})`;
-const getTopOffset = offset => typeof offset === 'string' ? offset : `${offset}px`;
+const getTopOffset = offset => (typeof offset === 'string' ? offset : `${offset}px`);
 const calculateHeight = props => `calc(100vh - ${getTopOffset(props.topOffset)} - (3 * ${theme.gutterWidth}))`;
 
 const Masonry = styled.div`

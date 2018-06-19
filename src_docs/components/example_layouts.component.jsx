@@ -6,7 +6,7 @@ const ExampleLayouts = () => (
   <Switch>
     <Route path={DefaultPage.get('navPath')} component={DefaultPage.get('navComponent')} />
     {
-      LayoutItems.map((layout) => (
+      LayoutItems.map(layout => (
         <Route
           key={`${layout.get('navKey')}_${layout.get('navLabel')}`}
           path={layout.get('navPath')}
@@ -15,6 +15,6 @@ const ExampleLayouts = () => (
       ))
     }
   </Switch>
-)
+);
 
 export default ExampleLayouts;

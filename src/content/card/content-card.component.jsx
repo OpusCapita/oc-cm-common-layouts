@@ -1,5 +1,3 @@
-/* eslint-disable no-confusing-arrow */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -10,10 +8,10 @@ import CardHeader from './content-card-header.component';
 const Card = styled.div`
   padding: ${theme.gutterWidth};
   background: ${theme.card.backgroundColor};
-  margin-bottom: ${props => props.isLastItem ? 0 : theme.gutterWidth}; 
-  flex: ${props => props.isLastItem ? '2 1 auto' : '0 0 auto'};
+  margin-bottom: ${props => (props.isLastItem ? 0 : theme.gutterWidth)}; 
+  flex: ${props => (props.isLastItem ? '2 1 auto' : '0 0 auto')};
   width: 100%;
-  height: ${props => props.height ? props.height : 'auto'};
+  height: ${props => (props.height ? props.height : 'auto')};
   `;
 
 

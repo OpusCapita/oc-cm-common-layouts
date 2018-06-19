@@ -1,5 +1,3 @@
-/* eslint-disable no-confusing-arrow */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -8,7 +6,7 @@ import PerfectScrollbar from '@opuscapita/react-perfect-scrollbar';
 // App imports
 import { classPrefix, theme } from '../../constants';
 
-const getTopOffset = offset => typeof offset === 'string' ? offset : `${offset}px`;
+const getTopOffset = offset => (typeof offset === 'string' ? offset : `${offset}px`);
 const calculateHeight = (props) => {
   if (!props.stretch) return 'auto';
   return `calc(100vh - ${getTopOffset(props.topOffset)} - (2 * ${theme.gutterWidth}))`;

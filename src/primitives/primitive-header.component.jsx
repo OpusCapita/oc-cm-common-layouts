@@ -1,4 +1,3 @@
-/* eslint-disable no-confusing-arrow */
 import styled from 'styled-components';
 import { theme } from '../constants';
 

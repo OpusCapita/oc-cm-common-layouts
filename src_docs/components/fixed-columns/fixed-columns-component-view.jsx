@@ -4,7 +4,6 @@ import { Content } from '../../../src/index';
 import FixedColumnsSelect from './fixed-columns-select.component';
 
 export default class FixedColumnsComponentView extends React.PureComponent {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +29,6 @@ export default class FixedColumnsComponentView extends React.PureComponent {
     this.setState({ [e.target.name]: parseInt(e.target.value, 10) });
   };
 
-
   getItemChunks = () => {
     const n = this.state.columnCount;
     const rest = items.length % n;
@@ -54,7 +52,6 @@ export default class FixedColumnsComponentView extends React.PureComponent {
     }
     return result;
   };
-
 
   render() {
     const columnOptions = [
@@ -83,7 +80,10 @@ export default class FixedColumnsComponentView extends React.PureComponent {
           stretch={this.state.stretchRow}
         >
           {this.getItemChunks().map((columns, columnIndex) => (
-            <Content.Column key={`col-${columns[0].id}`} grow={this.state[`col${columnIndex}Grow`]}>
+            <Content.Column
+              key={`col-${columns[0].id}`}
+              grow={this.state[`col${columnIndex}Grow`]}
+            >
 
               {columns.map((card, cardIndex) => (
                 <React.Fragment>
