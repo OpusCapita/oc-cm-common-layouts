@@ -86,7 +86,7 @@ export default class FixedColumnsComponentView extends React.PureComponent {
             >
 
               {columns.map((card, cardIndex) => (
-                <React.Fragment>
+                <React.Fragment key={card.id}>
 
                   {cardIndex === 0 &&
                   <Content.Card>

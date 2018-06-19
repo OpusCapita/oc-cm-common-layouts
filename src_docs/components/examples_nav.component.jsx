@@ -1,15 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { DefaultPage, LayoutItems } from './layout_nav_items';
 import GithubLogo from '../images/logo-github.svg';
 
-export default class Navigation extends React.PureComponent {
+@withRouter
+export default class Navigation extends React.Component {
+  static propTypes = {
+    location: PropTypes.object.isRequired, // eslint-disable-line
+  }
+
   render() {
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href={DefaultPage.get('navPath')}> {DefaultPage.get('navLabel')}</a>
+            {DefaultPage.get('navLabel')}
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -21,7 +28,14 @@ export default class Navigation extends React.PureComponent {
                 const navPath = layout.get('navPath');
                 const navLabel = layout.get('navLabel');
                 return (
-                  <NavItem key={`${navKey}_${navLabel}`} eventKey={navKey} href={navPath}>
+                  <NavItem
+                    key={navKey}
+                    componentClass={Link}
+                    eventKey={navKey}
+                    href={navPath}
+                    to={navPath}
+                    active={this.props.location.pathname === navPath}
+                  >
                     { navLabel }
                   </NavItem>
                 );

@@ -5,7 +5,7 @@ import './app.component.scss';
 import './images/favicon.ico';
 
 @hot(module)
-export default class App extends React.PureComponent {
+export default class App extends React.Component {
   render() {
     return (
       <Layout />
