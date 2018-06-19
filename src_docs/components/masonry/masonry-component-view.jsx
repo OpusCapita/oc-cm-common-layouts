@@ -9,11 +9,10 @@ import FaDashboard from 'react-icons/lib/fa/dashboard';
 import FaGlass from 'react-icons/lib/fa/glass';
 
 // App imports
-import { Layout,Content } from '../../../src/index';
+import { Layout, Content } from '../../../src/index';
 import launcher from '../demo-items.json';
 
 export default class MasonryComponentView extends React.PureComponent {
-
   getRandomIcon = () => {
     const size = 24;
     const icons = [

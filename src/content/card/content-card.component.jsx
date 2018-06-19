@@ -15,7 +15,13 @@ const Card = styled.div`
   `;
 
 
-const ContentCard = ({ children, isLastItem, title, height, icon }) => {
+const ContentCard = ({
+  children,
+  isLastItem,
+  title,
+  height,
+  icon,
+}) => {
   const cardClassPrefix = `${classPrefix}_card`;
   return (
     <Card

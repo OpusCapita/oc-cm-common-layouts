@@ -18,7 +18,13 @@ const SelectLabel = styled.span`
   font-weight:bold;
   margin-bottom:0.5rem;
 `;
-const FixedColumnsSelect = ({ onChange, value, options, name, label }) => (
+const FixedColumnsSelect = ({
+  onChange,
+  value,
+  options,
+  name,
+  label,
+}) => (
   <SelectContainer>
     {label && <SelectLabel>{label}</SelectLabel>}
     <Select onChange={onChange} value={value} name={name}>
