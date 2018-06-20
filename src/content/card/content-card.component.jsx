@@ -6,6 +6,7 @@ import { classPrefix, theme } from '../../constants';
 import CardHeader from './content-card-header.component';
 
 const Card = styled.div`
+  display: flex;
   padding: ${theme.gutterWidth};
   background: ${theme.card.backgroundColor};
   margin-bottom: ${props => (props.isLastItem ? 0 : theme.gutterWidth)}; 
@@ -14,6 +15,9 @@ const Card = styled.div`
   height: ${props => (props.height ? props.height : 'auto')};
   `;
 
+const CardContent = styled.div`
+  flex: 1 1 auto;
+  `;
 
 const ContentCard = ({
   children,
@@ -30,7 +34,7 @@ const ContentCard = ({
       isLastItem={isLastItem}
     >
       {title && <CardHeader title={title} icon={icon} />}
-      <div className={`${cardClassPrefix}_content`}>{children}</div>
+      <CardContent className={`${cardClassPrefix}_content`}>{children}</CardContent>
     </Card>
   );
 };
