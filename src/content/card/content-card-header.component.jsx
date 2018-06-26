@@ -32,7 +32,7 @@ const ContentCardHeader = ({ title, icon, onIconClick }) => {
 };
 
 ContentCardHeader.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   icon: PropTypes.node,
   onIconClick: PropTypes.func,
 };

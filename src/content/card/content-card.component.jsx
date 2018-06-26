@@ -13,6 +13,7 @@ const Card = styled.div`
   flex: ${props => (props.isLastItem ? '2 1 auto' : '0 0 auto')};
   width: 100%;
   height: ${props => (props.height ? props.height : 'auto')};
+  flex-direction: column;
   `;
 
 const CardContent = styled.div`
