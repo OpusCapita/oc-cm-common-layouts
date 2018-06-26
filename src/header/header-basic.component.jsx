@@ -17,8 +17,10 @@ const HeaderSection = styled.section`
     justify-content: flex-end;
   }
 `;
-const HeaderBasic = ({ left, center, right }) => (
-  <Primitive.Header className={`${classPrefix}_header`}>
+const HeaderBasic = ({
+  left, center, right, className, id,
+}) => (
+  <Primitive.Header id={id} className={`${classPrefix}_header ${className}`}>
     <HeaderSection className={`${classPrefix}_header_section left`}>{left}</HeaderSection>
     <HeaderSection className={`${classPrefix}_header_section center`}>{center}</HeaderSection>
     <HeaderSection className={`${classPrefix}_header_section right`}>{right}</HeaderSection>
@@ -29,12 +31,16 @@ HeaderBasic.propTypes = {
   left: PropTypes.node,
   center: PropTypes.node,
   right: PropTypes.node,
+  className: PropTypes.string,
+  id: PropTypes.string,
 };
 
 HeaderBasic.defaultProps = {
   left: undefined,
   center: undefined,
   right: undefined,
+  className: '',
+  id: '',
 };
 
 export default HeaderBasic;
