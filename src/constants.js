@@ -18,9 +18,12 @@ export const theme = {
     minWidth: '400px',
   },
   inputRow: {
-    labelWidth: '250px',
+    labelWidth: '225px',
     errorContainer: {
-      height: '2.5rem',
+      height: '1.5rem',
+    },
+    requiredIndicator: {
+      fontSize: '18px',
     },
   },
   text: {

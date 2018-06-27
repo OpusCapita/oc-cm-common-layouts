@@ -4,11 +4,10 @@ import styled from 'styled-components';
 // App imports
 import { classPrefix, theme } from '../../constants';
 import CardHeader from './content-card-header.component';
+import * as Primitive from '../../primitives';
 
-const Card = styled.div`
+const Card = Primitive.Block.extend`
   display: flex;
-  padding: ${theme.gutterWidth};
-  background: ${theme.card.backgroundColor};
   margin-bottom: ${props => (props.isLastItem ? 0 : theme.gutterWidth)}; 
   flex: ${props => (props.isLastItem ? '2 1 auto' : '0 0 auto')};
   width: 100%;
@@ -17,7 +16,10 @@ const Card = styled.div`
   `;
 
 const CardContent = styled.div`
-  flex: 1 1 auto;
+  flex: 1 1 calc(100% - ${theme.card.headerHeight}); 
+  min-height: calc(100% - ${theme.card.headerHeight});
+  display: flex;
+  flex-direction: column;
   `;
 
 const ContentCard = ({
@@ -26,15 +28,20 @@ const ContentCard = ({
   title,
   height,
   icon,
+  iconClickCallback,
+  className,
+  id,
 }) => {
   const cardClassPrefix = `${classPrefix}_card`;
+
   return (
     <Card
       height={height}
-      className={`${cardClassPrefix}`}
+      className={`${cardClassPrefix} ${className}`}
       isLastItem={isLastItem}
+      id={id}
     >
-      {title && <CardHeader title={title} icon={icon} />}
+      {title && <CardHeader title={title} icon={icon} iconClickCallback={iconClickCallback} />}
       <CardContent className={`${cardClassPrefix}_content`}>{children}</CardContent>
     </Card>
   );
@@ -49,6 +56,9 @@ ContentCard.propTypes = {
   ]),
   height: PropTypes.string,
   icon: PropTypes.node,
+  iconClickCallback: PropTypes.func,
+  id: PropTypes.string,
+  className: PropTypes.string,
 };
 ContentCard.defaultProps = {
   children: undefined,
@@ -56,6 +66,9 @@ ContentCard.defaultProps = {
   title: undefined,
   height: undefined,
   icon: undefined,
+  iconClickCallback: null,
+  id: '',
+  className: '',
 };
 
 export default ContentCard;
