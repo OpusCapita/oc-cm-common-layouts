@@ -27,7 +27,7 @@ Common content block.
 | title                    | string           | null       | Title of the card                         |
 | height                   | number/string    | 'auto'     | Height of the card                        |
 | icon                     | node             | null       | Icon in the top right corner              |
-  
+| iconClickCallback        | function         | null       | Callback that gets triggered when icon is clicked on |
 #### Content.InputRow
 Wrapper for input elements. Creates a two column row, label on the left and your input field
 on the right.
@@ -48,7 +48,7 @@ HOC that uses InputRow to show a value.
 | ------------------------ | ---------------- | ---------- | ------------------------------------------|
 | label                    | string, node     | null       | Row/field label                           |
 | value                    | string, number   | null       | Value to be wrapped in a span             |
-
+| normalize                | function         | null       | Normalizer callback. Transforms value to a needed format. |
 #### Content.Masonry
 Masonry works by placing elements in optimal position based on available vertical space.
 
