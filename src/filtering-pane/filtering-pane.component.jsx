@@ -1,0 +1,117 @@
+import styled from 'styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
+import ResponsiveNavbar from '@opuscapita/react-responsive-navbar';
+import { DropdownMenu } from '@opuscapita/react-dropdown';
+
+import { classPrefix, theme } from '../constants';
+
+const FilteringPaneSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${theme.contentBackgroundColor};
+  width: calc(100% - 2 * ${theme.gutterWidth});
+  margin: ${theme.gutterWidth};
+  padding: ${theme.gutterWidth};
+  .responsive-navbar-container {
+    flex: 1 1 100%;    
+  }
+`;
+
+const AlignedSection = styled.div`
+  display: flex;
+  flex: 1 1 100%;
+  &.right {
+    justify-content: flex-end;
+  }
+`;
+
+class FilteringPane extends React.PureComponent {
+  renderNavbar = () => {
+    const {
+      activeKey,
+      list,
+      onSelect,
+      showNavItemBorder,
+      showNavItemTooltip,
+    } = this.props.tabs;
+
+    return (!!list.length &&
+      <ResponsiveNavbar
+        activeKey={activeKey}
+        list={list}
+        showNavItemBorder={showNavItemBorder}
+        showNavItemTooltip={showNavItemTooltip}
+        onSelect={onSelect}
+      />
+    );
+  };
+
+  renderLeftAlignedContent = () => (
+    !!this.props.leftAlignedContent &&
+    <AlignedSection className={`${classPrefix}_aligned-section`}>
+      {this.props.leftAlignedContent}
+    </AlignedSection>
+  );
+
+  renderRightAlignedContent = () => (
+    !!this.props.rightAlignedContent &&
+    <AlignedSection className={`${classPrefix}_aligned-section right`}>
+      {this.props.rightAlignedContent}
+    </AlignedSection>
+  );
+
+  renderMenu = () => (
+    !!this.props.menuItems.length &&
+    <DropdownMenu
+      id={`${classPrefix}_filtering-pane-menu`}
+      menuItems={this.props.menuItems}
+    />
+  );
+
+  render = () => (
+    <FilteringPaneSection id={this.props.id} className={`${classPrefix}_filtering-pane ${this.props.className}`}>
+      {this.renderNavbar()}
+      {this.renderLeftAlignedContent()}
+      {this.renderRightAlignedContent()}
+      {this.renderMenu()}
+    </FilteringPaneSection>
+  );
+}
+
+FilteringPane.propTypes = {
+  className: PropTypes.string,
+  id: PropTypes.string,
+  tabs: PropTypes.shape({
+    activeKey: PropTypes.number,
+    list: PropTypes.arrayOf(PropTypes.shape({})),
+    showNavItemBorder: PropTypes.bool,
+    showNavItemTooltip: PropTypes.bool,
+    onSelect: PropTypes.func,
+  }),
+  leftAlignedContent: PropTypes.node,
+  rightAlignedContent: PropTypes.node,
+  menuItems: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.shape({}),
+  ])),
+};
+
+FilteringPane.defaultProps = {
+  className: '',
+  id: '',
+  tabs: {
+    activeKey: 0,
+    list: [],
+    showNavItemBorder: false,
+    showNavItemTooltip: true,
+    onSelect: null,
+  },
+  leftAlignedContent: null,
+  rightAlignedContent: null,
+  menuItems: [],
+};
+
+export default FilteringPane;

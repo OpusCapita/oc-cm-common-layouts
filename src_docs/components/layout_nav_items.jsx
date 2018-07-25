@@ -6,6 +6,7 @@ import MasonryComponentView from './masonry/masonry-component-view';
 import FixedColumnsComponentView from './fixed-columns/fixed-columns-component-view';
 import HeadersComponentView from './headers/headers-component-view';
 import InputRowComponentView from './input-row/input-row-component-view';
+import FilteringPaneComponentView from './filtering-pane/filtering-pane-component-view';
 
 export const LayoutItems = List([
   Map({
@@ -31,6 +32,12 @@ export const LayoutItems = List([
     navKey: 4,
     navPath: '/input-row',
     navComponent: InputRowComponentView,
+  }),
+  Map({
+    navLabel: 'Filtering pane',
+    navKey: 5,
+    navPath: '/filtering-pane',
+    navComponent: FilteringPaneComponentView,
   }),
 ]);
 
