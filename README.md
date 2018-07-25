@@ -33,7 +33,7 @@ Wrappers and containers, that will help to build a solid base for your view.
 
 #### [Primitives](./src/primitives/README.md)
 Collection of low level styled components. Building blocks for composing all the more
-advanced layout compoents.
+advanced layout components.
 
 #### [Filtering Pane API](./src/filtering-pane/README.md)
 Contains common filtering pane.
