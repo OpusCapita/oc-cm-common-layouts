@@ -3,7 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
-* Webpack config changes. Added className/ID props to some components
+* Added `id` and `className` props for some components.
+* Webpack config changes.
 
 ## 0.1.1
 * Add display flex to Card so that content stretches, useful for datagrid.

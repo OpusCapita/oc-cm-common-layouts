@@ -41,10 +41,16 @@ class ContentMasonry extends React.PureComponent {
     const {
       children, columnCountExtraLarge, columnCountLarge, columnCountMedium, columnCountSmall,
       topOffset,
+      className,
+      id,
     } = this.props;
     return (
       <PerfectScrollbar>
-        <Masonry className={`${classPrefix}_masonry_wrapper`} topOffset={topOffset}>
+        <Masonry
+          className={`${classPrefix}_masonry_wrapper ${className}`}
+          topOffset={topOffset}
+          id={id}
+        >
           <ReactMasonry>
             {React.Children.map(children, (child, i) => (
               <MasonryTile
@@ -73,6 +79,8 @@ ContentMasonry.propTypes = {
   columnCountMedium: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   columnCountSmall: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   topOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  id: PropTypes.string,
+  className: PropTypes.string,
 };
 ContentMasonry.defaultProps = {
   children: undefined,
@@ -81,6 +89,8 @@ ContentMasonry.defaultProps = {
   columnCountMedium: 2,
   columnCountSmall: 1,
   topOffset: 40,
+  id: '',
+  className: '',
 };
 
 export default ContentMasonry;

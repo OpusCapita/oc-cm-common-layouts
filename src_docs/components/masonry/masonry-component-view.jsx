@@ -29,13 +29,15 @@ export default class MasonryComponentView extends React.PureComponent {
 
   render() {
     return (
-      <Layout.Wrapper>
-        <Content.Masonry>
+      <Layout.Wrapper id="demo-wrapper" className="demo-wrapper-class">
+        <Content.Masonry id="demo-masonry" className="demo-masonry-class">
           {launcher.map(node => (
             <Content.Card
               title={node.name}
               key={node.id}
               icon={this.getRandomIcon()}
+              id={`demo-card-${node.id}`}
+              className={`demo-card-class-${node.id}`}
             >
               {node.children.map(child => (
                 <p key={child.id}>{child.name}</p>

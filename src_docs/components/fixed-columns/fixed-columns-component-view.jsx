@@ -78,11 +78,15 @@ export default class FixedColumnsComponentView extends React.PureComponent {
         <Content.Row
           topOffset={40}
           stretch={this.state.stretchRow}
+          id="fixed-columns-content-row"
+          className="fixed-columns-content-row-class"
         >
           {this.getItemChunks().map((columns, columnIndex) => (
             <Content.Column
               key={`col-${columns[0].id}`}
               grow={this.state[`col${columnIndex}Grow`]}
+              id="fixed-columns-content-column"
+              className="fixed-columns-content-column-class"
             >
 
               {columns.map((card, cardIndex) => (

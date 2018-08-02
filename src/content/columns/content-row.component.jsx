@@ -18,14 +18,21 @@ const Row = styled.div`
   height: ${props => calculateHeight(props)};
 }}`;
 
-const ContentRow = ({ children, topOffset, stretch }) => (
+const ContentRow = ({
+  children,
+  topOffset,
+  stretch,
+  id,
+  className,
+}) => (
   <Row
     topOffset={topOffset}
     stretch={stretch}
-    className={`${classPrefix}_row`}
+    className={`${classPrefix}_row ${className}`}
     innerRef={(element) => {
       this.colContainer = element;
     }}
+    id={id}
   >
     {React.Children.map(children, (child, i) => {
       // If it's a regular DOM node
@@ -45,12 +52,16 @@ ContentRow.propTypes = {
   children: PropTypes.node,
   topOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   stretch: PropTypes.bool,
+  id: PropTypes.string,
+  className: PropTypes.string,
 };
 
 ContentRow.defaultProps = {
   children: undefined,
   topOffset: 40,
   stretch: false,
+  id: '',
+  className: '',
 };
 
 export default ContentRow;

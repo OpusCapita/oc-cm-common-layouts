@@ -16,14 +16,21 @@ const Column = styled.div`
     padding: 0 ${theme.halfGutterWidth};
 `;
 
-const ContentColumn = ({ children, isLastItem, grow }) => (
+const ContentColumn = ({
+  children,
+  isLastItem,
+  grow,
+  id,
+  className,
+}) => (
   <Column
     grow={grow}
     isLastItem={isLastItem}
-    className={`${classPrefix}_column`}
+    className={`${classPrefix}_column ${className}`}
     ref={(elem) => {
       this.column = elem;
     }}
+    id={id}
   >
     {React.Children.map(children, (child, i) => {
       // If it's a regular DOM node
@@ -42,12 +49,16 @@ ContentColumn.propTypes = {
   children: PropTypes.node,
   isLastItem: PropTypes.bool,
   grow: PropTypes.number,
+  id: PropTypes.string,
+  className: PropTypes.string,
 };
 
 ContentColumn.defaultProps = {
   children: undefined,
   isLastItem: false,
   grow: 1,
+  id: '',
+  className: '',
 };
 
 export default ContentColumn;

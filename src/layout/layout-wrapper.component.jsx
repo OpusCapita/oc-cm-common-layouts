@@ -8,15 +8,24 @@ const StyledWrapper = styled.div`
   width:100vw;
   height:100vh;
 `;
-const Wrapper = ({ children }) => (
-  <StyledWrapper className={`${classPrefix}_wrapper`}>{children}</StyledWrapper>
+const Wrapper = ({ children, id, className }) => (
+  <StyledWrapper
+    className={`${classPrefix}_wrapper ${className}`}
+    id={id}
+  >
+    {children}
+  </StyledWrapper>
 );
 
 Wrapper.propTypes = {
   children: PropTypes.node,
+  id: PropTypes.string,
+  className: PropTypes.string,
 };
 Wrapper.defaultProps = {
   children: undefined,
+  id: '',
+  className: '',
 };
 
 export default Wrapper;
