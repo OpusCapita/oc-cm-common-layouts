@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 0.1.2
 * Webpack config changes. Added className/ID props to some components
 
 ## 0.1.1
