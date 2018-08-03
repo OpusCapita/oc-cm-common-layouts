@@ -4,6 +4,7 @@
 
 ## <next>
 * Added className/ID props to some more components.
+* Removed header HOCs and moved NavigationHeader into its own repo (https://github.com/OpusCapita/oc-cm-navigation-header)
 
 ## 0.1.2
 * Webpack config changes. Added className/ID props to some components
