@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 0.2.0
 * Added className/ID props to some more components.
 * Removed header HOCs and moved NavigationHeader into its own repo (https://github.com/OpusCapita/oc-cm-navigation-header)
 

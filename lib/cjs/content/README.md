@@ -6,6 +6,8 @@ Wraps Content.Column components.
 | Prop name                | Type             | Default    | Description                               |
 | ------------------------ | ---------------- | ---------- | ------------------------------------------|
 | children                 | node             | null       | n amount of Content.Columns               |
+| id                       | string           | ''         | element's `id` attribute                  |
+| className                | string           | ''         | element's `class` attribute               |
 | topOffset                | string/number    | 0          | distance from the top of the screen. In case you have a Header, the topOffset will be the height of the header (40) |
 | stretch                  | bool             | false      | stretch columns to fill the content area  |
 
@@ -15,6 +17,8 @@ Used as a child of Content.Row
 | Prop name                | Type             | Default    | Description                               |
 | ------------------------ | ---------------- | ---------- | ------------------------------------------|
 | children                 | node             | null       | n amount of nodes (see e.g. Content.Card  |
+| id                       | string           | ''         | element's `id` attribute                  |
+| className                | string           | ''         | element's `class` attribute               |
 | isLastItem               | bool             | false      | Content.Row takes care of this to control the column margins |
 | grow                     | number           | 1          | Column's flex-grow CSS property. It specifies what amount of space inside the flex container the item should take up. |           
 
@@ -24,10 +28,13 @@ Common content block.
 | Prop name                | Type             | Default    | Description                               |
 | ------------------------ | ---------------- | ---------- | ------------------------------------------|
 | children                 | node             | null       | Card content                              |
+| id                       | string           | ''         | element's `id` attribute                  |
+| className                | string           | ''         | element's `class` attribute               |
 | title                    | string           | null       | Title of the card                         |
 | height                   | number/string    | 'auto'     | Height of the card                        |
 | icon                     | node             | null       | Icon in the top right corner              |
 | iconClickCallback        | function         | null       | Callback that gets triggered when icon is clicked on |
+
 #### Content.InputRow
 Wrapper for input elements. Creates a two column row, label on the left and your input field
 on the right.
@@ -49,12 +56,15 @@ HOC that uses InputRow to show a value.
 | label                    | string, node     | null       | Row/field label                           |
 | value                    | string, number   | null       | Value to be wrapped in a span             |
 | normalize                | function         | null       | Normalizer callback. Transforms value to a needed format. |
+
 #### Content.Masonry
 Masonry works by placing elements in optimal position based on available vertical space.
 
 | Prop name                | Type             | Default    | Description                               |
 | ------------------------ | ---------------- | ---------- | ------------------------------------------|
 | children                 | node             | null       | n amount of nodes (see e.g. Content.Card  |
+| id                       | string           | ''         | element's `id` attribute                  |
+| className                | string           | ''         | element's `class` attribute               |
 | columnCountExtraLarge    | number           | 4          | A number of columns on an extra-large screen |
 | columnCountLarge         | number           | 3          | A number of columns on a large screen |
 | columnCountMedium        | number           | 2          | A number of columns on a medium sized screen |
