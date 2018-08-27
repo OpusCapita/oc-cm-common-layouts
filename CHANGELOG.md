@@ -3,6 +3,7 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Removed layout width to fit in with sidebar
 
 ## 0.2.0
 * Added className/ID props to some more components.
