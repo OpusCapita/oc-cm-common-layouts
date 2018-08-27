@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 0.2.1
 * Removed layout width to fit in with sidebar
 
 ## 0.2.0
