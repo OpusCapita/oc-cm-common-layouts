@@ -12,6 +12,9 @@ const AdvancedComponent = PrimitiveComponent.extend`
 
 ### Current primitives
 
+##### Button (export: Primitive.Button)
+Simply an react-bootstrap button element, with no box-shadow and outline.
+
 ##### Borderless button (export: Primitive.BorderlessButton)
 Simply a transparent button element, with no border, padding nor margins.
 
