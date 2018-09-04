@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 0.2.3
 * BorderlessButton: removed box-shadow & outline
 
 ## 0.2.2
