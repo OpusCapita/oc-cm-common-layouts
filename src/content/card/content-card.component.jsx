@@ -16,8 +16,8 @@ const Card = Primitive.Block.extend`
   `;
 
 const CardContent = styled.div`
-  flex: 1 1 calc(100% - ${theme.card.headerHeight}); 
-  min-height: calc(100% - ${theme.card.headerHeight});
+  flex: 1 1 calc(100% - ${theme.header.height}); 
+  min-height: calc(100% - ${theme.header.height});
   display: flex;
   flex-direction: column;
   `;
