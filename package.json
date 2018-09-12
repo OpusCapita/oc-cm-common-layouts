@@ -1,7 +1,7 @@
 {
   "author": "OpusCapita (www.opuscapita.com)",
   "name": "@opuscapita/oc-cm-common-layouts",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": false,
   "license": "MIT",
   "description": "OpusCapita CM Common Layout components",
