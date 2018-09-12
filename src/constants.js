@@ -11,7 +11,7 @@ export const theme = {
   header: {
     height: '4rem',
     button: {
-      height: '4rem',
+      height: '2rem',
     },
   },
   column: {
