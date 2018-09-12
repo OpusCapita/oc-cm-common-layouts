@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 0.2.5
 * Changed theme.header.button.height
 
 ## 0.2.4
