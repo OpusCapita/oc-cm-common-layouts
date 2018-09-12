@@ -9,13 +9,13 @@ import { classPrefix, theme } from '../../constants';
 import * as Primitive from '../../primitives';
 
 const CardIcon = Primitive.BorderlessButton.extend`
-  height: ${theme.card.headerButtonHeight};
-  width: ${theme.card.headerButtonHeight};
+  height: ${theme.header.height};
+  width: ${theme.header.height};
   margin-right: 0;
   margin-left: auto;
   svg {
-    height:${theme.card.headerIconHeight};
-    width:${theme.card.headerIconHeight};
+    height: ${theme.header.button.height};
+    width: ${theme.header.button.height};
   }
 `;
 
@@ -23,9 +23,10 @@ const CardTitle = Primitive.Subtitle.extend`
 `;
 
 const CardHeader = styled.header`
-  height: ${theme.card.headerHeight};
+  height: ${theme.header.height};
   align-items: center;
   display: flex;
+  margin-bottom: ${theme.gutterWidth};
 `;
 
 
