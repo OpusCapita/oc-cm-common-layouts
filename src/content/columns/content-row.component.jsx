@@ -18,35 +18,40 @@ const Row = styled.div`
   height: ${props => calculateHeight(props)};
 }}`;
 
-const ContentRow = ({
-  children,
-  topOffset,
-  stretch,
-  id,
-  className,
-}) => (
-  <Row
-    topOffset={topOffset}
-    stretch={stretch}
-    className={`${classPrefix}_row ${className}`}
-    innerRef={(element) => {
-      this.colContainer = element;
-    }}
-    id={id}
-  >
-    {React.Children.map(children, (child, i) => {
-      // If it's a regular DOM node
-      if (typeof child.type === 'string') return child;
+class ContentRow extends React.PureComponent {
+  render() {
+    const {
+      children,
+      topOffset,
+      stretch,
+      id,
+      className,
+    } = this.props;
+    return (
+      <Row
+        topOffset={topOffset}
+        stretch={stretch}
+        className={`${classPrefix}_row ${className}`}
+        innerRef={(element) => {
+          this.colContainer = element;
+        }}
+        id={id}
+      >
+        {React.Children.map(children, (child, i) => {
+          // If it's a regular DOM node
+          if (typeof child.type === 'string') return child;
 
-      // If it's a React component (in most cases Content.Column)
-      return React.cloneElement(child, {
-        parent: this.colContainer,
-        isLastItem: i === children.length - 1 && children.length !== 1,
-        columnCount: children.length,
-      });
-    })}
-  </Row>
-);
+          // If it's a React component (in most cases Content.Column)
+          return React.cloneElement(child, {
+            parent: this.colContainer,
+            isLastItem: i === children.length - 1 && children.length !== 1,
+            columnCount: children.length,
+          });
+        })}
+      </Row>
+    );
+  }
+}
 
 ContentRow.propTypes = {
   children: PropTypes.node,

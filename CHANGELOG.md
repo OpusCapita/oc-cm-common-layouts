@@ -4,6 +4,9 @@
 
 ## <next>
 
+## 0.2.4
+* Fix `Content.Row` and `Content.Column` components 'this is undefined' in webpack 4 projects.
+
 ## 0.2.3
 * BorderlessButton: removed box-shadow & outline
 

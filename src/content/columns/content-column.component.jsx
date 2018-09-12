@@ -16,34 +16,39 @@ const Column = styled.div`
     padding: 0 ${theme.halfGutterWidth};
 `;
 
-const ContentColumn = ({
-  children,
-  isLastItem,
-  grow,
-  id,
-  className,
-}) => (
-  <Column
-    grow={grow}
-    isLastItem={isLastItem}
-    className={`${classPrefix}_column ${className}`}
-    ref={(elem) => {
-      this.column = elem;
-    }}
-    id={id}
-  >
-    {React.Children.map(children, (child, i) => {
-      // If it's a regular DOM node
-      if (typeof child.type === 'string') return child;
+class ContentColumn extends React.PureComponent {
+  render() {
+    const {
+      children,
+      isLastItem,
+      grow,
+      id,
+      className,
+    } = this.props;
+    return (
+      <Column
+        grow={grow}
+        isLastItem={isLastItem}
+        className={`${classPrefix}_column ${className}`}
+        ref={(elem) => {
+          this.column = elem;
+        }}
+        id={id}
+      >
+        {React.Children.map(children, (child, i) => {
+          // If it's a regular DOM node
+          if (typeof child.type === 'string') return child;
 
-      // If it's a React component (e.g. Content.Card)
-      return React.cloneElement(child, {
-        parent: this.column,
-        isLastItem: i === children.length - 1 || children.length === undefined,
-      });
-    })}
-  </Column>
-);
+          // If it's a React component (e.g. Content.Card)
+          return React.cloneElement(child, {
+            parent: this.column,
+            isLastItem: i === children.length - 1 || children.length === undefined,
+          });
+        })}
+      </Column>
+    );
+  }
+}
 
 ContentColumn.propTypes = {
   children: PropTypes.node,
