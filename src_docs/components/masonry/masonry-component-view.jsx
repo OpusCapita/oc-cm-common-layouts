@@ -15,7 +15,7 @@ import launcher from '../demo-items.json';
 export default class MasonryComponentView extends React.PureComponent {
   onCardExpand = (id, isExpanded) => {
     const status = isExpanded ? 'expanded' : 'not expanded';
-    console.log('Card', id, 'is', status);
+    console.log('Card', id, 'is', status); // eslint-disable-line no-console
   };
 
   getRandomIcon = () => {
