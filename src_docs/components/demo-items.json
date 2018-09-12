@@ -3,6 +3,8 @@
     "name": "This is my header",
     "id": "1",
     "icon": "Yeah",
+    "isExpanded": true,
+    "isExpandable": true,
     "children": [
       {
         "name": "Something",
@@ -49,9 +51,10 @@
     ]
   },
   {
-    "name": "Just a card",
+    "name": "Collapsed card",
     "id": "4",
-    "icon": "Yeah",
+    "isExpanded": false,
+    "isExpandable": true,
     "children": [
       {
         "name": "Such",

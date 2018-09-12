@@ -7,6 +7,8 @@ export const theme = {
   card: {
     backgroundColor: '#fff',
     headerHeight: '5rem',
+    headerButtonHeight: '4rem',
+    headerIconHeight: '2rem',
   },
   header: {
     height: '4rem',

@@ -3,6 +3,7 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Cards can now be expanded and collapsed
 
 ## 0.2.5
 * Changed theme.header.button.height
