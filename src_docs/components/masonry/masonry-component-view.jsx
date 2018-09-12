@@ -13,6 +13,11 @@ import { Layout, Content } from '../../../src/index';
 import launcher from '../demo-items.json';
 
 export default class MasonryComponentView extends React.PureComponent {
+  onCardExpand = (id, isExpanded) => {
+    const status = isExpanded ? 'expanded' : 'not expanded';
+    console.log('Card', id, 'is', status);
+  };
+
   getRandomIcon = () => {
     const size = 24;
     const icons = [
@@ -35,8 +40,11 @@ export default class MasonryComponentView extends React.PureComponent {
             <Content.Card
               title={node.name}
               key={node.id}
+              isExpanded={node.isExpanded}
+              isExpandable={node.isExpandable}
               icon={this.getRandomIcon()}
               id={`demo-card-${node.id}`}
+              onExpand={this.onCardExpand}
               className={`demo-card-class-${node.id}`}
             >
               {node.children.map(child => (

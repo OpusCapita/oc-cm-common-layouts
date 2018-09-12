@@ -1,45 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import FaPlus from 'react-icons/lib/fa/plus';
+import FaMinus from 'react-icons/lib/fa/minus';
+
 // App imports
 import { classPrefix, theme } from '../../constants';
 import * as Primitive from '../../primitives';
 
 const CardIcon = Primitive.BorderlessButton.extend`
-  height: ${theme.card.headerHeight};
+  height: ${theme.header.height};
+  width: ${theme.header.height};
   margin-right: 0;
   margin-left: auto;
+  svg {
+    height: ${theme.header.button.height};
+    width: ${theme.header.button.height};
+  }
 `;
 
 const CardTitle = Primitive.Subtitle.extend`
-  margin-bottom: ${theme.gutterWidth};
 `;
 
 const CardHeader = styled.header`
-  height: ${theme.card.headerHeight};
+  height: ${theme.header.height};
   align-items: center;
   display: flex;
+  margin-bottom: ${theme.gutterWidth};
 `;
 
-const ContentCardHeader = ({ title, icon, onIconClick }) => {
-  const cardClassPrefix = `${classPrefix}_card`;
-  return (
-    <CardHeader className={`${cardClassPrefix}_header`}>
-      <CardTitle>{title}</CardTitle>
-      {icon && <CardIcon disabled={!onIconClick}>{icon}</CardIcon>}
-    </CardHeader>
-  );
-};
+
+class ContentCardHeader extends React.PureComponent {
+  getExpandedIcon = () => ((this.props.isExpanded ? <FaMinus /> : <FaPlus />));
+
+  render() {
+    const {
+      icon, title, onIconClick, isExpanded, isExpandable,
+    } = this.props;
+    const cardClassPrefix = `${classPrefix}_card`;
+    const resolvedIcon = isExpandable ? this.getExpandedIcon(isExpanded) : icon;
+
+    return (
+      <CardHeader className={`${cardClassPrefix}_header`}>
+        <CardTitle>{title}</CardTitle>
+        {icon &&
+        <CardIcon onClick={onIconClick} disabled={!onIconClick}>{resolvedIcon}</CardIcon>}
+      </CardHeader>
+    );
+  }
+}
 
 ContentCardHeader.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   icon: PropTypes.node,
   onIconClick: PropTypes.func,
+  isExpanded: PropTypes.bool.isRequired,
+  isExpandable: PropTypes.bool,
 };
+
 ContentCardHeader.defaultProps = {
   title: undefined,
   icon: undefined,
   onIconClick: undefined,
+  isExpandable: false,
 };
 
 export default ContentCardHeader;

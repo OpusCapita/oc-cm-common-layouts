@@ -22,30 +22,56 @@ const CardContent = styled.div`
   flex-direction: column;
   `;
 
-const ContentCard = ({
-  children,
-  isLastItem,
-  title,
-  height,
-  icon,
-  iconClickCallback,
-  className,
-  id,
-}) => {
-  const cardClassPrefix = `${classPrefix}_card`;
+class ContentCard extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isExpanded: !!props.isExpanded && !!props.isExpandable,
+    };
+  }
 
-  return (
-    <Card
-      height={height}
-      className={`${cardClassPrefix} ${className}`}
-      isLastItem={isLastItem}
-      id={id}
-    >
-      {title && <CardHeader title={title} icon={icon} iconClickCallback={iconClickCallback} />}
-      <CardContent className={`${cardClassPrefix}_content`}>{children}</CardContent>
-    </Card>
-  );
-};
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isExpanded !== this.props.isExpanded) {
+      this.setState({ isExpanded: nextProps.isExpanded });
+    }
+  }
+
+  onExpandClick = () => {
+    const { onExpand, id } = this.props;
+    this.setState({ isExpanded: !this.state.isExpanded }, () => {
+      if (onExpand) onExpand(id, this.state.isExpanded);
+    });
+  };
+
+  render() {
+    const cardClassPrefix = `${classPrefix}_card`;
+    const {
+      children, isLastItem, title, height, icon, onIconClick, className, id, isExpandable,
+    } = this.props;
+
+    const resolvedOnIconClick = isExpandable ? this.onExpandClick : onIconClick;
+
+    return (
+      <Card
+        height={height}
+        className={`${cardClassPrefix} ${className}`}
+        isLastItem={isLastItem}
+        id={id}
+      >
+        {title &&
+        <CardHeader
+          title={title}
+          icon={icon}
+          onIconClick={resolvedOnIconClick}
+          isExpanded={this.state.isExpanded}
+          isExpandable={isExpandable}
+        />}
+        {(!isExpandable || this.state.isExpanded) &&
+        <CardContent className={`${cardClassPrefix}_content`}>{children}</CardContent>}
+      </Card>
+    );
+  }
+}
 
 ContentCard.propTypes = {
   children: PropTypes.node,
@@ -56,9 +82,12 @@ ContentCard.propTypes = {
   ]),
   height: PropTypes.string,
   icon: PropTypes.node,
-  iconClickCallback: PropTypes.func,
+  onIconClick: PropTypes.func,
   id: PropTypes.string,
   className: PropTypes.string,
+  isExpanded: PropTypes.bool,
+  isExpandable: PropTypes.bool,
+  onExpand: PropTypes.func,
 };
 ContentCard.defaultProps = {
   children: undefined,
@@ -66,9 +95,12 @@ ContentCard.defaultProps = {
   title: undefined,
   height: undefined,
   icon: undefined,
-  iconClickCallback: null,
+  onIconClick: null,
   id: '',
   className: '',
+  isExpanded: undefined,
+  isExpandable: false,
+  onExpand: undefined,
 };
 
 export default ContentCard;
