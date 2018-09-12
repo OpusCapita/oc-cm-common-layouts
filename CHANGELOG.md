@@ -3,6 +3,7 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Changed theme.header.button.height
 
 ## 0.2.4
 * Fix `Content.Row` and `Content.Column` components 'this is undefined' in webpack 4 projects.
