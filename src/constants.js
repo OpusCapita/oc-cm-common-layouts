@@ -4,6 +4,10 @@ export const theme = {
   gutterWidth: '1rem',
   halfGutterWidth: '0.5rem',
   contentBackgroundColor: '#fff',
+  container: {
+    inputRow: 'row',
+    inputColumn: 'column',
+  },
   header: {
     height: '4rem',
     button: {
@@ -15,6 +19,17 @@ export const theme = {
   },
   inputRow: {
     labelWidth: '225px',
+    labelContainerLineHeight: '3rem',
+    errorContainer: {
+      height: '1.5rem',
+    },
+    requiredIndicator: {
+      fontSize: '18px',
+    },
+  },
+  inputColumn: {
+    labelWidth: '225px',
+    labelContainerLineHeight: '1.5rem',
     errorContainer: {
       height: '1.5rem',
     },
