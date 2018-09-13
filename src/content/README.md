@@ -25,18 +25,19 @@ Used as a child of Content.Row
 #### Content.Card
 Common content block.
 
-| Prop name    | Type          | Default   | Description                                                                                        |
-| ------------ | ------------- | --------- | -------------------------------------------------------------------------------------------------- |
-| children     | node          | null      | Card content                                                                                       |
-| id           | string        | ''        | element's `id` attribute                                                                           |
-| className    | string        | ''        | element's `class` attribute                                                                        |
-| title        | string        | null      | Title of the card                                                                                  |
-| height       | number/string | 'auto'    | Height of the card                                                                                 |
-| icon         | node          | null      | Icon in the top right corner                                                                       |
-| onIconClick  | function      | null      | Callback that gets triggered when icon is clicked on                                               |
-| isExpandable | boolean       | false     | Can the card be collapsed/expanded                                                                 |
-| isExpanded   | function      | undefined | Is the card expanded                                                                               |
-| onExpand     | function      | function  | Callback that gets triggered when the card is expanded/collapsed (id: string, isExpanded: boolean) |
+| Prop name                | Type             | Default    | Description                               |
+| ------------------------ | ---------------- | ---------- | ------------------------------------------|
+| children                 | node             | null       | Card content                              |
+| id                       | string           | required   | element's `id` attribute                  |
+| className                | string           | ''         | element's `class` attribute               |
+| title                    | string           | null       | Title of the card                         |
+| height                   | number/string    | 'auto'     | Height of the card                        |
+| icon                     | node             | null       | Icon in the top right corner              |
+| onIconClick              | function         | null       | Callback that gets triggered when icon is clicked on |
+| isExpandable             | boolean          | false      | Can the card be collapsed/expanded |
+| isExpanded               | function         | undefined  | Is the card expanded |
+| onExpand                 | function         | undefined  | Callback that gets triggered when the card is expanded/collapsed (id: string, isExpanded: boolean) |
+
 
 #### Content.InputRow
 Wrapper for input elements. Creates a two column row, label on the left and your input field
