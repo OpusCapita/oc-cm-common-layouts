@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 1.0.0
 * Fix: Masonry layout will now update when its Content.Card child component gets expanded / collapsed
 * Added InputColumn and ReadonlyColumn HOCs. Components are mainly extending corressponding Row components.
 * Added custom theme props for InputColumn HOC.

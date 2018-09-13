@@ -51,7 +51,8 @@ const ErrorMessage = styled.span`
 `;
 
 const getRequiredIndicatorFontSize = isCol =>
-  (isCol ? theme.inputColumn.requiredIndicator.fontSize : theme.inputRow.requiredIndicator.fontSize);
+  (isCol ?
+    theme.inputColumn.requiredIndicator.fontSize : theme.inputRow.requiredIndicator.fontSize);
 
 const RequiredIndicator = styled.span`
   margin-left: ${theme.halfGutterWidth};
