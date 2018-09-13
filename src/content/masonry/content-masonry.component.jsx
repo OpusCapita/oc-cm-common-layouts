@@ -80,7 +80,7 @@ class ContentMasonry extends React.PureComponent {
           topOffset={topOffset}
           id={id}
         >
-          <ReactMasonry ref={(masonry) => this.masonry = masonry}>
+          <ReactMasonry>
             {React.Children.map(children, (child, i) => (
               <MasonryTile
                 xl={columnCountExtraLarge}
