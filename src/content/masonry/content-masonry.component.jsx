@@ -88,9 +88,7 @@ class ContentMasonry extends React.PureComponent {
                 md={columnCountMedium}
                 sm={columnCountSmall}
               >
-                {
-
-                  React.cloneElement(child, this.getChildProps(i))}
+                {React.cloneElement(child, this.getChildProps(i))}
               </MasonryTile>
             ))}
           </ReactMasonry>
