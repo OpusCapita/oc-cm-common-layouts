@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Added InputColumn and ReadonlyColumn HOCs. Components are mainly extending corressponding Row components.
+* Added custom theme props for InputColumn HOC.
 
 ## 0.3.0
 * Cards can now be expanded and collapsed
