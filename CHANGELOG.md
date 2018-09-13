@@ -4,6 +4,8 @@
 
 ## <next>
 * Fix: Masonry layout will now update when its Content.Card child component gets expanded / collapsed
+* Added InputColumn and ReadonlyColumn HOCs. Components are mainly extending corressponding Row components.
+* Added custom theme props for InputColumn HOC.
 
 ## 0.3.0
 * Cards can now be expanded and collapsed
