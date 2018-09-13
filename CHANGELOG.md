@@ -3,6 +3,7 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Fix: Masonry layout will now update when its Content.Card child component gets expanded / collapsed
 
 ## 0.3.0
 * Cards can now be expanded and collapsed

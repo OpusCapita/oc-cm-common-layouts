@@ -13,9 +13,9 @@ import { Layout, Content } from '../../../src/index';
 import launcher from '../demo-items.json';
 
 export default class MasonryComponentView extends React.PureComponent {
-  onCardExpand = (id, isExpanded) => {
-    const status = isExpanded ? 'expanded' : 'not expanded';
-    console.log('Card', id, 'is', status); // eslint-disable-line no-console
+  onCardExpand = (args) => {
+    const status = args[1] ? 'expanded' : 'not expanded';
+    console.log('Card', args[0], 'is', status); // eslint-disable-line no-console
   };
 
   getRandomIcon = () => {
@@ -35,7 +35,13 @@ export default class MasonryComponentView extends React.PureComponent {
   render() {
     return (
       <Layout.Wrapper id="demo-wrapper" className="demo-wrapper-class">
-        <Content.Masonry id="demo-masonry" className="demo-masonry-class">
+        <Content.Masonry
+          id="demo-masonry"
+          className="demo-masonry-class"
+          ref={(masonry) => {
+            this.masonry = masonry;
+          }}
+        >
           {launcher.map(node => (
             <Content.Card
               title={node.name}

@@ -28,7 +28,7 @@ Common content block.
 | Prop name                | Type             | Default    | Description                               |
 | ------------------------ | ---------------- | ---------- | ------------------------------------------|
 | children                 | node             | null       | Card content                              |
-| id                       | string           | ''         | element's `id` attribute                  |
+| id                       | string           | required   | element's `id` attribute                  |
 | className                | string           | ''         | element's `class` attribute               |
 | title                    | string           | null       | Title of the card                         |
 | height                   | number/string    | 'auto'     | Height of the card                        |
