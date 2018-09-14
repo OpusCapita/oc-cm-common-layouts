@@ -75,6 +75,7 @@ Wrapper for input elements. Creates two row column, where label at top and your 
 
 #### Content.ReadonlyColumn
 HOC that uses InputColumn to show value.
+
 | Prop name | Type           | Default | Description                                               |
 | --------- | -------------- | ------- | --------------------------------------------------------- |
 | label     | string, node   | null    | Column/field label                                        |
