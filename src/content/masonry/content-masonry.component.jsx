@@ -37,12 +37,6 @@ const MasonryTile = styled.div`
 `;
 
 class ContentMasonry extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    /* If child is a Card, its onExpand callback will be stored here */
-    this.childCallbacks = {};
-  }
-
   getChildProps = (childIndex) => {
     const { children } = this.props;
     const child = children[childIndex];
@@ -50,19 +44,25 @@ class ContentMasonry extends React.PureComponent {
       parent: this.parent,
       isLastItem: childIndex === children.length - 1 || children.length === undefined,
     };
-
-    /*  If child is a Card, we will replace its onExpand callback and store
-     the original callback for a later use */
+    /*  If child is a Card, we will extend its onExpand callback  */
     if (child && child.type.displayName === 'ContentCard') {
-      props.onExpand = this.updateLayout;
-      this.childCallbacks[child.props.id] = child.props.onExpand;
+      props.onExpand = this.extendFn(child.props.onExpand);
     }
     return props;
   };
 
-  updateLayout = (...args) => {
+  /**
+   * Extends an original callback function by updating the layout first
+   * @param originalCb
+   * @returns {function(...[*]=): *}
+   */
+  extendFn = originalCb => (...args) => {
+    this.updateLayout();
+    return originalCb.apply(this, args);
+  };
+
+  updateLayout = () => {
     this.masonry.initializeMasonry();
-    if (args[0] && typeof this.childCallbacks[args[0]] === 'function') this.childCallbacks[args[0]](args);
     // I think using forceUpdate is justified here
     this.forceUpdate();
   };
