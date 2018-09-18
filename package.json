@@ -81,7 +81,6 @@
     "progress-bar-webpack-plugin": "1.11.0",
     "prop-types": "15.6.1",
     "react": "16.4.1",
-    "react-bootstrap": "0.32.1",
     "react-dom": "16.4.1",
     "react-hot-loader": "4.3.3",
     "react-router": "4.3.1",

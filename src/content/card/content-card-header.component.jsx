@@ -43,7 +43,7 @@ class ContentCardHeader extends React.PureComponent {
     return (
       <CardHeader className={`${cardClassPrefix}_header`}>
         <CardTitle>{title}</CardTitle>
-        {icon &&
+        {resolvedIcon &&
         <CardIcon onClick={onIconClick} disabled={!onIconClick}>{resolvedIcon}</CardIcon>}
       </CardHeader>
     );
