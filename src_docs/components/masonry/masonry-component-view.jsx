@@ -13,9 +13,9 @@ import { Layout, Content } from '../../../src/index';
 import launcher from '../demo-items.json';
 
 export default class MasonryComponentView extends React.PureComponent {
-  onCardExpand = (args) => {
-    const status = args[1] ? 'expanded' : 'not expanded';
-    console.log('Card', args[0], 'is', status); // eslint-disable-line no-console
+  onCardExpand = (id) => {
+    const status = id ? 'expanded' : 'not expanded';
+    console.log('Card', id, 'is', status); // eslint-disable-line no-console
   };
 
   getRandomIcon = () => {
@@ -48,7 +48,7 @@ export default class MasonryComponentView extends React.PureComponent {
               key={node.id}
               isExpanded={node.isExpanded}
               isExpandable={node.isExpandable}
-              icon={this.getRandomIcon()}
+              icon={node.icon ? this.getRandomIcon() : null}
               id={`demo-card-${node.id}`}
               onExpand={this.onCardExpand}
               className={`demo-card-class-${node.id}`}

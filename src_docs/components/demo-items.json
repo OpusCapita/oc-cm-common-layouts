@@ -2,7 +2,6 @@
   {
     "name": "This is my header",
     "id": "1",
-    "icon": "Yeah",
     "isExpanded": true,
     "isExpandable": true,
     "children": [
@@ -19,7 +18,7 @@
   {
     "name": "Card McCardygan",
     "id": "2",
-    "icon": "Yeah",
+    "icon": true,
     "children": [
       {
         "name": "Something",
@@ -38,7 +37,7 @@
   {
     "name": "Tile McTily",
     "id": "3",
-    "icon": "Yeah",
+    "icon": true,
     "children": [
       {
         "name": "Something",
@@ -97,7 +96,7 @@
   {
     "name": "Div McDivvy",
     "id": "5",
-    "icon": "Yeah",
+    "icon": true,
     "children": [
       {
         "name": "Something",
@@ -120,7 +119,7 @@
   {
     "name": "There's content under me",
     "id": "6",
-    "icon": "Yeah",
+    "icon": true,
     "children": [
       {
         "name": "Something",
@@ -139,7 +138,7 @@
   {
     "name": "Wicked!",
     "id": "7",
-    "icon": "Yeah",
+    "icon": true,
     "children": [
       {
         "name": "Something",
@@ -154,7 +153,7 @@
   {
     "name": "Amazeballs!",
     "id": "8",
-    "icon": "Yeah",
+    "icon": true,
     "children": [
       {
         "name": "Something",

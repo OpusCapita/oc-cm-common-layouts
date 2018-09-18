@@ -4,6 +4,10 @@
 
 ## <next>
 
+## 1.0.1
+* Fix: Enhancing Masonry's update logic
+* Fix: Expand/Collapse icon did not work properly
+
 ## 1.0.0
 * Fix: Masonry layout will now update when its Content.Card child component gets expanded / collapsed
 * Added InputColumn and ReadonlyColumn HOCs. Components are mainly extending corressponding Row components.
