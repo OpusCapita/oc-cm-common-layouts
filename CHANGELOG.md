@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 1.0.1
 * Fix: Enhancing Masonry's update logic
 * Fix: Expand/Collapse icon did not work properly
 
