@@ -1,54 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import styled from 'styled-components';
 import { DefaultPage, LayoutItems } from './layout_nav_items';
 import GithubLogo from '../images/logo-github.svg';
+import { Header, Primitive, theme } from '../../src';
+
+const NavItem = styled(Link)`
+  margin: 0 ${theme.gutterWidth};
+`;
+
+const Title = Primitive.Title.extend`
+  white-space: nowrap;
+`;
 
 @withRouter
 export default class Navigation extends React.Component {
   static propTypes = {
     location: PropTypes.object.isRequired, // eslint-disable-line
-  }
+  };
+
+  getNav = () => LayoutItems.map((layout) => {
+    const navKey = layout.get('navKey');
+    const navPath = layout.get('navPath');
+    const navLabel = layout.get('navLabel');
+    return (
+      <NavItem
+        key={navKey}
+        href={navPath}
+        to={navPath}
+      >
+        {navLabel}
+      </NavItem>
+    );
+  });
 
   render() {
     return (
-      <Navbar collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            {DefaultPage.get('navLabel')}
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-            {
-              LayoutItems.map((layout) => {
-                const navKey = layout.get('navKey');
-                const navPath = layout.get('navPath');
-                const navLabel = layout.get('navLabel');
-                return (
-                  <NavItem
-                    key={navKey}
-                    componentClass={Link}
-                    eventKey={navKey}
-                    href={navPath}
-                    to={navPath}
-                    active={this.props.location.pathname === navPath}
-                  >
-                    { navLabel }
-                  </NavItem>
-                );
-              })
-            }
-          </Nav>
-          <Nav pullRight>
-            <NavItem eventKey={100} href="https://github.com/OpusCapita/oc-cm-common-layouts">
-              <GithubLogo />
-            </NavItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <Header.Basic
+        left={<Title>{DefaultPage.get('navLabel')}</Title>}
+        center={this.getNav()}
+        right={<GithubLogo />}
+      />
     );
   }
 }

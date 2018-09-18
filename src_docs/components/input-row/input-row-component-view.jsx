@@ -1,9 +1,11 @@
 import React from 'react';
-import { FormControl } from 'react-bootstrap';
-
+import styled from 'styled-components';
+import  '@opuscapita/oc-cm-common-styles';
 // App imports
 import { Layout, Content } from '../../../src/';
-
+const Input = styled.input`
+  background: $oc-color-button-normal;
+`;
 export default class InputRowComponentView extends React.PureComponent {
   onChange = () => {
 
@@ -66,7 +68,7 @@ export default class InputRowComponentView extends React.PureComponent {
                       error={row.error}
                       required={row.required}
                     >
-                      <FormControl value={row.value} onChange={this.onChange} />
+                      <Input value={row.value} onChange={this.onChange} />
                     </Content.InputRow>
                   );
                 })}
