@@ -43,11 +43,11 @@ export const theme = {
   },
   text: {
     title: {
-      fontSize: vars.fontSizeLarge,
+      fontSize: vars.fontSizeMedium,
       fontWeight: vars.fontWeightBold,
     },
     subTitle: {
-      fontSize: vars.fontSizeLarge,
+      fontSize: vars.fontSizeMedium,
       fontWeight: vars.fontWeightNormal,
     },
     error: {
