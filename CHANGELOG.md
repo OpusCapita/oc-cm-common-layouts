@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 2.0.0
 * Removed React Bootstrap package
 * Colors and other variables are now imported from oc-cm-common-styles
 * Enhanced Primitive.Button component and a styled text input component (`Primitive.Input`)

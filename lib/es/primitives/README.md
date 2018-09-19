@@ -13,7 +13,10 @@ const AdvancedComponent = PrimitiveComponent.extend`
 ### Current primitives
 
 ##### Button (export: Primitive.Button)
-Simply an react-bootstrap button element, with no box-shadow and outline.
+Styled button. Accepts primary prop, that will color the button orange.
+
+##### Input (export: Primitive.Input) 
+Styled text input field.
 
 ##### Borderless button (export: Primitive.BorderlessButton)
 Simply a transparent button element, with no border, padding nor margins.
