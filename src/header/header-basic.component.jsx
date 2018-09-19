@@ -6,8 +6,7 @@ import { classPrefix, theme } from '../constants';
 import { Primitive } from '../';
 
 const HeaderSection = styled.section`
-  display: flex;
-  flex: 1 1 100%;
+  display:flex;
   align-items: center;
   height: ${theme.header.height};
   &.center {
@@ -17,13 +16,23 @@ const HeaderSection = styled.section`
     justify-content: flex-end;
   }
 `;
+
+const CenterSection = HeaderSection.extend`
+  flex-grow: 1;
+`;
+
+const SideSection = HeaderSection.extend`
+  flex-basis: ${props => props.basis};
+  flex-shrink: 1;
+`;
+
 const HeaderBasic = ({
-  left, center, right, className, id,
+  left, center, right, className, id, sideSectionBasis,
 }) => (
   <Primitive.Header id={id} className={`${classPrefix}_header ${className}`}>
-    <HeaderSection className={`${classPrefix}_header_section left`}>{left}</HeaderSection>
-    <HeaderSection className={`${classPrefix}_header_section center`}>{center}</HeaderSection>
-    <HeaderSection className={`${classPrefix}_header_section right`}>{right}</HeaderSection>
+    <SideSection className={`${classPrefix}_header_section left`} basis={sideSectionBasis}>{left}</SideSection>
+    <CenterSection className={`${classPrefix}_header_section center`}>{center}</CenterSection>
+    <SideSection className={`${classPrefix}_header_section right`} basis={sideSectionBasis}>{right}</SideSection>
   </Primitive.Header>
 );
 
@@ -33,6 +42,7 @@ HeaderBasic.propTypes = {
   right: PropTypes.node,
   className: PropTypes.string,
   id: PropTypes.string,
+  sideSectionBasis: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 HeaderBasic.defaultProps = {
@@ -41,6 +51,7 @@ HeaderBasic.defaultProps = {
   right: undefined,
   className: '',
   id: '',
+  sideSectionBasis: '200px',
 };
 
 export default HeaderBasic;

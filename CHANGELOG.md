@@ -3,6 +3,10 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Removed React Bootstrap package
+* Colors and other variables are now imported from oc-cm-common-styles
+* Enhanced Primitive.Button component and a styled text input component (Primitive.Input)
+* Some minor style changes to Header.Basic
 
 ## 1.0.1
 * Fix: Enhancing Masonry's update logic

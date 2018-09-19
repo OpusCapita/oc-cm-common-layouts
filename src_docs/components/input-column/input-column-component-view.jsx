@@ -1,8 +1,7 @@
 import React from 'react';
-import { FormControl } from 'react-bootstrap';
 
 // App imports
-import { Layout, Content } from '../../../src/';
+import { Layout, Content, Primitive } from '../../../src/';
 
 export default class InputColumnComponentView extends React.PureComponent {
   onChange = () => {
@@ -52,7 +51,7 @@ export default class InputColumnComponentView extends React.PureComponent {
         <Content.Row>
           {this.getContent().map(section => (
             <Content.Column key={section.id}>
-              <Content.Card>
+              <Content.Card id={section.id}>
                 {section.fields.map((row) => {
                   if (row.readOnly) {
                     return (<Content.ReadonlyColumn
@@ -69,7 +68,7 @@ export default class InputColumnComponentView extends React.PureComponent {
                       error={row.error}
                       required={row.required}
                     >
-                      <FormControl value={row.value} onChange={this.onChange} />
+                      <Primitive.Input value={row.value} onChange={this.onChange} />
                     </Content.InputColumn>
                   );
                 })}
