@@ -63,6 +63,7 @@ export default {
       backgroundColor: colors.colorButtonNormal,
       primaryBackgroundColor: colors.colorButtonPriorityNormal,
       textColor: colors.colorWhite,
+      minWidth: '70px',
     },
   },
 };

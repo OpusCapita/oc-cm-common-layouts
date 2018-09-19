@@ -117,7 +117,7 @@ ContentInputRow.propTypes = {
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   showError: PropTypes.bool,
   className: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   asColumn: PropTypes.bool,
 };
 
@@ -128,7 +128,6 @@ ContentInputRow.defaultProps = {
   error: '',
   showError: true,
   className: '',
-  id: '',
   asColumn: false,
 };
 

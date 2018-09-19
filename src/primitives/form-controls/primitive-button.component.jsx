@@ -14,7 +14,7 @@ const Button = styled.button`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  
+  min-width: ${props => props.theme.formControls.button.minWidth};
   &:hover:enabled {
     background-color:${props => darken(0.1, props.theme.formControls.button.backgroundColor)};
     border: 1px solid ${props => darken(0.05, props.theme.formControls.button.backgroundColor)};

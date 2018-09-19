@@ -1,5 +1,4 @@
 import React from 'react';
-import variables from '@opuscapita/oc-cm-common-styles/styles/_app.scss';
 // App imports
 import { Layout, Content, Primitive } from '../../../src/';
 
@@ -13,11 +12,11 @@ export default class InputRowComponentView extends React.PureComponent {
     fields: [{
       label: 'Label 1',
       value: 'Value 1',
-      id: 1,
+      id: '1',
     }, {
       label: 'Field with error',
       value: 'Value 2',
-      id: 2,
+      id: '2',
       error: 'Some error',
     }, {
       label: 'ReadonlyRow',
@@ -30,18 +29,18 @@ export default class InputRowComponentView extends React.PureComponent {
     fields: [{
       label: 'Required field',
       value: 'Value 3',
-      id: 3,
+      id: '3',
       required: true,
     }, {
       label: 'Required field with error',
       value: 'Value 4',
-      id: 4,
+      id: '4',
       required: true,
       error: 'Some error in required field',
     }, {
       label: 'Label 5',
       value: 'Value 5',
-      id: 5,
+      id: '5',
     }],
   }];
 
@@ -55,13 +54,21 @@ export default class InputRowComponentView extends React.PureComponent {
               <Content.Card id={section.id}>
                 {section.fields.map((row) => {
                   if (row.readOnly) {
-                    return <Content.ReadonlyRow key={row.id} label={row.label} value={row.value} />;
+                    return (
+                      <Content.ReadonlyRow
+                        id={row.id}
+                        key={row.id}
+                        label={row.label}
+                        value={row.value}
+                      />
+                    );
                   }
 
                   return (
                     <Content.InputRow
                       label={row.label}
                       key={row.id}
+                      id={row.id}
                       error={row.error}
                       required={row.required}
                     >
