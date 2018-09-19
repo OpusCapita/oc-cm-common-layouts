@@ -4,10 +4,10 @@ import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { DefaultPage, LayoutItems } from './layout_nav_items';
 import GithubLogo from '../images/logo-github.svg';
-import { Header, Primitive, theme } from '../../src';
+import { Header, Primitive } from '../../src';
 
 const NavItem = styled(Link)`
-  margin: 0 ${theme.gutterWidth};
+  margin: 0 ${props => props.theme.gutterWidth};
 `;
 
 const Title = Primitive.Title.extend`

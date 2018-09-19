@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { theme } from '../constants';
 
 const PrimitiveHeader = styled.header`
-  background: ${theme.contentBackgroundColor};
-  height: ${theme.header.height};
+  background: ${props => props.theme.contentBackgroundColor};
+  height: ${props => props.theme.header.height};
   display: flex;
-  padding: 0 ${theme.gutterWidth};
+  padding: 0 ${props => props.theme.gutterWidth};
   align-items: center;
 `;
 export default PrimitiveHeader;

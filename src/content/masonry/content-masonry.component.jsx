@@ -5,35 +5,35 @@ import ReactMasonry from 'react-masonry-component';
 import PerfectScrollbar from '@opuscapita/react-perfect-scrollbar';
 
 // App imports
-import { classPrefix, theme } from '../../constants';
+import { classPrefix } from '../../constants';
 
-const getColumnWidth = columnCount => `calc((100% / ${columnCount}) - ${theme.gutterWidth})`;
+const getColumnWidth = (columnCount, theme) => `calc((100% / ${columnCount}) - ${theme.gutterWidth})`;
 const getTopOffset = offset => (typeof offset === 'string' ? offset : `${offset}px`);
-const calculateHeight = props => `calc(100vh - ${getTopOffset(props.topOffset)} - (3 * ${theme.gutterWidth}))`;
+const calculateHeight = props => `calc(100vh - ${getTopOffset(props.topOffset)} - (3 * ${props.theme.gutterWidth}))`;
 
 const Masonry = styled.div`
   width:100vw;    
   height: ${props => calculateHeight(props)};
-  padding-right: ${theme.gutterWidth};
-  padding-top: ${theme.gutterWidth};
+  padding-right: ${props => props.theme.gutterWidth};
+  padding-top: ${props => props.theme.gutterWidth};
 `;
 
 const MasonryTile = styled.div`
-  margin-left: ${theme.gutterWidth};
+  margin-left: ${props => props.theme.gutterWidth};
   /* Small only */
-  @media screen and (max-width: 39.9375em) { width: ${props => getColumnWidth(props.sm)}; }
+  @media screen and (max-width: 39.9375em) { width: ${props => getColumnWidth(props.sm, props.theme)}; }
   
   /* Medium and up */
-  @media screen and (min-width: 40em)  { width: ${props => getColumnWidth(props.lg)}; }
+  @media screen and (min-width: 40em)  { width: ${props => getColumnWidth(props.lg, props.theme)}; }
   
   /* Medium only */
-  @media screen and (min-width: 40em) and (max-width: 63.9375em) { width: ${props => getColumnWidth(props.md)}; }
+  @media screen and (min-width: 40em) and (max-width: 63.9375em) { width: ${props => getColumnWidth(props.md, props.theme)}; }
   
   /* Large and up */
-  @media screen and (min-width: 64em) { width: ${props => getColumnWidth(props.xl)}; }
+  @media screen and (min-width: 64em) { width: ${props => getColumnWidth(props.xl, props.theme)}; }
   
   /* Large only */
-  @media screen and (min-width: 64em) and (max-width: 74.9375em) { width: ${props => getColumnWidth(props.lg)}; }
+  @media screen and (min-width: 64em) and (max-width: 74.9375em) { width: ${props => getColumnWidth(props.lg, props.theme)}; }
 `;
 
 class ContentMasonry extends React.PureComponent {

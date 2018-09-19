@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // App imports
-import { classPrefix, theme } from '../../constants';
+import { classPrefix } from '../../constants';
 
 const getTopOffset = offset => (typeof offset === 'string' ? offset : `${offset}px`);
 const calculateHeight = (props) => {
   if (!props.stretch) return 'auto';
-  return `calc(100vh - ${getTopOffset(props.topOffset)} - (2 * ${theme.gutterWidth}))`;
+  return `calc(100vh - ${getTopOffset(props.topOffset)} - (2 * ${props.theme.gutterWidth}))`;
 };
 
 const Row = styled.div`
-  margin: ${theme.gutterWidth} ${theme.halfGutterWidth};
+  margin: ${props => props.theme.gutterWidth} ${props => props.theme.halfGutterWidth};
   display: flex;
   flex-wrap: wrap;
   height: ${props => calculateHeight(props)};
