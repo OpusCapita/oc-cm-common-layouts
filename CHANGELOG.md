@@ -5,17 +5,19 @@
 ## <next>
 * Removed React Bootstrap package
 * Colors and other variables are now imported from oc-cm-common-styles
-* Enhanced Primitive.Button component and a styled text input component (Primitive.Input)
-* Some minor style changes to Header.Basic
+* Enhanced Primitive.Button component and a styled text input component (`Primitive.Input`)
+* Some minor style changes to `Header.Basic`
+* Removed `theme.js` imports
+* ThemeProvider is now being used in `src_docs`
 
 ## 1.0.1
 * Fix: Enhancing Masonry's update logic
 * Fix: Expand/Collapse icon did not work properly
 
 ## 1.0.0
-* Fix: Masonry layout will now update when its Content.Card child component gets expanded / collapsed
-* Added InputColumn and ReadonlyColumn HOCs. Components are mainly extending corressponding Row components.
-* Added custom theme props for InputColumn HOC.
+* Fix: Masonry layout will now update when its `Content.Card` child component gets expanded / collapsed
+* Added InputColumn and `ReadonlyColumn` HOCs. Components are mainly extending corresponding Row components.
+* Added custom theme props for `InputColumn` HOC.
 
 ## 0.3.0
 * Cards can now be expanded and collapsed
