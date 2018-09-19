@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // App imports
-import { classPrefix, theme } from '../../constants';
+import { classPrefix } from '../../constants';
 import CardHeader from './content-card-header.component';
 import * as Primitive from '../../primitives';
 
 const Card = Primitive.Block.extend`
   display: flex;
-  margin-bottom: ${props => (props.isLastItem ? 0 : theme.gutterWidth)}; 
+  margin-bottom: ${props => (props.isLastItem ? 0 : props.theme.gutterWidth)}; 
   flex: ${props => (props.isLastItem ? '2 1 auto' : '0 0 auto')};
   width: 100%;
   height: ${props => (props.height ? props.height : 'auto')};
@@ -16,8 +16,8 @@ const Card = Primitive.Block.extend`
   `;
 
 const CardContent = styled.div`
-  flex: 1 1 calc(100% - ${theme.header.height}); 
-  min-height: calc(100% - ${theme.header.height});
+  flex: 1 1 calc(100% - ${props => props.theme.header.height}); 
+  min-height: calc(100% - ${props => props.theme.header.height});
   display: flex;
   flex-direction: column;
   `;

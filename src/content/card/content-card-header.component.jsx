@@ -5,17 +5,17 @@ import FaPlus from 'react-icons/lib/fa/plus';
 import FaMinus from 'react-icons/lib/fa/minus';
 
 // App imports
-import { classPrefix, theme } from '../../constants';
+import { classPrefix } from '../../constants';
 import * as Primitive from '../../primitives';
 
 const CardIcon = Primitive.BorderlessButton.extend`
-  height: ${theme.header.height};
-  width: ${theme.header.height};
+  height: ${props => props.theme.header.height};
+  width: ${props => props.theme.header.height};
   margin-right: 0;
   margin-left: auto;
   svg {
-    height: ${theme.header.button.height};
-    width: ${theme.header.button.height};
+    height: ${props => props.theme.header.button.height};
+    width: ${props => props.theme.header.button.height};
   }
 `;
 
@@ -23,10 +23,10 @@ const CardTitle = Primitive.Subtitle.extend`
 `;
 
 const CardHeader = styled.header`
-  height: ${theme.header.height};
+  height: ${props => props.theme.header.height};
   align-items: center;
   display: flex;
-  margin-bottom: ${theme.gutterWidth};
+  margin-bottom: ${props => props.theme.gutterWidth};
 `;
 
 

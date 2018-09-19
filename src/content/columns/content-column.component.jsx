@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // App imports
-import { classPrefix, theme } from '../../constants';
+import { classPrefix } from '../../constants';
 
 const Column = styled.div`
     flex-grow: ${props => props.grow};
@@ -12,8 +12,8 @@ const Column = styled.div`
     max-height: 100%;
     flex-wrap: wrap;
     display: flex;
-    min-width: ${theme.column.minWidth};
-    padding: 0 ${theme.halfGutterWidth};
+    min-width: ${props => props.theme.column.minWidth};
+    padding: 0 ${props => props.theme.halfGutterWidth};
 `;
 
 class ContentColumn extends React.PureComponent {

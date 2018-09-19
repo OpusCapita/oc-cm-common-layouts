@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
 // App imports
-import { classPrefix, theme } from '../constants';
+import { classPrefix } from '../constants';
 import { Primitive } from '../';
 
 const HeaderSection = styled.section`
   display:flex;
   align-items: center;
-  height: ${theme.header.height};
+  height: ${props => props.theme.header.height};
   &.center {
     justify-content: center;
   }
