@@ -93,7 +93,7 @@ export default class FixedColumnsComponentView extends React.PureComponent {
                 <React.Fragment key={card.id}>
 
                   {cardIndex === 0 &&
-                  <Content.Card>
+                  <Content.Card id={card.id}>
                     <FixedColumnsSelect
                       onChange={this.onColumnGrowChange}
                       value={this.state[`col${columnIndex}Grow`]}
@@ -103,7 +103,7 @@ export default class FixedColumnsComponentView extends React.PureComponent {
                     />
                   </Content.Card>}
                   {columnIndex === 0 && cardIndex === 0 &&
-                  <Content.Card title="Column options">
+                  <Content.Card id={card.id} title="Column options">
                     <FixedColumnsSelect
                       onChange={this.onColumnCountChange}
                       value={this.state.columnCount}
@@ -117,7 +117,7 @@ export default class FixedColumnsComponentView extends React.PureComponent {
                       label="Row stretching (prop:stretch)"
                     />
                   </Content.Card>}
-                  <Content.Card key={card.id} title={card.name}>
+                  <Content.Card id={card.id} key={card.id} title={card.name}>
                     {card.children.map(row => <p key={row.id}>{row.name}</p>)}
                   </Content.Card>
                 </React.Fragment>
