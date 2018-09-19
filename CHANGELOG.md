@@ -9,6 +9,7 @@
 * Some minor style changes to `Header.Basic`
 * Removed `theme.js` imports
 * ThemeProvider is now being used in `src_docs`
+* ID is now a required prop in `InputRow`, `ReadonlyRow`, `InputColumn` and `ReadonlyColumn`
 
 ## 1.0.1
 * Fix: Enhancing Masonry's update logic

@@ -43,44 +43,48 @@ Common content block.
 Wrapper for input elements. Creates a two column row, label on the left and your input field
 on the right.
 
-| Prop name | Type         | Default | Description                                                                                             |
-| --------- | ------------ | ------- | ------------------------------------------------------------------------------------------------------- |
-| children  | node         | null    | Element to be wrapped                                                                                   |
-| label     | string, node | null    | Row/field label                                                                                         |
-| required  | bool         | false   | Is it a required field                                                                                  |
-| error     | string, bool | ''      | Potential error message. Triggers error styles                                                          |
-| showError | bool         | true    | If error container is not shown, row is going to be a bit leaner. Good when displaying read only values |
-| className | string       | null    | className will also be assigned to the children element                                                 |
+| Prop name | Type         | Default  | Description                                                                                             |
+| --------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------- |
+| children  | node         | null     | Element to be wrapped                                                                                   |
+| id        | string       | required | The ID                                                                               |
+| label     | string, node | null     | Row/field label                                                                                         |
+| required  | bool         | false    | Is it a required field                                                                                  |
+| error     | string, bool | ''       | Potential error message. Triggers error styles                                                          |
+| showError | bool         | true     | If error container is not shown, row is going to be a bit leaner. Good when displaying read only values |
+| className | string       | null     | className will also be assigned to the children element                                                 |
 
 #### Content.ReadonlyRow
 HOC that uses InputRow to show a value.
 
-| Prop name | Type           | Default | Description                                               |
-| --------- | -------------- | ------- | --------------------------------------------------------- |
-| label     | string, node   | null    | Row/field label                                           |
-| value     | string, number | null    | Value to be wrapped in a span                             |
-| normalize | function       | null    | Normalizer callback. Transforms value to a needed format. |
+| Prop name | Type           | Default  | Description                                               |
+| --------- | -------------- | -------- | --------------------------------------------------------- |
+| id        | string         | required | The ID                                                                               |
+| label     | string, node   | null     | Row/field label                                           |
+| value     | string, number | null     | Value to be wrapped in a span                             |
+| normalize | function       | null     | Normalizer callback. Transforms value to a needed format. |
 
 #### Content.InputColumn
 Wrapper for input elements. Creates two row column, where label at top and your input field in bottom.
 
-| Prop name | Type         | Default | Description                                                                                                |
-| --------- | ------------ | ------- | ---------------------------------------------------------------------------------------------------------- |
-| children  | node         | null    | Element to be wrapped                                                                                      |
-| label     | string, node | null    | Column/field label                                                                                         |
-| required  | bool         | false   | Is it a required field                                                                                     |
-| error     | string, bool | ''      | Potential error message. Triggers error styles                                                             |
-| showError | bool         | true    | If error container is not shown, column is going to be a bit leaner. Good when displaying read only values |
-| className | string       | null    | className will also be assigned to the children element                                                    |
+| Prop name | Type         | Default  | Description                                                                                                |
+| --------- | ------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
+| id        | string       | required | The ID                                                                               |
+| children  | node         | null     | Element to be wrapped                                                                                      |
+| label     | string, node | null     | Column/field label                                                                                         |
+| required  | bool         | false    | Is it a required field                                                                                     |
+| error     | string, bool | ''       | Potential error message. Triggers error styles                                                             |
+| showError | bool         | true     | If error container is not shown, column is going to be a bit leaner. Good when displaying read only values |
+| className | string       | null     | className will also be assigned to the children element                                                    |
 
 #### Content.ReadonlyColumn
 HOC that uses InputColumn to show value.
 
-| Prop name | Type           | Default | Description                                               |
-| --------- | -------------- | ------- | --------------------------------------------------------- |
-| label     | string, node   | null    | Column/field label                                        |
-| value     | string, number | null    | Value to be wrapped in a span                             |
-| normalize | function       | null    | Normalizer callback. Transforms value to a needed format. |
+| Prop name | Type           | Default  | Description                                               |
+| --------- | -------------- | -------- | --------------------------------------------------------- |
+| id        | string         | required | The ID                                                                               |
+| label     | string, node   | null     | Column/field label                                        |
+| value     | string, number | null     | Value to be wrapped in a span                             |
+| normalize | function       | null     | Normalizer callback. Transforms value to a needed format. |
 
 #### Content.Masonry
 Masonry works by placing elements in optimal position based on available vertical space.

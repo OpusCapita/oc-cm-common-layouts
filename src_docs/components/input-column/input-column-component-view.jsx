@@ -13,11 +13,11 @@ export default class InputColumnComponentView extends React.PureComponent {
     fields: [{
       label: 'Label 1',
       value: 'Value 1',
-      id: 1,
+      id: '1',
     }, {
       label: 'Field with error',
       value: 'Value 2',
-      id: 2,
+      id: '2',
       error: 'Some error',
     }, {
       label: 'ReadonlyColumn',
@@ -30,18 +30,18 @@ export default class InputColumnComponentView extends React.PureComponent {
     fields: [{
       label: 'Required field',
       value: 'Value 3',
-      id: 3,
+      id: '3',
       required: true,
     }, {
       label: 'Required field with error',
       value: 'Value 4',
-      id: 4,
+      id: '4',
       required: true,
       error: 'Some error in required field',
     }, {
       label: 'Label 5',
       value: 'Value 5',
-      id: 5,
+      id: '5',
     }],
   }];
 
@@ -56,6 +56,7 @@ export default class InputColumnComponentView extends React.PureComponent {
                   if (row.readOnly) {
                     return (<Content.ReadonlyColumn
                       key={row.id}
+                      id={row.id}
                       label={row.label}
                       value={row.value}
                     />);
@@ -65,6 +66,7 @@ export default class InputColumnComponentView extends React.PureComponent {
                     <Content.InputColumn
                       label={row.label}
                       key={row.id}
+                      id={row.id}
                       error={row.error}
                       required={row.required}
                     >
