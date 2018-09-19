@@ -1,15 +1,19 @@
+// Certain variable values are temporarily imported from oc-cm-common-styles
+import vars from '@opuscapita/oc-cm-common-styles/styles/_variables.scss';
+import colors from '@opuscapita/oc-cm-common-styles/styles/_colors.scss';
+
 export const classPrefix = 'oc-layout';
 
 export const theme = {
   gutterWidth: '1rem',
   halfGutterWidth: '0.5rem',
-  contentBackgroundColor: '#fff',
+  contentBackgroundColor: vars.colorContentBackground,
   container: {
     inputRow: 'row',
     inputColumn: 'column',
   },
   header: {
-    height: '4rem',
+    height: vars.heightNavbar,
     button: {
       height: '2rem',
     },
@@ -24,7 +28,7 @@ export const theme = {
       height: '1.5rem',
     },
     requiredIndicator: {
-      fontSize: '18px',
+      fontSize: vars.fontSizeLarge,
     },
   },
   inputColumn: {
@@ -34,21 +38,33 @@ export const theme = {
       height: '1.5rem',
     },
     requiredIndicator: {
-      fontSize: '18px',
+      fontSize: vars.fontSizeLarge,
     },
   },
   text: {
     title: {
-      fontSize: '16px',
-      fontWeight: 'bold',
+      fontSize: vars.fontSizeLarge,
+      fontWeight: vars.fontWeightBold,
     },
     subTitle: {
-      fontSize: '18px',
-      fontWeight: 'normal',
+      fontSize: vars.fontSizeLarge,
+      fontWeight: vars.fontWeightNormal,
     },
     error: {
-      fontSize: '10px',
-      color: '#D82515',
+      fontSize: vars.fontSizeSmall,
+      color: colors.colorError,
+    },
+  },
+  formControls: {
+    input: {
+      borderColor: colors.colorGray,
+      focusBorderColor: colors.colorYellow,
+      height: '34px',
+    },
+    button: {
+      backgroundColor: colors.colorButtonNormal,
+      primaryBackgroundColor: colors.colorButtonPriorityNormal,
+      textColor: colors.colorWhite,
     },
   },
 };

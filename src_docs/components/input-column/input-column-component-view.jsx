@@ -1,7 +1,7 @@
 import React from 'react';
 
 // App imports
-import { Layout, Content } from '../../../src/';
+import { Layout, Content, Primitive } from '../../../src/';
 
 export default class InputColumnComponentView extends React.PureComponent {
   onChange = () => {
@@ -68,7 +68,7 @@ export default class InputColumnComponentView extends React.PureComponent {
                       error={row.error}
                       required={row.required}
                     >
-                      <input value={row.value} onChange={this.onChange} />
+                      <Primitive.Input value={row.value} onChange={this.onChange} />
                     </Content.InputColumn>
                   );
                 })}

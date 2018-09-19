@@ -20,10 +20,12 @@ const HeaderSection = styled.section`
 const CenterSection = HeaderSection.extend`
   flex-grow: 1;
 `;
+
 const SideSection = HeaderSection.extend`
   flex-basis: ${props => props.basis};
   flex-shrink: 1;
 `;
+
 const HeaderBasic = ({
   left, center, right, className, id, sideSectionBasis,
 }) => (
