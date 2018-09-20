@@ -8,6 +8,7 @@ import FaMinus from 'react-icons/lib/fa/minus';
 import { classPrefix } from '../../constants';
 import * as Primitive from '../../primitives';
 
+
 const CardIcon = Primitive.BorderlessButton.extend`
   height: ${props => props.theme.header.height};
   width: ${props => props.theme.header.height};
@@ -20,13 +21,13 @@ const CardIcon = Primitive.BorderlessButton.extend`
 `;
 
 const CardTitle = Primitive.Subtitle.extend`
+  flex: 1 1 100%;
 `;
 
 const CardHeader = styled.header`
   height: ${props => props.theme.header.height};
   align-items: center;
   display: flex;
-  margin-bottom: ${props => props.theme.gutterWidth};
 `;
 
 
@@ -35,7 +36,7 @@ class ContentCardHeader extends React.PureComponent {
 
   render() {
     const {
-      icon, title, onIconClick, isExpanded, isExpandable,
+      icon, title, onIconClick, isExpanded, isExpandable, isLoading,
     } = this.props;
     const cardClassPrefix = `${classPrefix}_card`;
     const resolvedIcon = isExpandable ? this.getExpandedIcon(isExpanded) : icon;
@@ -43,6 +44,7 @@ class ContentCardHeader extends React.PureComponent {
     return (
       <CardHeader className={`${cardClassPrefix}_header`}>
         <CardTitle>{title}</CardTitle>
+        {isLoading && <Primitive.Spinner />}
         {resolvedIcon &&
         <CardIcon onClick={onIconClick} disabled={!onIconClick}>{resolvedIcon}</CardIcon>}
       </CardHeader>
@@ -56,6 +58,7 @@ ContentCardHeader.propTypes = {
   onIconClick: PropTypes.func,
   isExpanded: PropTypes.bool.isRequired,
   isExpandable: PropTypes.bool,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 ContentCardHeader.defaultProps = {

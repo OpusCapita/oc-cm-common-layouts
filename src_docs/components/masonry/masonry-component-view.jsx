@@ -48,6 +48,7 @@ export default class MasonryComponentView extends React.PureComponent {
               key={node.id}
               isExpanded={node.isExpanded}
               isExpandable={node.isExpandable}
+              isLoading={node.isLoading}
               icon={node.icon ? this.getRandomIcon() : null}
               id={`demo-card-${node.id}`}
               onExpand={this.onCardExpand}

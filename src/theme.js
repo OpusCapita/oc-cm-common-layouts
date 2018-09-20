@@ -15,6 +15,9 @@ export default {
     button: {
       height: '2rem',
     },
+    spinner: {
+      height: '2rem',
+    },
   },
   column: {
     minWidth: '400px',
