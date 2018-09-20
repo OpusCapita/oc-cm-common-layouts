@@ -19,10 +19,9 @@
     "name": "Card McCardygan",
     "id": "2",
     "icon": true,
-    "isLoading": true,
     "children": [
       {
-        "name": "I'm loading data",
+        "name": "Something",
         "id": "2-1"
       },
       {
@@ -138,11 +137,11 @@
   },
   {
     "name": "Wicked!",
-    "isLoading": true,
     "id": "7",
+    "icon": true,
     "children": [
       {
-        "name": "I'm loading data",
+        "name": "Something",
         "id": "7-1"
       },
       {

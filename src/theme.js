@@ -16,11 +16,6 @@ export default {
       height: '2rem',
     },
   },
-  card: {
-    spinner: {
-      height: '2rem',
-    },
-  },
   column: {
     minWidth: '400px',
   },
