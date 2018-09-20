@@ -7,6 +7,16 @@ const getErrorStyles = (error, theme) => (error ? theme.text.error.color : '');
 const getContainerDirection = (isCol, theme) =>
   (isCol ? theme.container.inputColumn : theme.container.inputRow);
 
+const getErrorContainerMinHeight = (isCol, theme) =>
+  (isCol ? theme.inputColumn.errorContainer.height : theme.inputRow.errorContainer.height);
+
+const getRequiredIndicatorFontSize = (isCol, theme) =>
+  (isCol ?
+    theme.inputColumn.requiredIndicator.fontSize : theme.inputRow.requiredIndicator.fontSize);
+
+const getLabelRightMargin = (isCol, theme) => (isCol ? 0 : theme.gutterWidth);
+const getLabelBottomMargin = (isCol, theme) => (isCol ? theme.halfGutterWidth : 0);
+
 const Container = styled.section`
   display: flex;
   flex-direction: ${props => getContainerDirection(props.asColumn, props.theme)};
@@ -16,17 +26,13 @@ const Container = styled.section`
   }
 `;
 
-const getLabelContainerWidth = (isCol, theme) =>
-  (isCol ? theme.inputColumn.labelWidth : theme.inputRow.labelWidth);
-
-const getLabelContainerLineHeight = (isCol, theme) =>
-  (isCol ? theme.inputColumn.labelContainerLineHeight : theme.inputRow.labelContainerLineHeight);
-
 const LabelContainer = styled.div`
-  width: ${props => getLabelContainerWidth(props.asColumn, props.theme)};
-  min-width: ${props => getLabelContainerWidth(props.asColumn, props.theme)};
+  width: ${props => (props.asColumn ? props.theme.inputColumn.labelWidth : props.theme.inputRow.labelWidth)};
+  min-width: ${props => (props.asColumn ? props.theme.inputColumn.labelWidth : props.theme.inputRow.labelWidth)};
   color: ${props => getErrorStyles(props.error, props.theme)};
-  line-height: ${props => getLabelContainerLineHeight(props.asColumn, props.theme)};
+  padding-bottom: ${props => (props.showError && !props.asColumn ? getErrorContainerMinHeight(props.asColumn, props.theme) : 0)};
+  align-items: center;
+  display: flex;
 `;
 
 const ValueContainer = styled.div`
@@ -35,16 +41,6 @@ const ValueContainer = styled.div`
   }
   flex: 1 1 auto;
 `;
-
-const getErrorContainerMinHeight = (isCol, theme) =>
-  (isCol ? theme.inputColumn.errorContainer.height : theme.inputRow.errorContainer.height);
-
-const getRequiredIndicatorFontSize = (isCol, theme) =>
-  (isCol ?
-    theme.inputColumn.requiredIndicator.fontSize : theme.inputRow.requiredIndicator.fontSize);
-
-const getLabelRightMargin = (isCol, theme) => (isCol ? 0 : theme.gutterWidth);
-const getLabelBottomMargin = (isCol, theme) => (isCol ? theme.gutterWidth : 0);
 
 const ErrorContainer = styled.div`
   min-height: ${props => getErrorContainerMinHeight(props.asColumn, props.theme)};
@@ -57,12 +53,10 @@ const ErrorMessage = styled.span`
   font-size: ${props => props.theme.text.error.fontSize};
 `;
 
-
 const RequiredIndicator = styled.span`
   margin-left: ${props => props.theme.halfGutterWidth};
   font-size: ${props => getRequiredIndicatorFontSize(props.asColumn, props.theme)};
 `;
-
 
 const Label = styled.label`
   margin-right: ${props => getLabelRightMargin(props.asColumn, props.theme)};
@@ -93,7 +87,7 @@ const ContentInputRow = (props) => {
 
   return (
     <Container asColumn={asColumn} className={className} id={id}>
-      <LabelContainer asColumn={asColumn} error={error}>
+      <LabelContainer asColumn={asColumn} error={error} showError={showError}>
         {label &&
         <Label asColumn={asColumn}>{label}
           {required && <RequiredIndicator asColumn={asColumn}>*</RequiredIndicator>}
