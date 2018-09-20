@@ -3,7 +3,6 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
-* Added a loading spinner to `Content.Card` (`isLoading` prop)
 
 ## 2.0.0
 * Removed React Bootstrap package
