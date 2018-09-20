@@ -20,8 +20,7 @@ const CardContent = styled.div`
   min-height: calc(100% - ${props => props.theme.header.height});
   display: flex;
   flex-direction: column;
-  padding-top: ${props => props.theme.gutterWidth};
-`;
+  `;
 
 class ContentCard extends React.PureComponent {
   constructor(props) {
@@ -48,7 +47,6 @@ class ContentCard extends React.PureComponent {
     const cardClassPrefix = `${classPrefix}_card`;
     const {
       children, isLastItem, title, height, icon, onIconClick, className, id, isExpandable,
-      isLoading,
     } = this.props;
 
     const resolvedOnIconClick = isExpandable ? this.onExpandClick : onIconClick;
@@ -67,7 +65,6 @@ class ContentCard extends React.PureComponent {
           onIconClick={resolvedOnIconClick}
           isExpanded={this.state.isExpanded}
           isExpandable={isExpandable}
-          isLoading={isLoading}
         />}
         {(!isExpandable || this.state.isExpanded) &&
         <CardContent className={`${cardClassPrefix}_content`}>{children}</CardContent>}
@@ -90,7 +87,6 @@ ContentCard.propTypes = {
   className: PropTypes.string,
   isExpanded: PropTypes.bool,
   isExpandable: PropTypes.bool,
-  isLoading: PropTypes.bool,
   onExpand: PropTypes.func,
 };
 ContentCard.defaultProps = {
@@ -103,7 +99,6 @@ ContentCard.defaultProps = {
   className: '',
   isExpanded: undefined,
   isExpandable: false,
-  isLoading: false,
   onExpand: undefined,
 };
 
