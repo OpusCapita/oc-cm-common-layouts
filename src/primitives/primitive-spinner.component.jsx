@@ -12,8 +12,8 @@ const PrimitiveSpinner = styled(Spinner)`
     100% { transform: rotate(360deg); }
   }
   
-  height: ${props => props.theme.header.spinner.height};
-  width: ${props => props.theme.header.spinner.height};
+  height: ${props => props.theme.card.spinner.height};
+  width: ${props => props.theme.card.spinner.height};
 
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;

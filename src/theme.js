@@ -15,58 +15,59 @@ export default {
     button: {
       height: '2rem',
     },
+  },
+  card: {
     spinner: {
       height: '2rem',
     },
-  },
-  column: {
-    minWidth: '400px',
-  },
-  inputRow: {
-    labelWidth: '225px',
-    labelContainerLineHeight: '3rem',
-    errorContainer: {
-      height: '1.5rem',
+    column: {
+      minWidth: '400px',
     },
-    requiredIndicator: {
-      fontSize: vars.fontSizeLarge,
+    inputRow: {
+      labelWidth: '225px',
+      labelContainerLineHeight: '3rem',
+      errorContainer: {
+        height: '1.5rem',
+      },
+      requiredIndicator: {
+        fontSize: vars.fontSizeLarge,
+      },
     },
-  },
-  inputColumn: {
-    labelWidth: '225px',
-    labelContainerLineHeight: '1.5rem',
-    errorContainer: {
-      height: '1.5rem',
+    inputColumn: {
+      labelWidth: '225px',
+      labelContainerLineHeight: '1.5rem',
+      errorContainer: {
+        height: '1.5rem',
+      },
+      requiredIndicator: {
+        fontSize: vars.fontSizeLarge,
+      },
     },
-    requiredIndicator: {
-      fontSize: vars.fontSizeLarge,
+    text: {
+      title: {
+        fontSize: vars.fontSizeMedium,
+        fontWeight: vars.fontWeightBold,
+      },
+      subTitle: {
+        fontSize: vars.fontSizeMedium,
+        fontWeight: vars.fontWeightNormal,
+      },
+      error: {
+        fontSize: vars.fontSizeSmall,
+        color: colors.colorError,
+      },
     },
-  },
-  text: {
-    title: {
-      fontSize: vars.fontSizeMedium,
-      fontWeight: vars.fontWeightBold,
+    formControls: {
+      input: {
+        borderColor: colors.colorGray,
+        focusBorderColor: colors.colorYellow,
+        height: '34px',
+      },
+      button: {
+        backgroundColor: colors.colorButtonNormal,
+        primaryBackgroundColor: colors.colorButtonPriorityNormal,
+        textColor: colors.colorWhite,
+        minWidth: '70px',
+      },
     },
-    subTitle: {
-      fontSize: vars.fontSizeMedium,
-      fontWeight: vars.fontWeightNormal,
-    },
-    error: {
-      fontSize: vars.fontSizeSmall,
-      color: colors.colorError,
-    },
-  },
-  formControls: {
-    input: {
-      borderColor: colors.colorGray,
-      focusBorderColor: colors.colorYellow,
-      height: '34px',
-    },
-    button: {
-      backgroundColor: colors.colorButtonNormal,
-      primaryBackgroundColor: colors.colorButtonPriorityNormal,
-      textColor: colors.colorWhite,
-      minWidth: '70px',
-    },
-  },
-};
+  };
