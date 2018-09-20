@@ -36,6 +36,7 @@ Common content block.
 | onIconClick              | function         | null       | Callback that gets triggered when icon is clicked on |
 | isExpandable             | boolean          | false      | Can the card be collapsed/expanded |
 | isExpanded               | function         | undefined  | Is the card expanded |
+| isLoading                | bool             | false      | Displays a loading spinner in the header | 
 | onExpand                 | function         | undefined  | Callback that gets triggered when the card is expanded/collapsed (id: string, isExpanded: boolean) |
 
 
