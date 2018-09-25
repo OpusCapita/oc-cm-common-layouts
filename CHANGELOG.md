@@ -4,6 +4,10 @@
 
 ## <next>
 
+## 2.1.0
+* Added a loading spinner to `Content.Card`
+* Fixed a few alignment bugs in `Content.InputRow`
+
 ## 2.0.0
 * Removed React Bootstrap package
 * Colors and other variables are now imported from oc-cm-common-styles
