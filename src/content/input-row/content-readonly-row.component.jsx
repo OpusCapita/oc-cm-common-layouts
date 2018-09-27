@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import InputRow from './content-input-row.component';
 
 const ContentReadonlyRow = ({
-  label, value, normalize, asColumn, id,
+  label, value, normalize, asColumn, id, ...rest
 }) => (
-  <InputRow id={id} asColumn={asColumn} label={label} showError={false}>
+  <InputRow id={id} asColumn={asColumn} label={label} showError={false} {...rest}>
     <span>
       {normalize ? normalize(value) : value}
     </span>

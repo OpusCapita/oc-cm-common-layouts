@@ -4,22 +4,22 @@ import styled from 'styled-components';
 
 const getErrorStyles = (error, theme) => (error ? theme.text.error.color : '');
 
-const getContainerDirection = (isCol, theme) =>
-  (isCol ? theme.container.inputColumn : theme.container.inputRow);
+const getContainerDirection = props =>
+  (props.asColumn ? props.theme.inputColumn.flexDirection : props.theme.inputRow.flexDirection);
 
-const getErrorContainerMinHeight = (isCol, theme) =>
-  (isCol ? theme.inputColumn.errorContainer.height : theme.inputRow.errorContainer.height);
+const getErrorContainerMinHeight = props =>
+  (props.asColumn ?
+    props.theme.inputColumn.errorContainer.height : props.theme.inputRow.errorContainer.height);
 
-const getRequiredIndicatorFontSize = (isCol, theme) =>
-  (isCol ?
-    theme.inputColumn.requiredIndicator.fontSize : theme.inputRow.requiredIndicator.fontSize);
 
-const getLabelRightMargin = (isCol, theme) => (isCol ? 0 : theme.gutterWidth);
-const getLabelBottomMargin = (isCol, theme) => (isCol ? theme.halfGutterWidth : 0);
+const getLabelMaxWidth = (props) => {
+  if (props.asColumn) return props.theme.inputColumn.labelWidth;
+  return props.labelWidth !== undefined ? props.labelWidth : props.theme.inputRow.labelWidth;
+};
 
 const Container = styled.section`
   display: flex;
-  flex-direction: ${props => getContainerDirection(props.asColumn, props.theme)};
+  flex-direction: ${props => getContainerDirection(props)};
   margin-bottom: ${props => props.theme.halfGutterWidth};
   @media (max-width: 640px) {
     flex-direction: column;
@@ -27,10 +27,10 @@ const Container = styled.section`
 `;
 
 const LabelContainer = styled.div`
-  width: ${props => (props.asColumn ? props.theme.inputColumn.labelWidth : props.theme.inputRow.labelWidth)};
-  min-width: ${props => (props.asColumn ? props.theme.inputColumn.labelWidth : props.theme.inputRow.labelWidth)};
+  width: 100%;
+  max-width: ${props => getLabelMaxWidth(props)};
   color: ${props => getErrorStyles(props.error, props.theme)};
-  padding-bottom: ${props => (props.showError && !props.asColumn ? getErrorContainerMinHeight(props.asColumn, props.theme) : 0)};
+  padding-bottom: ${props => (props.showError && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
   align-items: center;
   display: flex;
 `;
@@ -43,7 +43,7 @@ const ValueContainer = styled.div`
 `;
 
 const ErrorContainer = styled.div`
-  min-height: ${props => getErrorContainerMinHeight(props.asColumn, props.theme)};
+  min-height: ${props => getErrorContainerMinHeight(props)};
   display: flex;
   align-items: center;
 `;
@@ -55,12 +55,12 @@ const ErrorMessage = styled.span`
 
 const RequiredIndicator = styled.span`
   margin-left: ${props => props.theme.halfGutterWidth};
-  font-size: ${props => getRequiredIndicatorFontSize(props.asColumn, props.theme)};
+  font-size: ${props => (props.asColumn ? props.theme.inputColumn.requiredIndicator.fontSize : props.theme.inputRow.requiredIndicator.fontSize)};
 `;
 
 const Label = styled.label`
-  margin-right: ${props => getLabelRightMargin(props.asColumn, props.theme)};
-  margin-bottom: ${props => getLabelBottomMargin(props.asColumn, props.theme)};
+  margin-right: ${props => (props.asColumn ? 0 : props.theme.gutterWidth)};
+  margin-bottom: ${props => (props.asColumn ? props.theme.halfGutterWidth : 0)};
 `;
 
 /**
@@ -82,12 +82,17 @@ const modifyChildren = (child, props) => {
 
 const ContentInputRow = (props) => {
   const {
-    children, error, showError, label, className, required, id, asColumn,
+    children, error, showError, label, className, required, id, asColumn, labelWidth,
   } = props;
 
   return (
     <Container asColumn={asColumn} className={className} id={id}>
-      <LabelContainer asColumn={asColumn} error={error} showError={showError}>
+      <LabelContainer
+        asColumn={asColumn}
+        error={error}
+        showError={showError}
+        labelWidth={labelWidth}
+      >
         {label &&
         <Label asColumn={asColumn}>{label}
           {required && <RequiredIndicator asColumn={asColumn}>*</RequiredIndicator>}
@@ -113,6 +118,7 @@ ContentInputRow.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string.isRequired,
   asColumn: PropTypes.bool,
+  labelWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ContentInputRow.defaultProps = {
@@ -123,6 +129,7 @@ ContentInputRow.defaultProps = {
   showError: true,
   className: '',
   asColumn: false,
+  labelWidth: undefined,
 };
 
 export default ContentInputRow;

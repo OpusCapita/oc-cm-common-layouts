@@ -21,19 +21,29 @@ const Masonry = styled.div`
 const MasonryTile = styled.div`
   margin-left: ${props => props.theme.gutterWidth};
   /* Small only */
-  @media screen and (max-width: 39.9375em) { width: ${props => getColumnWidth(props.sm, props.theme)}; }
+  @media screen and (max-width: ${props => props.theme.screenSizes.medium}) { 
+    width: ${props => getColumnWidth(props.sm, props.theme)};
+   }
   
   /* Medium and up */
-  @media screen and (min-width: 40em)  { width: ${props => getColumnWidth(props.lg, props.theme)}; }
+  @media screen and (min-width: ${props => props.theme.screenSizes.medium})  { 
+    width: ${props => getColumnWidth(props.lg, props.theme)}; 
+  }
   
   /* Medium only */
-  @media screen and (min-width: 40em) and (max-width: 63.9375em) { width: ${props => getColumnWidth(props.md, props.theme)}; }
+  @media screen and (min-width: ${props => props.theme.screenSizes.medium}) and (max-width: ${props => props.theme.screenSizes.large}) { 
+    width: ${props => getColumnWidth(props.md, props.theme)}; 
+  }
   
   /* Large and up */
-  @media screen and (min-width: 64em) { width: ${props => getColumnWidth(props.xl, props.theme)}; }
+  @media screen and (${props => props.theme.screenSizes.large}) { 
+    width: ${props => getColumnWidth(props.xl, props.theme)}; 
+  }
   
   /* Large only */
-  @media screen and (min-width: 64em) and (max-width: 74.9375em) { width: ${props => getColumnWidth(props.lg, props.theme)}; }
+  @media screen and (min-width: ${props => props.theme.screenSizes.large}) and (max-width: ${props => props.theme.screenSizes.xLarge}) {
+    width: ${props => getColumnWidth(props.lg, props.theme)};
+  }
 `;
 
 class ContentMasonry extends React.PureComponent {
