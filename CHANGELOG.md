@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Reorganized theme a bit
+* Added a `labelWidth` prop to `Content.InputRow`
 
 ## 2.1.0
 * Added a loading spinner to `Content.Card`
