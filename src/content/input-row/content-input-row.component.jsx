@@ -40,7 +40,8 @@ const ValueContainer = styled.div`
     border-color: ${props => getErrorStyles(props.error, props.theme)};
   }
   flex: 1 1 auto;
-  width: ${props => props.width};
+  max-width: ${props => props.width};
+  width: 100%;
 `;
 
 const ErrorContainer = styled.div`
