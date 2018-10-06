@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Added a valueWidth prop to Content.Row
+* Changed Content.Row align-items property to prevent content in Content.Column from stretching
 
 ## 2.2.0
 * Reorganized theme a bit
