@@ -15,6 +15,7 @@ const Row = styled.div`
   margin: ${props => props.theme.gutterWidth} ${props => props.theme.halfGutterWidth};
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   height: ${props => calculateHeight(props)};
 }}`;
 

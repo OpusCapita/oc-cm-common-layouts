@@ -52,17 +52,18 @@ on the right.
 | error      | string, bool   | ''        | Potential error message. Triggers error styles                                                          |
 | showError  | bool           | true      | If error container is not shown, row is going to be a bit leaner. Good when displaying read only values |
 | className  | string         | null      | className will also be assigned to the children element                                                 |
-| labelWidth | string, number | undefined | Width of the label. If null (default), theme value will be used                                         |
+| labelWidth | string, number | undefined | Width of the label. If undefined (default), theme value will be used                                         |
+| valueWidth | string, number | 'auto'    | Width of the input/value container                              |
 
 #### Content.ReadonlyRow
 HOC that uses InputRow to show a value.
 
-| Prop name | Type           | Default  | Description                                               |
-| --------- | -------------- | -------- | --------------------------------------------------------- |
-| id        | string         | required | The ID                                                    |
-| label     | string, node   | null     | Row/field label                                           |
-| value     | string, number | null     | Value to be wrapped in a span                             |
-| normalize | function       | null     | Normalizer callback. Transforms value to a needed format. |
+| Prop name  | Type           | Default   | Description                                               |
+| ---------- | -------------- | --------- | --------------------------------------------------------- |
+| id         | string         | required  | The ID                                                    |
+| label      | string, node   | null      | Row/field label                                           |
+| value      | string, number | null      | Value to be wrapped in a span                             |
+| normalize  | function       | null      | Normalizer callback. Transforms value to a needed format. |
 
 #### Content.InputColumn
 Wrapper for input elements. Creates two row column, where label at top and your input field in bottom.
