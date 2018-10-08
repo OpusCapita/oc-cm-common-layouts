@@ -40,6 +40,8 @@ const ValueContainer = styled.div`
     border-color: ${props => getErrorStyles(props.error, props.theme)};
   }
   flex: 1 1 auto;
+  max-width: ${props => props.width};
+  width: 100%;
 `;
 
 const ErrorContainer = styled.div`
@@ -82,7 +84,7 @@ const modifyChildren = (child, props) => {
 
 const ContentInputRow = (props) => {
   const {
-    children, error, showError, label, className, required, id, asColumn, labelWidth,
+    children, error, showError, label, className, required, id, asColumn, labelWidth, valueWidth,
   } = props;
 
   return (
@@ -98,7 +100,7 @@ const ContentInputRow = (props) => {
           {required && <RequiredIndicator asColumn={asColumn}>*</RequiredIndicator>}
         </Label>}
       </LabelContainer>
-      <ValueContainer error={error}>
+      <ValueContainer width={valueWidth} error={error}>
         {React.Children.map(children, child => modifyChildren(child, props))}
         {showError &&
         <ErrorContainer asColumn={asColumn}>
@@ -119,6 +121,7 @@ ContentInputRow.propTypes = {
   id: PropTypes.string.isRequired,
   asColumn: PropTypes.bool,
   labelWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  valueWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ContentInputRow.defaultProps = {
@@ -130,6 +133,7 @@ ContentInputRow.defaultProps = {
   className: '',
   asColumn: false,
   labelWidth: undefined,
+  valueWidth: 'auto',
 };
 
 export default ContentInputRow;

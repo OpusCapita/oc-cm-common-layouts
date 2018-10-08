@@ -5,31 +5,23 @@ import styled from 'styled-components';
 // App imports
 import { classPrefix } from '../../constants';
 
-const getTopOffset = offset => (typeof offset === 'string' ? offset : `${offset}px`);
-const calculateHeight = (props) => {
-  if (!props.stretch) return 'auto';
-  return `calc(100vh - ${getTopOffset(props.topOffset)} - (2 * ${props.theme.gutterWidth}))`;
-};
-
 const Row = styled.div`
   margin: ${props => props.theme.gutterWidth} ${props => props.theme.halfGutterWidth};
   display: flex;
   flex-wrap: wrap;
-  height: ${props => calculateHeight(props)};
+  align-items: flex-start;
 }}`;
 
 class ContentRow extends React.PureComponent {
   render() {
     const {
       children,
-      topOffset,
       stretch,
       id,
       className,
     } = this.props;
     return (
       <Row
-        topOffset={topOffset}
         stretch={stretch}
         className={`${classPrefix}_row ${className}`}
         innerRef={(element) => {
@@ -55,7 +47,6 @@ class ContentRow extends React.PureComponent {
 
 ContentRow.propTypes = {
   children: PropTypes.node,
-  topOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   stretch: PropTypes.bool,
   id: PropTypes.string,
   className: PropTypes.string,
@@ -63,7 +54,6 @@ ContentRow.propTypes = {
 
 ContentRow.defaultProps = {
   children: undefined,
-  topOffset: 40,
   stretch: false,
   id: '',
   className: '',

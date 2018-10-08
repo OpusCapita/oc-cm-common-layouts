@@ -13,14 +13,14 @@ const Card = Primitive.Block.extend`
   width: 100%;
   height: ${props => (props.height ? props.height : 'auto')};
   flex-direction: column;
-  `;
+ `;
 
 const CardContent = styled.div`
   flex: 1 1 calc(100% - ${props => props.theme.header.height}); 
   min-height: calc(100% - ${props => props.theme.header.height});
   display: flex;
   flex-direction: column;
-  `;
+ `;
 
 class ContentCard extends React.PureComponent {
   constructor(props) {
