@@ -8,7 +8,6 @@ Wraps Content.Column components.
 | children  | node          | null    | n amount of Content.Columns                                                                                         |
 | id        | string        | ''      | element's `id` attribute                                                                                            |
 | className | string        | ''      | element's `class` attribute                                                                                         |
-| topOffset | string/number | 0       | distance from the top of the screen. In case you have a Header, the topOffset will be the height of the header (40) |
 | stretch   | bool          | false   | stretch columns to fill the content area                                                                            |
 
 ##### Content.Column
