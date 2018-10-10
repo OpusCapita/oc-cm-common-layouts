@@ -3,6 +3,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Added a loading spinner to `Content.Card`
+* IE fixes in `Content.InputRow`
 
 ## 2.3.0
 * Added a valueWidth prop to `Content.Row`
