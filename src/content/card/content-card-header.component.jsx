@@ -3,12 +3,23 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FaPlus from 'react-icons/lib/fa/plus';
 import FaMinus from 'react-icons/lib/fa/minus';
+import FaSpinner from 'react-icons/lib/fa/spinner';
 
 // App imports
 import { classPrefix } from '../../constants';
 import * as Primitive from '../../primitives';
 
-const CardIcon = Primitive.BorderlessButton.extend`
+const Spinner = styled(FaSpinner)`
+  animation: spin 2s linear infinite;
+  font-size: 20px;
+  margin-right: 0;
+  margin-left: auto;
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+  }
+`;
+const CardIcon = styled(Primitive.BorderlessButton)`
   height: ${props => props.theme.header.height};
   width: ${props => props.theme.header.height};
   margin-right: 0;
@@ -19,7 +30,8 @@ const CardIcon = Primitive.BorderlessButton.extend`
   }
 `;
 
-const CardTitle = Primitive.Subtitle.extend`
+const CardTitle = styled(Primitive.Subtitle)`
+  width: 100%;
 `;
 
 const CardHeader = styled.header`
@@ -35,7 +47,7 @@ class ContentCardHeader extends React.PureComponent {
 
   render() {
     const {
-      icon, title, onIconClick, isExpanded, isExpandable,
+      icon, title, onIconClick, isExpanded, isExpandable, loading,
     } = this.props;
     const cardClassPrefix = `${classPrefix}_card`;
     const resolvedIcon = isExpandable ? this.getExpandedIcon(isExpanded) : icon;
@@ -43,6 +55,7 @@ class ContentCardHeader extends React.PureComponent {
     return (
       <CardHeader className={`${cardClassPrefix}_header`}>
         <CardTitle>{title}</CardTitle>
+        {loading && <Spinner />}
         {resolvedIcon &&
         <CardIcon onClick={onIconClick} disabled={!onIconClick}>{resolvedIcon}</CardIcon>}
       </CardHeader>
@@ -56,6 +69,7 @@ ContentCardHeader.propTypes = {
   onIconClick: PropTypes.func,
   isExpanded: PropTypes.bool.isRequired,
   isExpandable: PropTypes.bool,
+  loading: PropTypes.bool,
 };
 
 ContentCardHeader.defaultProps = {
@@ -63,6 +77,7 @@ ContentCardHeader.defaultProps = {
   icon: undefined,
   onIconClick: undefined,
   isExpandable: false,
+  loading: false,
 };
 
 export default ContentCardHeader;

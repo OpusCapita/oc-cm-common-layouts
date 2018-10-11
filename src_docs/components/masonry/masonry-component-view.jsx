@@ -51,6 +51,7 @@ export default class MasonryComponentView extends React.PureComponent {
               icon={node.icon ? this.getRandomIcon() : null}
               id={`demo-card-${node.id}`}
               onExpand={this.onCardExpand}
+              loading={node.loading}
               className={`demo-card-class-${node.id}`}
             >
               {node.children.map(child => (

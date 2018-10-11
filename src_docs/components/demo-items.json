@@ -95,6 +95,7 @@
   },
   {
     "name": "Div McDivvy",
+    "loading": true,
     "id": "5",
     "icon": true,
     "children": [
