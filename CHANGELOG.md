@@ -2,7 +2,7 @@
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
-## <next>
+## 2.5.0
 * Added a simple `Primitive.Spinner`
 * Added a header prop to `Content.Card`
 

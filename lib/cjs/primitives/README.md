@@ -30,3 +30,6 @@ Styled h2 element. Used e.g. in Card headers
 ##### Header (export: Primitive.Header)
 Styled header element, which serves as a basic building block
 in all of the Header components.
+
+##### Spinner (export: Primitive.Spinner)
+Simple font-awesome spinner.
