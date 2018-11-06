@@ -37,6 +37,7 @@ Common content block.
 | isExpanded               | function         | undefined  | Is the card expanded |
 | onExpand                 | function         | undefined  | Callback that gets triggered when the card is expanded/collapsed (id: string, isExpanded: boolean) |
 | loading                  | boolean          | false      | Displays a loading spinner in `Card.Header`. | 
+| header                   | node             | undefined  | Custom header |
 
 #### Content.InputRow
 Wrapper for input elements. Creates a two column row, label on the left and your input field

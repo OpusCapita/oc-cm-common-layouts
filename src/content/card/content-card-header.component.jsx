@@ -3,22 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FaPlus from 'react-icons/lib/fa/plus';
 import FaMinus from 'react-icons/lib/fa/minus';
-import FaSpinner from 'react-icons/lib/fa/spinner';
 
 // App imports
 import { classPrefix } from '../../constants';
 import * as Primitive from '../../primitives';
 
-const Spinner = styled(FaSpinner)`
-  animation: spin 2s linear infinite;
-  font-size: 20px;
-  margin-right: 0;
-  margin-left: auto;
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-   100% { transform: rotate(360deg); }
-  }
-`;
 const CardIcon = styled(Primitive.BorderlessButton)`
   height: ${props => props.theme.header.height};
   width: ${props => props.theme.header.height};
@@ -55,7 +44,7 @@ class ContentCardHeader extends React.PureComponent {
     return (
       <CardHeader className={`${cardClassPrefix}_header`}>
         <CardTitle>{title}</CardTitle>
-        {loading && <Spinner />}
+        {loading && <Primitive.Spinner />}
         {resolvedIcon &&
         <CardIcon onClick={onIconClick} disabled={!onIconClick}>{resolvedIcon}</CardIcon>}
       </CardHeader>
