@@ -47,7 +47,7 @@ class ContentCard extends React.PureComponent {
     const cardClassPrefix = `${classPrefix}_card`;
     const {
       children, isLastItem, title, height, icon, onIconClick, className, id, isExpandable,
-      loading,
+      loading, header,
     } = this.props;
 
     const resolvedOnIconClick = isExpandable ? this.onExpandClick : onIconClick;
@@ -59,7 +59,8 @@ class ContentCard extends React.PureComponent {
         isLastItem={isLastItem}
         id={id}
       >
-        {title &&
+        {header && header}
+        {title && !header &&
         <CardHeader
           title={title}
           icon={icon}
@@ -91,6 +92,7 @@ ContentCard.propTypes = {
   isExpandable: PropTypes.bool,
   onExpand: PropTypes.func,
   loading: PropTypes.bool,
+  header: PropTypes.node,
 };
 ContentCard.defaultProps = {
   children: undefined,
@@ -104,6 +106,7 @@ ContentCard.defaultProps = {
   isExpandable: false,
   onExpand: undefined,
   loading: false,
+  header: undefined,
 };
 
 export default ContentCard;
