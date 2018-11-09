@@ -24,7 +24,7 @@ class ContentRow extends React.PureComponent {
       <Row
         stretch={stretch}
         className={`${classPrefix}_row ${className}`}
-        innerRef={(element) => {
+        ref={(element) => {
           this.colContainer = element;
         }}
         id={id}

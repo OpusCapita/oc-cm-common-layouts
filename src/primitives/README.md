@@ -4,7 +4,7 @@ Styled components that provide some base styles for more advanced
 components. You can extend these components simply by:
 
 ```
-const AdvancedComponent = PrimitiveComponent.extend`
+const AdvancedComponent = styled(PrimitiveComponent)`
   font-size: 12px;
   font-weight: bold;
 `;

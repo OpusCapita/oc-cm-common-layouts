@@ -17,11 +17,11 @@ const HeaderSection = styled.section`
   }
 `;
 
-const CenterSection = HeaderSection.extend`
+const CenterSection = styled(HeaderSection)`
   flex-grow: 1;
 `;
 
-const SideSection = HeaderSection.extend`
+const SideSection = styled(HeaderSection)`
   flex-basis: ${props => props.basis};
   flex-shrink: 1;
 `;

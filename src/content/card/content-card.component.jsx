@@ -6,7 +6,7 @@ import { classPrefix } from '../../constants';
 import CardHeader from './content-card-header.component';
 import * as Primitive from '../../primitives';
 
-const Card = Primitive.Block.extend`
+const Card = styled(Primitive.Block)`
   display: flex;
   margin-bottom: ${props => (props.isLastItem ? 0 : props.theme.gutterWidth)}; 
   flex: ${props => (props.isLastItem ? '2 1 auto' : '0 0 auto')};

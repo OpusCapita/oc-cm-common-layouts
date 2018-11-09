@@ -4,8 +4,9 @@ import Layout from './containers/layouts';
 import './app.component.scss';
 import './images/favicon.ico';
 
+export default
 @hot(module)
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <Layout />

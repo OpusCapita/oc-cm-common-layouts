@@ -2,6 +2,10 @@
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
+## 2.5.1
+* Upgrade packages
+* Migrate to styled-components 4
+
 ## 2.5.0
 * Added a simple `Primitive.Spinner`
 * Added a header prop to `Content.Card`

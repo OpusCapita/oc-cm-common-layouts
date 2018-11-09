@@ -10,12 +10,13 @@ const NavItem = styled(Link)`
   margin: 0 ${props => props.theme.gutterWidth};
 `;
 
-const Title = Primitive.Title.extend`
+const Title = styled(Primitive.Title)`
   white-space: nowrap;
 `;
 
+export default
 @withRouter
-export default class Navigation extends React.Component {
+class Navigation extends React.Component {
   static propTypes = {
     location: PropTypes.object.isRequired, // eslint-disable-line
   };
