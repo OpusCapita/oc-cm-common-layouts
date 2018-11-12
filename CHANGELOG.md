@@ -2,6 +2,9 @@
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
+## 2.5.2
+* Fix peer dependency version requirement
+
 ## 2.5.1
 * Upgrade packages
 * Migrate to styled-components 4
