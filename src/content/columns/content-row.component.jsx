@@ -29,16 +29,19 @@ class ContentRow extends React.PureComponent {
         }}
         id={id}
       >
-        {React.Children.map(children, (child, i) => {
-          // If it's a regular DOM node
-          if (typeof child.type === 'string') return child;
+        {React.Children.map(children, (child, i) => { // eslint-disable-line consistent-return
+          // Child may be null
+          if (child) {
+            // If it's a regular DOM node
+            if (typeof child.type === 'string') return child;
 
-          // If it's a React component (in most cases Content.Column)
-          return React.cloneElement(child, {
-            parent: this.colContainer,
-            isLastItem: i === children.length - 1 && children.length !== 1,
-            columnCount: children.length,
-          });
+            // If it's a React component (in most cases Content.Column)
+            return React.cloneElement(child, {
+              parent: this.colContainer,
+              isLastItem: i === children.length - 1 && children.length !== 1,
+              columnCount: children.length,
+            });
+          }
         })}
       </Row>
     );
