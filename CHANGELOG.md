@@ -2,7 +2,7 @@
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
-## <next>
+## 2.5.3
 * Small fix in `Content.Row` render
 
 ## 2.5.2
