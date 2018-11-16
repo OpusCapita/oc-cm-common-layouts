@@ -2,6 +2,9 @@
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
+## <next>
+* Small fix in `Content.Row` render
+
 ## 2.5.2
 * Fix peer dependency version requirement
 
