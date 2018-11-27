@@ -72,4 +72,8 @@ export default {
       color: colors.colorError,
     },
   },
+  toggle: {
+    toggleOnColor: colors.colorYellow,
+    toggleOffColor: colors.colorAzure,
+  },
 };
