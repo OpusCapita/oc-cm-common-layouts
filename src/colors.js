@@ -15,12 +15,13 @@ export const descriptions = {
     'Selected grid row background',
     'Selected select item background',
   ],
-  grey6: ['App background'],
-  grey7: ['Grid border color'],
+  grey6: ['App background', 'Grid row border'],
+  grey7: ['Grid outer border'],
   grey8: ['Button (hover)'],
   grey9: [
     'Grid text',
     'Button background',
+    'Checkbox border',
   ],
   grey10: ['Button (pressed)'],
 
