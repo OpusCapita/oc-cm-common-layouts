@@ -7,6 +7,7 @@ import FixedColumnsComponentView from './fixed-columns/fixed-columns-component-v
 import HeadersComponentView from './headers/headers-component-view';
 import InputRowComponentView from './input-row/input-row-component-view';
 import InputColumnComponentView from './input-column/input-column-component-view';
+import ColorsComponentView from './colors/colors-component-view';
 
 export const LayoutItems = List([
   Map({
@@ -38,6 +39,12 @@ export const LayoutItems = List([
     navKey: 5,
     navPath: '/input-column',
     navComponent: InputColumnComponentView,
+  }),
+  Map({
+    navLabel: 'Colors',
+    navKey: 6,
+    navPath: '/colors',
+    navComponent: ColorsComponentView,
   }),
 ]);
 
