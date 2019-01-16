@@ -1,5 +1,6 @@
 // Certain variable values are temporarily imported from oc-cm-common-styles
 import { colors } from './colors';
+import { constants } from './constants';
 
 /**
  * Keep this alphabetical order if possible
@@ -25,7 +26,7 @@ export default {
   },
   halfGutterWidth: '0.5rem',
   header: {
-    height: '40px',
+    height: constants.navBarHeight,
     button: {
       height: '2rem',
     },
@@ -39,7 +40,7 @@ export default {
       height: '1.5rem',
     },
     requiredIndicator: {
-      fontSize: '1.8rem',
+      fontSize: constants.fontSize.h4,
     },
   },
   inputRow: {
@@ -49,7 +50,7 @@ export default {
       height: '1.5rem',
     },
     requiredIndicator: {
-      fontSize: '1.8rem',
+      fontSize: constants.fontSize.h4,
     },
   },
   screenSizes: {
@@ -59,15 +60,15 @@ export default {
   },
   text: {
     title: {
-      fontSize: '1.6rem',
-      fontWeight: 700,
+      fontSize: constants.fontSize.medium,
+      fontWeight: constants.fontWeight.bold,
     },
     subTitle: {
-      fontSize: '1.6rem',
-      fontWeight: 400,
+      fontSize: constants.fontSize.medium,
+      fontWeight: constants.fontWeight.normal,
     },
     error: {
-      fontSize: '1.2rem',
+      fontSize: constants.fontSize.small,
       color: colors.red,
     },
   },
