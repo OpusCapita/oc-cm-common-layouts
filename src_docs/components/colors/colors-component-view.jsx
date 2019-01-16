@@ -42,7 +42,6 @@ const ColorHex = styled.p`
   font-style: italic;
 `;
 export default class ColorsComponentView extends React.PureComponent {
-
   render() {
     return (
       <PerfectScrollbar>
