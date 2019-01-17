@@ -1,6 +1,6 @@
 // Certain variable values are temporarily imported from oc-cm-common-styles
-import vars from '@opuscapita/oc-cm-common-styles/styles/_variables.scss';
-import colors from '@opuscapita/oc-cm-common-styles/styles/_colors.scss';
+import { colors } from './colors';
+import { constants } from './constants';
 
 /**
  * Keep this alphabetical order if possible
@@ -10,23 +10,23 @@ export default {
   column: {
     minWidth: '400px',
   },
-  contentBackgroundColor: vars.colorContentBackground,
+  contentBackgroundColor: colors.white,
   formControls: {
     button: {
-      backgroundColor: colors.colorButtonNormal,
-      primaryBackgroundColor: colors.colorButtonPriorityNormal,
-      textColor: colors.colorWhite,
+      backgroundColor: colors.grey10,
+      primaryBackgroundColor: colors.orange2,
+      textColor: colors.white,
       minWidth: '70px',
     },
     input: {
-      borderColor: colors.colorGray,
-      focusBorderColor: colors.colorYellow,
+      borderColor: colors.grey7,
+      focusBorderColor: colors.yellow,
       height: '34px',
     },
   },
   halfGutterWidth: '0.5rem',
   header: {
-    height: vars.heightNavbar,
+    height: constants.navBarHeight,
     button: {
       height: '2rem',
     },
@@ -40,7 +40,7 @@ export default {
       height: '1.5rem',
     },
     requiredIndicator: {
-      fontSize: vars.fontSizeLarge,
+      fontSize: constants.fontSize.h4,
     },
   },
   inputRow: {
@@ -50,7 +50,7 @@ export default {
       height: '1.5rem',
     },
     requiredIndicator: {
-      fontSize: vars.fontSizeLarge,
+      fontSize: constants.fontSize.h4,
     },
   },
   screenSizes: {
@@ -60,16 +60,16 @@ export default {
   },
   text: {
     title: {
-      fontSize: vars.fontSizeMedium,
-      fontWeight: vars.fontWeightBold,
+      fontSize: constants.fontSize.medium,
+      fontWeight: constants.fontWeight.bold,
     },
     subTitle: {
-      fontSize: vars.fontSizeMedium,
-      fontWeight: vars.fontWeightNormal,
+      fontSize: constants.fontSize.medium,
+      fontWeight: constants.fontWeight.normal,
     },
     error: {
-      fontSize: vars.fontSizeSmall,
-      color: colors.colorError,
+      fontSize: constants.fontSize.small,
+      color: colors.red,
     },
   },
 };

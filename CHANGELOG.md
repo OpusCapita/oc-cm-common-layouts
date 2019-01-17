@@ -1,6 +1,8 @@
 # Changelog
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
+## <next>
+* Theme: Refactored colors object (contains breaking changes)
 
 ## 2.5.3
 * Small fix in `Content.Row` render
