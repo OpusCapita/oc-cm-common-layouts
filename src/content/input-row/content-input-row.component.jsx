@@ -7,9 +7,8 @@ const getErrorStyles = (error, theme) => (error ? theme.text.error.color : '');
 const getContainerDirection = props =>
   (props.asColumn ? props.theme.inputColumn.flexDirection : props.theme.inputRow.flexDirection);
 
-const getErrorContainerMinHeight = props =>
-  (props.asColumn ?
-    props.theme.inputColumn.errorContainer.height : props.theme.inputRow.errorContainer.height);
+const getErrorContainerMinHeight = props => (props.asColumn
+  ? props.theme.inputColumn.errorContainer.height : props.theme.inputRow.errorContainer.height);
 
 
 const getLabelMaxWidth = (props) => {
@@ -94,17 +93,22 @@ const ContentInputRow = (props) => {
         showError={showError}
         labelWidth={labelWidth}
       >
-        {label &&
-        <Label asColumn={asColumn}>{label}
-          {required && <RequiredIndicator asColumn={asColumn}>*</RequiredIndicator>}
-        </Label>}
+        {label
+        && (
+          <Label asColumn={asColumn}>
+            {label}
+            {required && <RequiredIndicator asColumn={asColumn}>*</RequiredIndicator>}
+          </Label>
+        )}
       </LabelContainer>
       <ValueContainer width={valueWidth} error={error}>
         {React.Children.map(children, child => modifyChildren(child, props))}
-        {showError &&
-        <ErrorContainer asColumn={asColumn}>
-          {error && <ErrorMessage>{error}</ErrorMessage>}
-        </ErrorContainer>}
+        {showError
+        && (
+          <ErrorContainer asColumn={asColumn}>
+            {error && <ErrorMessage>{error}</ErrorMessage>}
+          </ErrorContainer>
+        )}
       </ValueContainer>
     </Container>
   );

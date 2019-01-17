@@ -1,7 +1,8 @@
 # Changelog
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
-## <next>
+
+## 3.0.0
 * Theme: Refactored colors object (contains breaking changes)
 
 ## 2.5.3

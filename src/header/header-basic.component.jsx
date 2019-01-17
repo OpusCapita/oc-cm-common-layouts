@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // App imports
 import { classPrefix } from '../constants';
-import { Primitive } from '../';
+import { Primitive } from '..';
 
 const HeaderSection = styled.section`
   display:flex;

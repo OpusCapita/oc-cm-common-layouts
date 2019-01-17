@@ -1,7 +1,7 @@
 import React from 'react';
 
 // App imports
-import { Layout, Content, Primitive } from '../../../src/';
+import { Layout, Content, Primitive } from '../../../src';
 
 export default class InputColumnComponentView extends React.PureComponent {
   onChange = () => {
@@ -54,12 +54,14 @@ export default class InputColumnComponentView extends React.PureComponent {
               <Content.Card id={section.id}>
                 {section.fields.map((row) => {
                   if (row.readOnly) {
-                    return (<Content.ReadonlyColumn
-                      key={row.id}
-                      id={row.id}
-                      label={row.label}
-                      value={row.value}
-                    />);
+                    return (
+                      <Content.ReadonlyColumn
+                        key={row.id}
+                        id={row.id}
+                        label={row.label}
+                        value={row.value}
+                      />
+                    );
                   }
 
                   return (

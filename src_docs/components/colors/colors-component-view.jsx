@@ -53,10 +53,12 @@ export default class ColorsComponentView extends React.PureComponent {
                 <ColorBlock color={color} key={key}>
                   <ColorName>{key}</ColorName>
                   <ColorHex>{color}</ColorHex>
-                  {!!descriptions[key].length &&
+                  {!!descriptions[key].length
+                  && (
                   <DescriptionList>
                     {descriptions[key].map(description => <li>{description}</li>)}
-                  </DescriptionList>}
+                  </DescriptionList>
+                  )}
                 </ColorBlock>
               );
             })

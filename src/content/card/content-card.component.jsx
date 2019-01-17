@@ -60,7 +60,8 @@ class ContentCard extends React.PureComponent {
         id={id}
       >
         {header && header}
-        {title && !header &&
+        {title && !header
+        && (
         <CardHeader
           title={title}
           icon={icon}
@@ -68,9 +69,10 @@ class ContentCard extends React.PureComponent {
           isExpanded={this.state.isExpanded}
           isExpandable={isExpandable}
           loading={loading}
-        />}
-        {(!isExpandable || this.state.isExpanded) &&
-        <CardContent className={`${cardClassPrefix}_content`}>{children}</CardContent>}
+        />
+        )}
+        {(!isExpandable || this.state.isExpanded)
+        && <CardContent className={`${cardClassPrefix}_content`}>{children}</CardContent>}
       </Card>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 // App imports
-import { Layout, Content, Primitive } from '../../../src/';
+import { Layout, Content, Primitive } from '../../../src';
 
 export default class InputRowComponentView extends React.PureComponent {
   onChange = () => {
