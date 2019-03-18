@@ -5,8 +5,8 @@ import InputRow from './content-input-row.component';
 const ContentReadonlyRow = ({
   label, value, normalize, asColumn, id, ...rest
 }) => (
-  <InputRow id={id} asColumn={asColumn} label={label} showError={false} {...rest}>
-    <span>
+  <InputRow asColumn={asColumn} label={label} showError={false} {...rest}>
+    <span id={id}>
       {normalize ? normalize(value) : value}
     </span>
   </InputRow>
