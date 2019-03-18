@@ -1,6 +1,8 @@
 # Changelog
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
+## <next>
+* Move `ReadonlyRow`'s id attribute directly to `span` element
 
 ## 3.0.0
 * Theme: Refactored colors object (contains breaking changes)
