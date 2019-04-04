@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PerfectScrollbar from '@opuscapita/react-perfect-scrollbar';
 import { darken } from 'polished';
-// Other
-import { descriptions } from '../../../src/colors';
-import theme from '../../../src/theme';
+import theme, { colors } from '@opuscapita/oc-cm-theme';
 
 const Content = styled.div`
   background: ${theme.colors.white}
@@ -47,17 +45,19 @@ export default class ColorsComponentView extends React.PureComponent {
       <PerfectScrollbar>
         <Content>
           {
-            Object.keys(theme.colors).map((key) => {
-              const color = theme.colors[key];
+            Object.keys(colors).map((key) => {
+              const color = colors[key];
+              if (key === 'descriptions') return null;
               return (
                 <ColorBlock color={color} key={key}>
                   <ColorName>{key}</ColorName>
                   <ColorHex>{color}</ColorHex>
-                  {!!descriptions[key].length
+                  {!!colors.descriptions[key].length
                   && (
-                  <DescriptionList>
-                    {descriptions[key].map(description => <li>{description}</li>)}
-                  </DescriptionList>
+                    <DescriptionList>
+                      {colors.descriptions[key].map(description =>
+                        <li key={description}>{description}</li>)}
+                    </DescriptionList>
                   )}
                 </ColorBlock>
               );

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ReactMasonry from 'react-masonry-component';
 import PerfectScrollbar from '@opuscapita/react-perfect-scrollbar';
-
 // App imports
 import { classPrefix } from '../../constants';
 
@@ -47,6 +46,7 @@ const MasonryTile = styled.div`
 `;
 
 class ContentMasonry extends React.PureComponent {
+
   getChildProps = (childIndex) => {
     const { children } = this.props;
     const child = children[childIndex];
