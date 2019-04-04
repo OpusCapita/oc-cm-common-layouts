@@ -46,7 +46,6 @@ const MasonryTile = styled.div`
 `;
 
 class ContentMasonry extends React.PureComponent {
-
   getChildProps = (childIndex) => {
     const { children } = this.props;
     const child = children[childIndex];
