@@ -2,6 +2,9 @@
 
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
+## 3.0.2
+* Replace theme files with `@opuscapita/oc-cm-theme` package
+
 ## 3.0.1
 * Move `ReadonlyRow`'s id attribute directly to `span` element
 
