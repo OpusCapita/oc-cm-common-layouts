@@ -3,9 +3,11 @@ import { render } from 'react-dom';
 import { Router } from 'react-router-dom';
 import createHistory from 'history/createHashHistory';
 import { ThemeProvider } from 'styled-components';
+import theme from '@opuscapita/oc-cm-theme';
+
 // App imports
+
 import App from './app.component';
-import theme from '../src/theme';
 
 const history = createHistory();
 

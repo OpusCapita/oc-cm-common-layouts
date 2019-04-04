@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 // App imports
 import { classPrefix } from '../../constants';
 import CardHeader from './content-card-header.component';
@@ -62,14 +63,14 @@ class ContentCard extends React.PureComponent {
         {header && header}
         {title && !header
         && (
-        <CardHeader
-          title={title}
-          icon={icon}
-          onIconClick={resolvedOnIconClick}
-          isExpanded={this.state.isExpanded}
-          isExpandable={isExpandable}
-          loading={loading}
-        />
+          <CardHeader
+            title={title}
+            icon={icon}
+            onIconClick={resolvedOnIconClick}
+            isExpanded={this.state.isExpanded}
+            isExpandable={isExpandable}
+            loading={loading}
+          />
         )}
         {(!isExpandable || this.state.isExpanded)
         && <CardContent className={`${cardClassPrefix}_content`}>{children}</CardContent>}
