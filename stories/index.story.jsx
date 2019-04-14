@@ -237,5 +237,4 @@ stories.add('Primitives', () => {
       ))}
     </StoryContainer>
   );
-})
-;
+});
