@@ -37,9 +37,9 @@ const HeaderBasic = ({
 );
 
 HeaderBasic.propTypes = {
-  left: PropTypes.node,
-  center: PropTypes.node,
-  right: PropTypes.node,
+  left: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  center: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  right: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   className: PropTypes.string,
   id: PropTypes.string,
   sideSectionBasis: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
