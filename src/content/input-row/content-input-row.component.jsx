@@ -26,7 +26,7 @@ const Container = styled.section`
 `;
 
 const LabelContainer = styled.div`
-  min-width: ${props => getLabelMaxWidth(props)};
+  width: ${props => getLabelMaxWidth(props)};
   color: ${props => getErrorStyles(props.error, props.theme)};
   padding-bottom: ${props => (props.showError && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
   align-items: center;

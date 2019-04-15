@@ -32,7 +32,7 @@ export default class InputRowComponentView extends React.PureComponent {
       id: '3',
       required: true,
     }, {
-      label: 'Required field with error',
+      label: 'Required field with error, and some long text as label',
       value: 'Value 4',
       id: '4',
       required: true,

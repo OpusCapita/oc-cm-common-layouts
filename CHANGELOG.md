@@ -1,9 +1,12 @@
 # Changelog
-
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
-## <next>
+
+## 3.1.0
 * Added storybook
 * Modified `Header.Basic` prop types to allow string content in `left`, `center` and `right` props.
+* Fixed input row label width with long label text
+* Upgraded packages
+
 ## 3.0.2
 * Replace theme files with `@opuscapita/oc-cm-theme` package
 
