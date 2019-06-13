@@ -21,6 +21,7 @@ stories.add('Content: InputRow', () => {
     labelWidth: text('Label width', undefined),
     valueWidth: text('Value width', undefined),
     required: boolean('Required', true),
+    append: text('Append', undefined),
   };
 
   return (
@@ -38,6 +39,7 @@ stories.add('Content: InputColumn', () => {
     labelWidth: text('Label width', undefined),
     valueWidth: text('Value width', undefined),
     required: boolean('Required', true),
+    append: text('Append', undefined),
   };
 
   /* eslint-disable no-alert */

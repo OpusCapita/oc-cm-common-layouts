@@ -4,46 +4,61 @@ import React from 'react';
 import { Layout, Content, Primitive } from '../../../src';
 
 export default class InputColumnComponentView extends React.PureComponent {
-  onChange = () => {
+  onChange = () => {};
 
-  };
-
-  getContent = () => [{
-    id: 'column1',
-    fields: [{
-      label: 'Label 1',
-      value: 'Value 1',
-      id: '1',
-    }, {
-      label: 'Field with error',
-      value: 'Value 2',
-      id: '2',
-      error: 'Some error',
-    }, {
-      label: 'ReadonlyColumn',
-      value: 'ReadonlyColumn value',
-      id: '2.5',
-      readOnly: true,
-    }],
-  }, {
-    id: 'column2',
-    fields: [{
-      label: 'Required field',
-      value: 'Value 3',
-      id: '3',
-      required: true,
-    }, {
-      label: 'Required field with error',
-      value: 'Value 4',
-      id: '4',
-      required: true,
-      error: 'Some error in required field',
-    }, {
-      label: 'Label 5',
-      value: 'Value 5',
-      id: '5',
-    }],
-  }];
+  getContent = () => [
+    {
+      id: 'column1',
+      fields: [
+        {
+          label: 'Label 1',
+          value: 'Value 1',
+          id: '1',
+        },
+        {
+          label: 'Field with error',
+          value: 'Value 2',
+          id: '2',
+          error: 'Some error',
+        },
+        {
+          label: 'ReadonlyColumn',
+          value: 'ReadonlyColumn value',
+          id: '2.5',
+          readOnly: true,
+        },
+        {
+          label: 'With append',
+          value: 'Value 3',
+          id: '6',
+          append: 'This can be either node, string or number',
+        },
+      ],
+    },
+    {
+      id: 'column2',
+      fields: [
+        {
+          label: 'Required field',
+          value: 'Value 3',
+          id: '3',
+          required: true,
+        },
+        {
+          label: 'Required field with error',
+          value: 'Value 4',
+          id: '4',
+          required: true,
+          error: 'Some error in required field',
+        },
+        {
+          label: 'Label 5',
+          value: 'Value 5',
+          id: '5',
+        },
+      ],
+    },
+  ];
 
   render() {
     return (
@@ -71,6 +86,7 @@ export default class InputColumnComponentView extends React.PureComponent {
                       id={row.id}
                       error={row.error}
                       required={row.required}
+                      append={row.append}
                     >
                       <Primitive.Input value={row.value} onChange={this.onChange} />
                     </Content.InputColumn>
