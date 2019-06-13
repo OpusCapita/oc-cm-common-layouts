@@ -1,6 +1,9 @@
 # Changelog
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
+
+## 3.2.0
+* Added `append` prop to `InputRow`/`InputColumn`
 ## 3.1.0
 * Added storybook
 * Modified `Header.Basic` prop types to allow string content in `left`, `center` and `right` props.

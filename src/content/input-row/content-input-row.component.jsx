@@ -7,9 +7,10 @@ const getErrorStyles = (error, theme) => (error ? theme.text.error.color : '');
 const getContainerDirection = props =>
   (props.asColumn ? props.theme.inputColumn.flexDirection : props.theme.inputRow.flexDirection);
 
-const getErrorContainerMinHeight = props => (props.asColumn
-  ? props.theme.inputColumn.errorContainer.height : props.theme.inputRow.errorContainer.height);
-
+const getErrorContainerMinHeight = props =>
+  (props.asColumn
+    ? props.theme.inputColumn.errorContainer.height
+    : props.theme.inputRow.errorContainer.height);
 
 const getLabelMaxWidth = (props) => {
   if (props.asColumn) return props.theme.inputColumn.labelWidth;
@@ -28,13 +29,15 @@ const Container = styled.section`
 const LabelContainer = styled.div`
   width: ${props => getLabelMaxWidth(props)};
   color: ${props => getErrorStyles(props.error, props.theme)};
-  padding-bottom: ${props => (props.showError && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
+  padding-bottom: ${props =>
+    (props.showError && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
   align-items: center;
   display: flex;
 `;
 
 const ValueContainer = styled.div`
-  > input, > .form-control {
+  > input,
+  > .form-control {
     border-color: ${props => getErrorStyles(props.error, props.theme)};
   }
   flex: 1 1 auto;
@@ -55,12 +58,25 @@ const ErrorMessage = styled.span`
 
 const RequiredIndicator = styled.span`
   margin-left: ${props => props.theme.halfGutterWidth};
-  font-size: ${props => (props.asColumn ? props.theme.inputColumn.requiredIndicator.fontSize : props.theme.inputRow.requiredIndicator.fontSize)};
+  font-size: ${props =>
+    (props.asColumn
+      ? props.theme.inputColumn.requiredIndicator.fontSize
+      : props.theme.inputRow.requiredIndicator.fontSize)};
 `;
 
 const Label = styled.label`
   margin-right: ${props => (props.asColumn ? 0 : props.theme.gutterWidth)};
   margin-bottom: ${props => (props.asColumn ? props.theme.halfGutterWidth : 0)};
+`;
+
+const FieldContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Append = styled.div`
+  padding-left: ${props => props.theme.gutterWidth};
+  flex: 1 1 100%;
 `;
 
 /**
@@ -82,7 +98,17 @@ const modifyChildren = (child, props) => {
 
 const ContentInputRow = (props) => {
   const {
-    children, error, showError, label, className, required, id, asColumn, labelWidth, valueWidth,
+    children,
+    error,
+    showError,
+    label,
+    className,
+    required,
+    id,
+    asColumn,
+    labelWidth,
+    valueWidth,
+    append,
   } = props;
 
   return (
@@ -93,8 +119,7 @@ const ContentInputRow = (props) => {
         showError={showError}
         labelWidth={labelWidth}
       >
-        {label
-        && (
+        {label && (
           <Label asColumn={asColumn}>
             {label}
             {required && <RequiredIndicator asColumn={asColumn}>*</RequiredIndicator>}
@@ -102,9 +127,11 @@ const ContentInputRow = (props) => {
         )}
       </LabelContainer>
       <ValueContainer width={valueWidth} error={error}>
-        {React.Children.map(children, child => modifyChildren(child, props))}
-        {showError
-        && (
+        <FieldContainer append={append}>
+          {React.Children.map(children, child => modifyChildren(child, props))}
+          {append && <Append>{append}</Append>}
+        </FieldContainer>
+        {showError && (
           <ErrorContainer asColumn={asColumn}>
             {error && <ErrorMessage>{error}</ErrorMessage>}
           </ErrorContainer>
@@ -125,6 +152,7 @@ ContentInputRow.propTypes = {
   asColumn: PropTypes.bool,
   labelWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   valueWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  append: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]),
 };
 
 ContentInputRow.defaultProps = {
@@ -137,6 +165,7 @@ ContentInputRow.defaultProps = {
   asColumn: false,
   labelWidth: undefined,
   valueWidth: 'auto',
+  append: undefined,
 };
 
 export default ContentInputRow;
