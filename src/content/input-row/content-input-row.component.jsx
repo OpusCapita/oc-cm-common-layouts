@@ -36,13 +36,12 @@ const LabelContainer = styled.div`
 `;
 
 const ValueContainer = styled.div`
-  > input,
-  > .form-control {
+  > div > input,
+  > div > .form-control {
     border-color: ${props => getErrorStyles(props.error, props.theme)};
   }
   flex: 1 1 auto;
   max-width: ${props => props.width};
-  width: 100%;
 `;
 
 const ErrorContainer = styled.div`
@@ -70,7 +69,8 @@ const Label = styled.label`
 `;
 
 const FieldContainer = styled.div`
-  display: flex;
+  display: ${props => (props.append ? 'flex' : 'block')};
+  width: 100%;
   align-items: center;
 `;
 
