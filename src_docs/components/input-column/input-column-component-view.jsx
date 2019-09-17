@@ -22,14 +22,20 @@ export default class InputColumnComponentView extends React.PureComponent {
           error: 'Some error',
         },
         {
-          label: 'ReadonlyColumn',
-          value: 'ReadonlyColumn value',
+          label: 'Field with warning',
+          value: 'Value 3',
+          id: '3',
+          warning: 'Some warning',
+        },
+        {
+          label: 'ReadonlyRow',
+          value: 'ReadonlyRow value',
           id: '2.5',
           readOnly: true,
         },
         {
           label: 'With append',
-          value: 'Value 3',
+          value: 'Value 4',
           id: '6',
           append: 'This can be either node, string or number',
         },
@@ -45,16 +51,23 @@ export default class InputColumnComponentView extends React.PureComponent {
           required: true,
         },
         {
-          label: 'Required field with error',
+          label: 'Required field with error, and some long text as label',
           value: 'Value 4',
           id: '4',
           required: true,
           error: 'Some error in required field',
         },
         {
-          label: 'Label 5',
+          label: 'Required field with warning, and some long text as label',
           value: 'Value 5',
           id: '5',
+          required: true,
+          warning: 'Some warning in required field',
+        },
+        {
+          label: 'Label 6',
+          value: 'Value 6',
+          id: '6',
         },
       ],
     },
@@ -85,6 +98,7 @@ export default class InputColumnComponentView extends React.PureComponent {
                       key={row.id}
                       id={row.id}
                       error={row.error}
+                      warning={row.warning}
                       required={row.required}
                       append={row.append}
                     >
