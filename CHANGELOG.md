@@ -1,9 +1,12 @@
 # Changelog
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
+## <next>
+* Added warning support for `InputRow` and `InputColumn`
+
 ## 3.2.1
 * `InputRow` CSS fixes
-  
+
 ## 3.2.0
 * Added `append` prop to `InputRow`/`InputColumn`
 

@@ -21,6 +21,12 @@ export default class InputRowComponentView extends React.PureComponent {
           error: 'Some error',
         },
         {
+          label: 'Field with warning',
+          value: 'Value 3',
+          id: '3',
+          warning: 'Some warning',
+        },
+        {
           label: 'ReadonlyRow',
           value: 'ReadonlyRow value',
           id: '2.5',
@@ -28,7 +34,7 @@ export default class InputRowComponentView extends React.PureComponent {
         },
         {
           label: 'With append',
-          value: 'Value 3',
+          value: 'Value 4',
           id: '6',
           append: 'This can be either node, string or number',
         },
@@ -51,9 +57,16 @@ export default class InputRowComponentView extends React.PureComponent {
           error: 'Some error in required field',
         },
         {
-          label: 'Label 5',
+          label: 'Required field with warning, and some long text as label',
           value: 'Value 5',
           id: '5',
+          required: true,
+          warning: 'Some warning in required field',
+        },
+        {
+          label: 'Label 6',
+          value: 'Value 6',
+          id: '6',
         },
       ],
     },
@@ -86,6 +99,7 @@ export default class InputRowComponentView extends React.PureComponent {
                       error={row.error}
                       required={row.required}
                       append={row.append}
+                      warning={row.warning}
                     >
                       <Primitive.Input value={row.value} onChange={this.onChange} />
                     </Content.InputRow>
