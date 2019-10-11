@@ -45,7 +45,8 @@ const ValueContainer = styled.div`
     border-color: ${props => getStyles(props.error, props.warning, props.theme)};
   }
   flex: 1 1 auto;
-  max-width: ${props => props.width};
+  min-width: 0%;
+  max-width: ${props => (props.width === 'auto' ? '100%' : props.width)};
 `;
 
 const ErrorContainer = styled.div`
@@ -86,6 +87,7 @@ const FieldContainer = styled.div`
 const Append = styled.div`
   padding-left: ${props => props.theme.gutterWidth};
   flex: 1 1 100%;
+  min-width: 0%;
 `;
 
 /**

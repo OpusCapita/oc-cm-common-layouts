@@ -3,6 +3,10 @@
 
 ## <next>
 
+## 3.3.1
+* Fix `Content.InputRow` max-width when width is 'auto'
+* Add `Content.InputRow` min-width to flex items for browser compability
+
 ## 3.3.0
 * Added warning support for `InputRow` and `InputColumn`
 
