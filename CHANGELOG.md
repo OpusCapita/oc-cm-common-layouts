@@ -2,7 +2,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
-
+* Add `errorAsPopup` prop to `InputRow` and `InputColumn`
+* 
 ## 3.3.1
 * Fix `Content.InputRow` max-width when width is 'auto'
 * Add `Content.InputRow` min-width to flex items for browser compability
