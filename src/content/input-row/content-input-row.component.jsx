@@ -199,7 +199,7 @@ const ContentInputRow = (props) => {
         error={error}
         warning={warning}
       >
-        {isHovered && (error || warning) &&
+        {errorAsPopup && isHovered && (error || warning) &&
         <ErrorPopup error={error} warning={warning}>{error}{warning}</ErrorPopup>}
         <FieldContainer append={append} hovered={isHovered}>
           {errorAsPopup && (warning || error) &&
