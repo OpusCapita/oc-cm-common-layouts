@@ -109,6 +109,7 @@ export default class InputColumnComponentView extends React.PureComponent {
                       warning={row.warning}
                       required={row.required}
                       append={row.append}
+                      errorAsPopup={row.errorAsPopup}
                     >
                       <Primitive.Input value={row.value} onChange={this.onChange} />
                     </Content.InputColumn>
