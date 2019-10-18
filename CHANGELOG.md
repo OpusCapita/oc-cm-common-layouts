@@ -2,6 +2,8 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+
+## 3.4.0
 * Add `errorAsPopup` prop to `InputRow` and `InputColumn`
 * 
 ## 3.3.1
