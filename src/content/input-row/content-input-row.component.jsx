@@ -193,8 +193,8 @@ const ContentInputRow = (props) => {
         )}
       </LabelContainer>
       <ValueContainer
-        onMouseEnter={() => onMouseEnter()}
-        onMouseLeave={() => onMouseLeave()}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         width={valueWidth}
         error={error}
         warning={warning}
