@@ -69,6 +69,14 @@ export default class InputColumnComponentView extends React.PureComponent {
           value: 'Value 6',
           id: '6',
         },
+        {
+          label: 'Required field with error and errorAsPopup set as true',
+          value: 'Value 7',
+          id: '7',
+          required: true,
+          error: 'This is required',
+          errorAsPopup: true,
+        },
       ],
     },
   ];
@@ -101,6 +109,7 @@ export default class InputColumnComponentView extends React.PureComponent {
                       warning={row.warning}
                       required={row.required}
                       append={row.append}
+                      errorAsPopup={row.errorAsPopup}
                     >
                       <Primitive.Input value={row.value} onChange={this.onChange} />
                     </Content.InputColumn>

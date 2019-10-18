@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -47,6 +47,7 @@ const ValueContainer = styled.div`
   flex: 1 1 auto;
   min-width: 0%;
   max-width: ${props => (props.width === 'auto' ? '100%' : props.width)};
+  position: relative;
 `;
 
 const ErrorContainer = styled.div`
@@ -90,6 +91,51 @@ const Append = styled.div`
   min-width: 0%;
 `;
 
+const ErrorPopup = styled.div`
+  display:flex;
+  align-items: center;
+  position: absolute;
+  z-index: 20;
+  height: 28px; 
+  background: ${props => getStyles(props.error, props.warning, props.theme)};
+  padding: 0 10px;
+  right: 0;
+  top: -34px;
+  color: ${props => props.theme.colors.white};
+  &:after {
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -6px;
+    right: 2px;
+    border-top: 6px solid ${props => getStyles(props.error, props.warning, props.theme)};
+  }
+`;
+
+const ErrorPopupTrigger = styled.div`
+  flex: 1 1 auto;
+  min-height: 0%;
+  min-width: 0%;
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 7px;
+    border-right-color: ${props => getStyles(props.error, props.warning, props.theme)};
+    border-top-color: ${props => getStyles(props.error, props.warning, props.theme)};
+    z-index: 1;
+  }
+`;
+
 /**
  * Assigns given props directly to input element
  * @param child
@@ -118,10 +164,17 @@ const ContentInputRow = (props) => {
     required,
     id,
     asColumn,
+    errorAsPopup,
     labelWidth,
     valueWidth,
     append,
   } = props;
+
+  const [isHovered, setHovered] = useState(false);
+
+  const onMouseEnter = () => setHovered(true);
+
+  const onMouseLeave = () => setHovered(false);
 
   return (
     <Container asColumn={asColumn} className={className} id={id}>
@@ -139,12 +192,24 @@ const ContentInputRow = (props) => {
           </Label>
         )}
       </LabelContainer>
-      <ValueContainer width={valueWidth} error={error} warning={warning}>
-        <FieldContainer append={append}>
+      <ValueContainer
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        width={valueWidth}
+        error={error}
+        warning={warning}
+      >
+        {errorAsPopup && isHovered && (error || warning) &&
+        <ErrorPopup error={error} warning={warning}>{error}{warning}</ErrorPopup>}
+        <FieldContainer append={append} hovered={isHovered}>
+          {errorAsPopup && (warning || error) &&
+          <ErrorPopupTrigger error={error} warning={warning} />}
+
           {React.Children.map(children, child => modifyChildren(child, props))}
+
           {append && <Append>{append}</Append>}
         </FieldContainer>
-        {showError && (
+        {showError && !errorAsPopup && (
           <ErrorContainer asColumn={asColumn}>
             {error && <ErrorMessage>{error}</ErrorMessage>}
             {!error && warning && <WarningMessage>{warning}</WarningMessage>}
@@ -168,6 +233,7 @@ ContentInputRow.propTypes = {
   labelWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   valueWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   append: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]),
+  errorAsPopup: PropTypes.bool,
 };
 
 ContentInputRow.defaultProps = {
@@ -182,6 +248,7 @@ ContentInputRow.defaultProps = {
   labelWidth: undefined,
   valueWidth: 'auto',
   append: undefined,
+  errorAsPopup: false,
 };
 
 export default ContentInputRow;
