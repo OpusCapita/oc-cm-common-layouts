@@ -43,19 +43,20 @@ Common content block.
 Wrapper for input elements. Creates a two column row, label on the left and your input field
 on the right.
 
-| Prop name  | Type                 | Default   | Description                                                                                                     |
-| ---------- | -------------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
-| children   | node                 | null      | Element to be wrapped                                                                                           |
-| id         | string               | required  | The ID                                                                                                          |
-| label      | string, node         | null      | Row/field label                                                                                                 |
-| required   | bool                 | false     | Is it a required field                                                                                          |
-| error      | string, bool         | ''        | Potential error message. Triggers error styles                                                                  |
-| warning    | string, bool         | ''        | Potential warning message. Triggers warning styles                                                              |
-| showError  | bool                 | true      | If error/warning container is not shown, row is going to be a bit leaner. Good when displaying read only values |
-| className  | string               | null      | className will also be assigned to the children element                                                         |
-| labelWidth | string, number       | undefined | Width of the label. If undefined (default), theme value will be used                                            |
-| valueWidth | string, number       | 'auto'    | Width of the input/value container                                                                              |
-| append     | string, number, node | undefined | Appends content after the value element                                                                         |
+| Prop name     | Type                 | Default   | Description                                                                                                     |
+| ------------- | -------------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
+| children      | node                 | null      | Element to be wrapped                                                                                           |
+| id            | string               | required  | The ID                                                                                                          |
+| label         | string, node         | null      | Row/field label                                                                                                 |
+| required      | bool                 | false     | Is it a required field                                                                                          |
+| error         | string, bool         | ''        | Potential error message. Triggers error styles                                                                  |
+| warning       | string, bool         | ''        | Potential warning message. Triggers warning styles                                                              |
+| showError     | bool                 | true      | If error/warning container is not shown, row is going to be a bit leaner. Good when displaying read only values |
+| className     | string               | null      | className will also be assigned to the children element                                                         |
+| labelWidth    | string, number       | undefined | Width of the label. If undefined (default), theme value will be used                                            |
+| valueWidth    | string, number       | 'auto'    | Width of the input/value container                                                                              |
+| append        | string, number, node | undefined | Appends content after the value element                                                                         |
+| errorAsPopup  | bool                 | false     | Displays error/warning in a popup                                                                               |
 
 #### Content.ReadonlyRow
 HOC that uses InputRow to show a value.
@@ -70,16 +71,17 @@ HOC that uses InputRow to show a value.
 #### Content.InputColumn
 Wrapper for input elements. Creates two row column, where label at top and your input field in bottom.
 
-| Prop name | Type         | Default  | Description                                                                                                        |
-| --------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| id        | string       | required | The ID                                                                                                             |
-| children  | node         | null     | Element to be wrapped                                                                                              |
-| label     | string, node | null     | Column/field label                                                                                                 |
-| required  | bool         | false    | Is it a required field                                                                                             |
-| error     | string, bool | ''       | Potential error message. Triggers error styles                                                                     |
-| warning   | string, bool | ''       | Potential warning message. Triggers warning styles                                                                 |
-| showError | bool         | true     | If error/warning container is not shown, column is going to be a bit leaner. Good when displaying read only values |
-| className | string       | null     | className will also be assigned to the children element                                                            |
+| Prop name     | Type         | Default  | Description                                                                                                        |
+| ------------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| id            | string       | required | The ID                                                                                                             |
+| children      | node         | null     | Element to be wrapped                                                                                              |
+| label         | string, node | null     | Column/field label                                                                                                 |
+| required      | bool         | false    | Is it a required field                                                                                             |
+| error         | string, bool | ''       | Potential error message. Triggers error styles                                                                     |
+| warning       | string, bool | ''       | Potential warning message. Triggers warning styles                                                                 |
+| showError     | bool         | true     | If error/warning container is not shown, column is going to be a bit leaner. Good when displaying read only values |
+| className     | string       | null     | className will also be assigned to the children element                                                            |
+| errorAsPopup  | bool         | false    | Displays error/warning in a popup                                                                                  |
 
 #### Content.ReadonlyColumn
 HOC that uses InputColumn to show value.
