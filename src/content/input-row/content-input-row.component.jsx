@@ -8,6 +8,11 @@ const getStyles = (error, warning, theme) => {
   return '';
 };
 
+const getBorderStyle = (error, warning, theme) => {
+  if (error || warning) return `1px solid ${getStyles(error, warning, theme)}`;
+  return 'unset';
+}
+
 const getContainerDirection = props =>
   (props.asColumn ? props.theme.inputColumn.flexDirection : props.theme.inputRow.flexDirection);
 
@@ -34,7 +39,7 @@ const LabelContainer = styled.div`
   width: ${props => getLabelMaxWidth(props)};
   color: ${props => getStyles(props.error, props.warning, props.theme)};
   padding-bottom: ${props =>
-    (props.showError && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
+    (props.showError && !props.errorAsPopup && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
   align-items: center;
   display: flex;
 `;
@@ -43,6 +48,9 @@ const ValueContainer = styled.div`
   > div > input,
   > div > .form-control {
     border-color: ${props => getStyles(props.error, props.warning, props.theme)};
+  }
+  > div > .input-row-validation-error {
+    border: ${props => getBorderStyle(props.error, props.warning, props.theme)};
   }
   flex: 1 1 auto;
   min-width: 0%;
@@ -96,15 +104,15 @@ const ErrorPopup = styled.div`
   align-items: center;
   position: absolute;
   z-index: 20;
-  height: 28px; 
+  height: 28px;
   background: ${props => getStyles(props.error, props.warning, props.theme)};
   padding: 0 10px;
   right: 0;
   top: -34px;
   color: ${props => props.theme.colors.white};
   &:after {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     content: "";
@@ -183,6 +191,7 @@ const ContentInputRow = (props) => {
         error={error}
         warning={warning}
         showError={showError}
+        errorAsPopup={errorAsPopup}
         labelWidth={labelWidth}
       >
         {label && (
