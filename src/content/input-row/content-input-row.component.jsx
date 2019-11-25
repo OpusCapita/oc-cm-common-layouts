@@ -18,7 +18,7 @@ const getLabelStyles = (showErrorInLabel, error, warning, theme) => {
 const getBorderStyle = (error, warning, theme) => {
   if (error || warning) return `1px solid ${getStyles(error, warning, theme)}`;
   return 'unset';
-}
+};
 
 const getContainerDirection = props =>
   (props.asColumn ? props.theme.inputColumn.flexDirection : props.theme.inputRow.flexDirection);
