@@ -46,7 +46,7 @@ const LabelContainer = styled.div`
   width: ${props => getLabelMaxWidth(props)};
   color: ${props => getLabelStyles(props.showErrorInLabel, props.error, props.warning, props.theme)};
   padding-bottom: ${props =>
-    (props.showError && !props.errorAsPopup && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
+    (props.showError && !props.showErrorInPopup && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
   align-items: center;
   display: flex;
 `;
@@ -180,7 +180,7 @@ const ContentInputRow = (props) => {
     required,
     id,
     asColumn,
-    errorAsPopup,
+    showErrorInPopup,
     labelWidth,
     valueWidth,
     append,
@@ -199,7 +199,7 @@ const ContentInputRow = (props) => {
         error={error}
         warning={warning}
         showError={showError}
-        errorAsPopup={errorAsPopup}
+        showErrorInPopup={showErrorInPopup}
         labelWidth={labelWidth}
         showErrorInLabel={showErrorInLabel}
       >
@@ -217,17 +217,17 @@ const ContentInputRow = (props) => {
         error={error}
         warning={warning}
       >
-        {errorAsPopup && isHovered && (error || warning) &&
+        {showErrorInPopup && isHovered && (error || warning) &&
         <ErrorPopup error={error} warning={warning}>{error}{warning}</ErrorPopup>}
         <FieldContainer append={append} hovered={isHovered}>
-          {errorAsPopup && (warning || error) &&
+          {showErrorInPopup && (warning || error) &&
           <ErrorPopupTrigger error={error} warning={warning} />}
 
           {React.Children.map(children, child => modifyChildren(child, props))}
 
           {append && <Append>{append}</Append>}
         </FieldContainer>
-        {showError && !errorAsPopup && (
+        {showError && !showErrorInPopup && (
           <ErrorContainer asColumn={asColumn}>
             {error && <ErrorMessage>{error}</ErrorMessage>}
             {!error && warning && <WarningMessage>{warning}</WarningMessage>}
@@ -252,7 +252,7 @@ ContentInputRow.propTypes = {
   labelWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   valueWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   append: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]),
-  errorAsPopup: PropTypes.bool,
+  showErrorInPopup: PropTypes.bool,
 };
 
 ContentInputRow.defaultProps = {
@@ -268,7 +268,7 @@ ContentInputRow.defaultProps = {
   labelWidth: undefined,
   valueWidth: 'auto',
   append: undefined,
-  errorAsPopup: false,
+  showErrorInPopup: false,
 };
 
 export default ContentInputRow;

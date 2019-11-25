@@ -57,7 +57,7 @@ on the right.
 | labelWidth    | string, number       | undefined | Width of the label. If undefined (default), theme value will be used                                            |
 | valueWidth    | string, number       | 'auto'    | Width of the input/value container                                                                              |
 | append        | string, number, node | undefined | Appends content after the value element                                                                         |
-| errorAsPopup  | bool                 | false     | Displays error/warning in a popup                                                                               |
+| showErrorInPopup  | bool                 | false     | Displays error/warning in a popup                                                                               |
 
 #### Content.ReadonlyRow
 HOC that uses InputRow to show a value.
@@ -82,7 +82,7 @@ Wrapper for input elements. Creates two row column, where label at top and your 
 | warning       | string, bool | ''       | Potential warning message. Triggers warning styles                                                                 |
 | showError     | bool         | true     | If error/warning container is not shown, column is going to be a bit leaner. Good when displaying read only values |
 | className     | string       | null     | className will also be assigned to the children element                                                            |
-| errorAsPopup  | bool         | false    | Displays error/warning in a popup                                                                                  |
+| showErrorInPopup  | bool         | false    | Displays error/warning in a popup                                                                                  |
 
 #### Content.ReadonlyColumn
 HOC that uses InputColumn to show value.

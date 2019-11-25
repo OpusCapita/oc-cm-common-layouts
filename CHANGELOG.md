@@ -4,8 +4,9 @@
 ## <next>
 
 ## 3.5.0
+* `errorAsPopup` renamed to `showErrorInPopup`
 * `showErrorInLabel` prop added
-* `errorAsPopup` label container padding removed
+* `showErrorInPopup` label container padding removed
 * Custom border added if child element has style .input-row-validation-error
 
 ## 3.4.0
