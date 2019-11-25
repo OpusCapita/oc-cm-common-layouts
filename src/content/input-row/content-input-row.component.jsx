@@ -8,6 +8,13 @@ const getStyles = (error, warning, theme) => {
   return '';
 };
 
+const getLabelStyles = (showErrorInLabel, error, warning, theme) => {
+  if (showErrorInLabel) {
+    return getStyles(error, warning, theme);
+  }
+  return '';
+};
+
 const getBorderStyle = (error, warning, theme) => {
   if (error || warning) return `1px solid ${getStyles(error, warning, theme)}`;
   return 'unset';
@@ -37,7 +44,7 @@ const Container = styled.section`
 
 const LabelContainer = styled.div`
   width: ${props => getLabelMaxWidth(props)};
-  color: ${props => getStyles(props.error, props.warning, props.theme)};
+  color: ${props => getLabelStyles(props.showErrorInLabel, props.error, props.warning, props.theme)};
   padding-bottom: ${props =>
     (props.showError && !props.errorAsPopup && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
   align-items: center;
@@ -167,6 +174,7 @@ const ContentInputRow = (props) => {
     error,
     warning,
     showError,
+    showErrorInLabel,
     label,
     className,
     required,
@@ -193,6 +201,7 @@ const ContentInputRow = (props) => {
         showError={showError}
         errorAsPopup={errorAsPopup}
         labelWidth={labelWidth}
+        showErrorInLabel={showErrorInLabel}
       >
         {label && (
           <Label asColumn={asColumn}>
@@ -236,6 +245,7 @@ ContentInputRow.propTypes = {
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   warning: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   showError: PropTypes.bool,
+  showErrorInLabel: PropTypes.bool,
   className: PropTypes.string,
   id: PropTypes.string.isRequired,
   asColumn: PropTypes.bool,
@@ -252,6 +262,7 @@ ContentInputRow.defaultProps = {
   error: '',
   warning: '',
   showError: true,
+  showErrorInLabel: true,
   className: '',
   asColumn: false,
   labelWidth: undefined,

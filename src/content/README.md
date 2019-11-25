@@ -52,6 +52,7 @@ on the right.
 | error         | string, bool         | ''        | Potential error message. Triggers error styles                                                                  |
 | warning       | string, bool         | ''        | Potential warning message. Triggers warning styles                                                              |
 | showError     | bool                 | true      | If error/warning container is not shown, row is going to be a bit leaner. Good when displaying read only values |
+| showErrorInLabel | bool              | true      | indicate error/warning by chancing the label color (red/yellow). True by default.
 | className     | string               | null      | className will also be assigned to the children element                                                         |
 | labelWidth    | string, number       | undefined | Width of the label. If undefined (default), theme value will be used                                            |
 | valueWidth    | string, number       | 'auto'    | Width of the input/value container                                                                              |
