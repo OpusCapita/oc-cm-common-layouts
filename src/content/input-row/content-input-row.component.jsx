@@ -8,6 +8,18 @@ const getStyles = (error, warning, theme) => {
   return '';
 };
 
+const getLabelStyles = (showErrorInLabel, error, warning, theme) => {
+  if (showErrorInLabel) {
+    return getStyles(error, warning, theme);
+  }
+  return '';
+};
+
+const getBorderStyle = (error, warning, theme) => {
+  if (error || warning) return `1px solid ${getStyles(error, warning, theme)}`;
+  return 'unset';
+}
+
 const getContainerDirection = props =>
   (props.asColumn ? props.theme.inputColumn.flexDirection : props.theme.inputRow.flexDirection);
 
@@ -32,9 +44,9 @@ const Container = styled.section`
 
 const LabelContainer = styled.div`
   width: ${props => getLabelMaxWidth(props)};
-  color: ${props => getStyles(props.error, props.warning, props.theme)};
+  color: ${props => getLabelStyles(props.showErrorInLabel, props.error, props.warning, props.theme)};
   padding-bottom: ${props =>
-    (props.showError && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
+    (props.showError && !props.showErrorInPopup && !props.asColumn ? getErrorContainerMinHeight(props) : 0)};
   align-items: center;
   display: flex;
 `;
@@ -43,6 +55,9 @@ const ValueContainer = styled.div`
   > div > input,
   > div > .form-control {
     border-color: ${props => getStyles(props.error, props.warning, props.theme)};
+  }
+  > div > .input-row-validation-error {
+    border: ${props => getBorderStyle(props.error, props.warning, props.theme)};
   }
   flex: 1 1 auto;
   min-width: 0%;
@@ -96,15 +111,15 @@ const ErrorPopup = styled.div`
   align-items: center;
   position: absolute;
   z-index: 20;
-  height: 28px; 
+  height: 28px;
   background: ${props => getStyles(props.error, props.warning, props.theme)};
   padding: 0 10px;
   right: 0;
   top: -34px;
   color: ${props => props.theme.colors.white};
   &:after {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     content: "";
@@ -159,12 +174,13 @@ const ContentInputRow = (props) => {
     error,
     warning,
     showError,
+    showErrorInLabel,
     label,
     className,
     required,
     id,
     asColumn,
-    errorAsPopup,
+    showErrorInPopup,
     labelWidth,
     valueWidth,
     append,
@@ -183,7 +199,9 @@ const ContentInputRow = (props) => {
         error={error}
         warning={warning}
         showError={showError}
+        showErrorInPopup={showErrorInPopup}
         labelWidth={labelWidth}
+        showErrorInLabel={showErrorInLabel}
       >
         {label && (
           <Label asColumn={asColumn}>
@@ -199,17 +217,17 @@ const ContentInputRow = (props) => {
         error={error}
         warning={warning}
       >
-        {errorAsPopup && isHovered && (error || warning) &&
+        {showErrorInPopup && isHovered && (error || warning) &&
         <ErrorPopup error={error} warning={warning}>{error}{warning}</ErrorPopup>}
         <FieldContainer append={append} hovered={isHovered}>
-          {errorAsPopup && (warning || error) &&
+          {showErrorInPopup && (warning || error) &&
           <ErrorPopupTrigger error={error} warning={warning} />}
 
           {React.Children.map(children, child => modifyChildren(child, props))}
 
           {append && <Append>{append}</Append>}
         </FieldContainer>
-        {showError && !errorAsPopup && (
+        {showError && !showErrorInPopup && (
           <ErrorContainer asColumn={asColumn}>
             {error && <ErrorMessage>{error}</ErrorMessage>}
             {!error && warning && <WarningMessage>{warning}</WarningMessage>}
@@ -227,13 +245,14 @@ ContentInputRow.propTypes = {
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   warning: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   showError: PropTypes.bool,
+  showErrorInLabel: PropTypes.bool,
   className: PropTypes.string,
   id: PropTypes.string.isRequired,
   asColumn: PropTypes.bool,
   labelWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   valueWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   append: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]),
-  errorAsPopup: PropTypes.bool,
+  showErrorInPopup: PropTypes.bool,
 };
 
 ContentInputRow.defaultProps = {
@@ -243,12 +262,13 @@ ContentInputRow.defaultProps = {
   error: '',
   warning: '',
   showError: true,
+  showErrorInLabel: true,
   className: '',
   asColumn: false,
   labelWidth: undefined,
   valueWidth: 'auto',
   append: undefined,
-  errorAsPopup: false,
+  showErrorInPopup: false,
 };
 
 export default ContentInputRow;

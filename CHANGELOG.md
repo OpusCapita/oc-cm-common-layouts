@@ -3,9 +3,15 @@
 
 ## <next>
 
+## 3.5.0
+* `errorAsPopup` renamed to `showErrorInPopup`
+* `showErrorInLabel` prop added
+* `showErrorInPopup` label container padding removed
+* Custom border added if child element has style .input-row-validation-error
+
 ## 3.4.0
 * Add `errorAsPopup` prop to `InputRow` and `InputColumn`
-* 
+
 ## 3.3.1
 * Fix `Content.InputRow` max-width when width is 'auto'
 * Add `Content.InputRow` min-width to flex items for browser compability
