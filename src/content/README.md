@@ -52,12 +52,12 @@ on the right.
 | error         | string, bool         | ''        | Potential error message. Triggers error styles                                                                  |
 | warning       | string, bool         | ''        | Potential warning message. Triggers warning styles                                                              |
 | showError     | bool                 | true      | If error/warning container is not shown, row is going to be a bit leaner. Good when displaying read only values |
-| showErrorInLabel | bool              | true      | indicate error/warning by chancing the label color (red/yellow). True by default.
+| showErrorInLabel | bool              | true      | indicate error/warning by chancing the label color (red/yellow). True by default. |
+| showErrorInPopup  | bool                 | false     | Displays error/warning in a popup |
 | className     | string               | null      | className will also be assigned to the children element                                                         |
 | labelWidth    | string, number       | undefined | Width of the label. If undefined (default), theme value will be used                                            |
 | valueWidth    | string, number       | 'auto'    | Width of the input/value container                                                                              |
 | append        | string, number, node | undefined | Appends content after the value element                                                                         |
-| showErrorInPopup  | bool                 | false     | Displays error/warning in a popup                                                                               |
 
 #### Content.ReadonlyRow
 HOC that uses InputRow to show a value.
@@ -81,8 +81,9 @@ Wrapper for input elements. Creates two row column, where label at top and your 
 | error         | string, bool | ''       | Potential error message. Triggers error styles                                                                     |
 | warning       | string, bool | ''       | Potential warning message. Triggers warning styles                                                                 |
 | showError     | bool         | true     | If error/warning container is not shown, column is going to be a bit leaner. Good when displaying read only values |
+| showErrorInPopup  | bool         | false    | Displays error/warning in a popup |
+| showErrorInLabel | bool              | true      | indicate error/warning by chancing the label color (red/yellow). True by default.
 | className     | string       | null     | className will also be assigned to the children element                                                            |
-| showErrorInPopup  | bool         | false    | Displays error/warning in a popup                                                                                  |
 
 #### Content.ReadonlyColumn
 HOC that uses InputColumn to show value.
