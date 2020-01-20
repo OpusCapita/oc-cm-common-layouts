@@ -3,6 +3,9 @@
 
 ## <next>
 
+## 3.5.1
+* added missing semicolons to primitive button styles (fixes an issue with styled-components 5.0.0)
+
 ## 3.5.0
 * `errorAsPopup` renamed to `showErrorInPopup`
 * `showErrorInLabel` prop added
