@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Icons
-import { FaTruck, FaTree, FaUmbrella, FaGlobe, FaDashboard, FaGlass } from 'react-icons/fa';
+import { FaTruck, FaTree, FaUmbrella, FaGlobe, FaEye, FaPoll } from 'react-icons/fa';
 
 // App imports
 import { Layout, Content } from '../../../src/index';
@@ -18,9 +18,9 @@ export default class MasonryComponentView extends React.PureComponent {
     const icons = [
       <FaTruck size={size} />,
       <FaUmbrella size={size} />,
-      <FaGlass size={size} />,
+      <FaPoll size={size} />,
       <FaGlobe size={size} />,
-      <FaDashboard size={size} />,
+      <FaEye size={size} />,
       <FaTree size={size} />,
       <FaUmbrella size={size} />,
     ];

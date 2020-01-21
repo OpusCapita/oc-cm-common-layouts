@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, text } from '@storybook/addon-knobs';
-import FaCog from 'react-icons/lib/fa/cog';
+import { FaCog } from 'react-icons/fa';
 import styled from 'styled-components';
 // Application
 import { Card, Column, InputColumn, InputRow, Masonry, Row } from '../src/content/';
@@ -26,7 +26,9 @@ stories.add('Content: InputRow', () => {
 
   return (
     <StoryContainer>
-      <InputRow{...knobs} id="demo-row"><Primitive.Input /></InputRow>
+      <InputRow {...knobs} id="demo-row">
+        <Primitive.Input />
+      </InputRow>
     </StoryContainer>
   );
 });
@@ -46,7 +48,9 @@ stories.add('Content: InputColumn', () => {
 
   return (
     <StoryContainer>
-      <InputColumn{...knobs} id="demo-row"><Primitive.Input /></InputColumn>
+      <InputColumn {...knobs} id="demo-row">
+        <Primitive.Input />
+      </InputColumn>
     </StoryContainer>
   );
 });

@@ -5,8 +5,8 @@ export default class MainPage extends React.PureComponent {
   render() {
     return (
       <Content.Row>
-        <Content.Column>
-          <Content.Card title="oc-cm-common-compoenents">
+        <Content.Column id="oc-cm-common-main-column">
+          <Content.Card title="oc-cm-common-components">
             <section>
               <strong>Layout components</strong>
               <p>Some info</p>

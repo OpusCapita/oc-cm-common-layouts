@@ -1,13 +1,8 @@
-import {
-  configure,
-  addDecorator
-} from '@storybook/react';
-import {
-  setOptions
-} from '@storybook/addon-options';
+import { configure, addDecorator } from '@storybook/react';
+import { withOptions } from '@storybook/addon-options';
 import { withKnobs } from '@storybook/addon-knobs';
 
-setOptions({
+withOptions({
   name: "OpusCapita oc-cm-common-layouts Storybook",
   addonPanelInRight: true,
   hiearchySeparator: /\//,

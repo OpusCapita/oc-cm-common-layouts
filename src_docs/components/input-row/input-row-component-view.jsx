@@ -83,9 +83,9 @@ export default class InputRowComponentView extends React.PureComponent {
   render() {
     return (
       <Layout.Wrapper>
-        <Content.Row>
+        <Content.Row id="oc-cm-common-input-row-example-row">
           {this.getContent().map(section => (
-            <Content.Column key={section.id}>
+            <Content.Column key={section.id} id={section.id}>
               <Content.Card id={section.id}>
                 {section.fields.map((row) => {
                   if (row.readOnly) {

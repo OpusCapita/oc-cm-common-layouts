@@ -11,7 +11,7 @@ const SelectContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 1rem;  
+  margin-bottom: 1rem;
 `;
 
 const SelectLabel = styled.span`
