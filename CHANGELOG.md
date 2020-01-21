@@ -6,8 +6,8 @@
 ## 3.5.2
 * Add more styled-components 5 compability
 * Fix `Content.ReadonlyRow` id rendering
-* Upgrade to react 16.8.6
-* Upgrade packages
+* Fix demo
+* Upgrade packages (react 16.8.6, webpack 4, babel 7)
 
 ## 3.5.1
 * added missing semicolons to primitive button styles (fixes an issue with styled-components 5.0.0)
