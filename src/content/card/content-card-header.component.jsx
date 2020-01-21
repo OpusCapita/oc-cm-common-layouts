@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import FaPlus from 'react-icons/lib/fa/plus';
-import FaMinus from 'react-icons/lib/fa/minus';
+import { FaPlus, FaMinus } from 'react-icons/fa';
 
 // App imports
 import { classPrefix } from '../../constants';

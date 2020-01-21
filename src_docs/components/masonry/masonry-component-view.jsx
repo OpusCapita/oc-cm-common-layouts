@@ -1,12 +1,7 @@
 import React from 'react';
 
 // Icons
-import FaTruck from 'react-icons/lib/fa/truck';
-import FaTree from 'react-icons/lib/fa/tree';
-import FaUmbrella from 'react-icons/lib/fa/umbrella';
-import FaGlobe from 'react-icons/lib/fa/globe';
-import FaDashboard from 'react-icons/lib/fa/dashboard';
-import FaGlass from 'react-icons/lib/fa/glass';
+import { FaTruck, FaTree, FaUmbrella, FaGlobe, FaDashboard, FaGlass } from 'react-icons/fa';
 
 // App imports
 import { Layout, Content } from '../../../src/index';

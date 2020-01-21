@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Select = styled.select`
-  width:100%;
-  padding:1rem;
+  width: 100%;
+  padding: 1rem;
 `;
 
 const SelectContainer = styled.div`
-  display:flex;
-  flex-direction:column;
-  width:100%;
-  margin-bottom:1rem;  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;  
 `;
 
 const SelectLabel = styled.span`
-  font-weight:bold;
-  margin-bottom:0.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 `;
 const FixedColumnsSelect = ({
   onChange,

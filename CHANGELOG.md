@@ -3,6 +3,10 @@
 
 ## <next>
 
+## 3.5.2
+* Allow `styled-components` 5 in peerDependencies
+* Upgrade some packages
+
 ## 3.5.1
 * added missing semicolons to primitive button styles (fixes an issue with styled-components 5.0.0)
 

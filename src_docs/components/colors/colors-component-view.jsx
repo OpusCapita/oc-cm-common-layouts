@@ -5,28 +5,28 @@ import { darken } from 'polished';
 import theme, { colors } from '@opuscapita/oc-cm-theme';
 
 const Content = styled.div`
-  background: ${theme.colors.white}
+  background: ${theme.colors.white};
   width: calc(100% - 2rem);
-  margin: ${theme.gutterWidth}
-  padding: ${theme.gutterWidth}
+  margin: ${theme.gutterWidth};
+  padding: ${theme.gutterWidth};
   display: flex;
   flex-wrap: wrap;
-  text-align:center;
+  text-align: center;
 `;
 const ColorBlock = styled.div`
-  background-color: ${props => props.color}
+  background-color: ${props => props.color};
   width: 18%;
   height: 200px;
   margin: 1%;
   border: 1px solid #ccc;
   border-radius: 5px;
-  align-items:center;
+  align-items: center;
   justify-content: center;
-   color: ${props => darken('0.3', props.color)}
+  color: ${props => darken('0.3', props.color)};
 `;
 
 const DescriptionList = styled.ul`
-  list-style-type:none;
+  list-style-type: none;
   margin: 0;
   padding: 0;
 `;
@@ -39,6 +39,7 @@ const ColorHex = styled.p`
   margin-bottom:1.5rem;
   font-style: italic;
 `;
+
 export default class ColorsComponentView extends React.PureComponent {
   render() {
     return (

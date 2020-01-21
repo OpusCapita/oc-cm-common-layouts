@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import FaSpinner from 'react-icons/lib/fa/spinner';
+import { FaSpinner } from 'react-icons/fa';
 
 const PrimitiveSpinner = styled(FaSpinner)`
   animation: spin 2s linear infinite;
@@ -8,7 +8,7 @@ const PrimitiveSpinner = styled(FaSpinner)`
   margin-left: auto;
   @keyframes spin {
     0% { transform: rotate(0deg); }
-   100% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
   }
 `;
 export default PrimitiveSpinner;
