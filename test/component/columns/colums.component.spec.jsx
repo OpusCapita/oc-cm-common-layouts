@@ -8,29 +8,29 @@
 
 // import { BaseColumnComponent } from '../../../src/index';
 
-describe('BaseColumnComponent'); /* , function () {
+describe('BaseColumnComponent', function () {
   // Correct render
-  it('should render correctly when single Array element given', () => {
+  it('should render correctly when single Array element given'); /* , function () {
     const columns = [];
     const wrap = mount(
       <BaseColumnComponent columns={columns} />,
     );
     // assert elements:
-  });
+  }); */
 
-  it('should render correctly when two Array element given (left/right)', () => {
+  it('should render correctly when two Array element given (left/right)'); /* , function () {
     const columns = [];
     const wrap = mount(
       <BaseColumnComponent columns={columns} />,
     );
     // assert elements:
-  });
+  }); */
 
-  it('should render correctly when three Array element given (left/middle/right)', () => {
+  it('should render correctly when three Array element given (left/middle/right)'); /* , function () {
     const columns = [];
     const wrap = mount(
       <BaseColumnComponent columns={columns} />,
     );
     // assert elements:
-  });
-}); */
+  }); */
+});
